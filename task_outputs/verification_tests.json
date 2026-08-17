@@ -1,0 +1,325 @@
+{
+  "run_meta": {
+    "model_file": "gm2_model_v2.py",
+    "model_sha256_16": "6693427fa909a0a9",
+    "timestamp_utc": "2026-08-16T19:00:00.456513+00:00",
+    "n_workers": 64
+  },
+  "n_tests": 5,
+  "n_passed": 5,
+  "tests": [
+    {
+      "test_name": "a_zero_srt_dose_baseline_synthesis",
+      "description": "Zero SRT dose (dose_mg_per_day=0) gives baseline (unmodified) synthesis rate.",
+      "passed": true,
+      "observed_values": {
+        "raw_gm2_synth": 2.3,
+        "hill_inhibition_at_B_free_equals_0": 0.0,
+        "max_brain_drug_B_over_200d_trajectory": 6.957084490018518e-09,
+        "mean_effective_synthesis_rate_over_trajectory": 2.299999999999592,
+        "max_abs_deviation_effective_vs_raw_synth": 1.687983086640088e-12
+      },
+      "tolerance_used": {
+        "max_B_threshold": 0.0001,
+        "max_abs_dev_threshold": 0.001,
+        "exact_algebraic_check": "inhib(0)==0"
+      }
+    },
+    {
+      "test_name": "b_high_srt_dose_monotonic_decrease",
+      "description": "Higher SRT dose monotonically decreases mean effective synthesis rate at 4 dose levels (0,3,10,30 mg/day), day 300-365 window, averaged over 10 seeds.",
+      "passed": true,
+      "observed_values": {
+        "doses_mg_per_day": [
+          0.0,
+          3.0,
+          10.0,
+          30.0
+        ],
+        "mean_effective_synthesis_rate_per_dose": [
+          2.2999999999994634,
+          2.0870848934520065,
+          1.7057897946194278,
+          1.287240818301526
+        ],
+        "successive_differences": [
+          -0.21291510654745682,
+          -0.3812950988325787,
+          -0.4185489763179018
+        ],
+        "n_seeds_averaged": 10
+      },
+      "tolerance_used": {
+        "criterion": "strictly decreasing across all 4 dose levels (mean over 10 seeds)"
+      }
+    },
+    {
+      "test_name": "c_milstein_matches_gbm_moments",
+      "description": "Milstein update (as implemented in simulate_milstein) reproduces analytic geometric Brownian motion mean/variance for an isolated multiplicative-noise state (T4_sys, k_T4_entry forced to 0 so dT4_sys=-T4_clear*T4_sys exactly).",
+      "passed": true,
+      "observed_values": {
+        "mu_drift_per_day": -0.05,
+        "sigma_diffusion": 0.08,
+        "X0": 1.0,
+        "tmax_days": 30.0,
+        "dt": 0.05,
+        "n_realizations": 3000,
+        "analytic_mean": 0.22313016014842982,
+        "analytic_variance": 0.010538454499592604,
+        "empirical_mean": 0.22393708713491906,
+        "empirical_variance": 0.01111354329650578,
+        "relative_error_mean": 0.003616395855909645,
+        "relative_error_variance": 0.05457050622891692,
+        "monte_carlo_se_on_mean": 0.0018742513616190515,
+        "elapsed_s": 3.762988328933716
+      },
+      "tolerance_used": {
+        "rel_err_mean_threshold": "max(5*MC_SE/analytic_mean, 0.05)",
+        "rel_err_var_threshold": 0.25
+      }
+    },
+    {
+      "test_name": "d_fus_off_equals_fus_disabled_when_aav_srt_inactive",
+      "description": "FUS-off arm (fus_events=None) vs. a run with DEFAULT_FUS_EVENTS active, when AAV (t4_dose_total=0) and SRT (dose_mg_per_day=0) are both inactive.",
+      "passed": true,
+      "observed_values": {
+        "max_abs_diff_per_state_AAV_SRT_INACTIVE": {
+          "A_gut": 0.0,
+          "plasma": 8.505225690257543e-12,
+          "brain_drug": 2.807426591995046e-10,
+          "T4_sys": 6.438487997458856e-11,
+          "T4_entry": 8.390388985715609e-11,
+          "E_expr": 1.6224548440857411e-09,
+          "gm2_brain": 1.1513452591316309e-06,
+          "gm2_liver": 2.3710753538352947e-07,
+          "inflammation": 1.5548607956716864e-09,
+          "damage": 5.921938495134782e-09,
+          "bayley_motor_composite": 9.755230223618128e-08,
+          "bayley_cognitive_composite": 5.3553122825178434e-08,
+          "seizures_week": 3.0448559229512284e-09,
+          "respiratory": 4.642225093220986e-08,
+          "quality_of_life": 3.807526383070581e-08,
+          "anti_capsid_humoral": 4.043785550542015e-11,
+          "anti_capsid_cellular": 2.5261006463806733e-11
+        },
+        "max_abs_diff_overall_AAV_SRT_INACTIVE": 1.1513452591316309e-06,
+        "exact_bit_equality_AAV_SRT_INACTIVE": false,
+        "max_abs_diff_per_state_AAV_SRT_ACTIVE_reference": {
+          "A_gut": 0.0,
+          "plasma": 0.043092804502244064,
+          "brain_drug": 1.0346203299814345,
+          "T4_sys": 0.01412370469351093,
+          "T4_entry": 0.01387985190550392,
+          "E_expr": 0.04387257880222584,
+          "gm2_brain": 8.71007827515524,
+          "gm2_liver": 1.0246090288468181,
+          "inflammation": 0.02437095564566863,
+          "damage": 0.024737948875083404,
+          "bayley_motor_composite": 0.4623794363283338,
+          "bayley_cognitive_composite": 0.22270953476287048,
+          "seizures_week": 0.010317500961586124,
+          "respiratory": 0.4906543338468907,
+          "quality_of_life": 0.10790467820728367,
+          "anti_capsid_humoral": 0.0008310005352873406,
+          "anti_capsid_cellular": 0.00042603307455307826
+        },
+        "ratio_inactive_diff_to_active_diff_per_state": {
+          "A_gut": null,
+          "plasma": 1.9736997367657128e-10,
+          "brain_drug": 2.7134848510520023e-10,
+          "T4_sys": 4.558639632572457e-09,
+          "T4_entry": 6.045013335040327e-09,
+          "E_expr": 3.698106854852643e-08,
+          "gm2_brain": 1.321854089894629e-07,
+          "gm2_liver": 2.3141269372805585e-07,
+          "inflammation": 6.379974664424072e-08,
+          "damage": 2.393868030465325e-07,
+          "bayley_motor_composite": 2.1097889432719015e-07,
+          "bayley_cognitive_composite": 2.404617426110607e-07,
+          "seizures_week": 2.9511564227498155e-07,
+          "respiratory": 9.461294383816853e-08,
+          "quality_of_life": 3.5286017680867977e-07,
+          "anti_capsid_humoral": 4.866164796324431e-08,
+          "anti_capsid_cellular": 5.9293533701124734e-08
+        },
+        "max_ratio_inactive_to_active": 3.5286017680867977e-07,
+        "explanation": "NOT bit-identical (exact_bit_equality=False): diffusion_full() floors multiplicative noise at max(1e-8, x[j]), so states nominally at exact zero (P, T4_sys) still receive a tiny nonzero stochastic increment each step and drift to ~1e-8-scale nonzero values; once nonzero, the FUS gain (which multiplies k_p2b_eff*P and k_entry_eff*T4_sys) picks up a genuine but minuscule effect on those terms instead of multiplying an exact zero. This is a real, if extremely small, consequence of the diffusion floor, not a test artifact -- so exact equality is the wrong pass criterion. The criterion used instead: this residual must be negligible (<0.1%) relative to the FUS-on/off divergence produced by the SAME comparison when AAV+SRT are genuinely active (where FUS has real quantities to multiply)."
+      },
+      "tolerance_used": {
+        "criterion": "max_i [diff_inactive_i / diff_active_i] < 1e-3",
+        "exact_equality_also_reported": true
+      }
+    },
+    {
+      "test_name": "e_all_states_nonnegative_1000_reps",
+      "description": "All 17 state variables remain within their defined bounds (non-negative where a lower bound of 0 applies) across 1000 realizations of a representative parameter set (tay-sachs baseline, standard tri-modal protocol, 365d, dt=0.2); reports per-state min (post-clip, i.e. what the model actually reports) and min pre-clip (what the raw Milstein step produced before BOUNDS clamping), plus clip-event counts, since the model's own integrator enforces bounds by clamping and that clamping DOES bias reported means whenever it fires on a non-negligible fraction of steps.",
+      "passed": true,
+      "observed_values": {
+        "n_realizations": 1000,
+        "tmax_days": 365.0,
+        "dt": 0.2,
+        "n_steps_per_realization": 1826,
+        "per_state": [
+          {
+            "state": "A_gut",
+            "min_value_observed_postclip": 0.0,
+            "min_value_observed_preclip": 0.0,
+            "n_lower_bound_clip_events_total": 0,
+            "n_upper_bound_clip_events_total": 0,
+            "was_clipped": false,
+            "preclip_would_have_gone_negative": false
+          },
+          {
+            "state": "plasma",
+            "min_value_observed_postclip": 0.0,
+            "min_value_observed_preclip": -6.439696748296871e-10,
+            "n_lower_bound_clip_events_total": 621,
+            "n_upper_bound_clip_events_total": 0,
+            "was_clipped": true,
+            "preclip_would_have_gone_negative": false
+          },
+          {
+            "state": "brain_drug",
+            "min_value_observed_postclip": 0.0,
+            "min_value_observed_preclip": -5.999993640461811e-10,
+            "n_lower_bound_clip_events_total": 994,
+            "n_upper_bound_clip_events_total": 0,
+            "was_clipped": true,
+            "preclip_would_have_gone_negative": false
+          },
+          {
+            "state": "T4_sys",
+            "min_value_observed_postclip": 0.0,
+            "min_value_observed_preclip": -5.639999840099575e-10,
+            "n_lower_bound_clip_events_total": 108234,
+            "n_upper_bound_clip_events_total": 0,
+            "was_clipped": true,
+            "preclip_would_have_gone_negative": false
+          },
+          {
+            "state": "T4_entry",
+            "min_value_observed_postclip": 0.0,
+            "min_value_observed_preclip": -5.035467995698951e-10,
+            "n_lower_bound_clip_events_total": 9717,
+            "n_upper_bound_clip_events_total": 0,
+            "was_clipped": true,
+            "preclip_would_have_gone_negative": false
+          },
+          {
+            "state": "E_expr",
+            "min_value_observed_postclip": 0.008853761782366654,
+            "min_value_observed_preclip": 0.008853761782366654,
+            "n_lower_bound_clip_events_total": 0,
+            "n_upper_bound_clip_events_total": 77,
+            "was_clipped": true,
+            "preclip_would_have_gone_negative": false
+          },
+          {
+            "state": "gm2_brain",
+            "min_value_observed_postclip": 1.4767350432694526,
+            "min_value_observed_preclip": 1.4767350432694526,
+            "n_lower_bound_clip_events_total": 0,
+            "n_upper_bound_clip_events_total": 0,
+            "was_clipped": false,
+            "preclip_would_have_gone_negative": false
+          },
+          {
+            "state": "gm2_liver",
+            "min_value_observed_postclip": 0.5083961321331709,
+            "min_value_observed_preclip": 0.5083961321331709,
+            "n_lower_bound_clip_events_total": 0,
+            "n_upper_bound_clip_events_total": 0,
+            "was_clipped": false,
+            "preclip_would_have_gone_negative": false
+          },
+          {
+            "state": "inflammation",
+            "min_value_observed_postclip": 0.0,
+            "min_value_observed_preclip": -0.08353791773039672,
+            "n_lower_bound_clip_events_total": 1607966,
+            "n_upper_bound_clip_events_total": 0,
+            "was_clipped": true,
+            "preclip_would_have_gone_negative": true
+          },
+          {
+            "state": "damage",
+            "min_value_observed_postclip": 0.0,
+            "min_value_observed_preclip": 0.0,
+            "n_lower_bound_clip_events_total": 0,
+            "n_upper_bound_clip_events_total": 0,
+            "was_clipped": false,
+            "preclip_would_have_gone_negative": false
+          },
+          {
+            "state": "bayley_motor_composite",
+            "min_value_observed_postclip": 46.0,
+            "min_value_observed_preclip": 43.84212145996684,
+            "n_lower_bound_clip_events_total": 1791,
+            "n_upper_bound_clip_events_total": 45727,
+            "was_clipped": true,
+            "preclip_would_have_gone_negative": true
+          },
+          {
+            "state": "bayley_cognitive_composite",
+            "min_value_observed_postclip": 55.0,
+            "min_value_observed_preclip": 52.378696990481366,
+            "n_lower_bound_clip_events_total": 4075,
+            "n_upper_bound_clip_events_total": 26897,
+            "was_clipped": true,
+            "preclip_would_have_gone_negative": true
+          },
+          {
+            "state": "seizures_week",
+            "min_value_observed_postclip": 0.48167647932827884,
+            "min_value_observed_preclip": 0.48167647932827884,
+            "n_lower_bound_clip_events_total": 0,
+            "n_upper_bound_clip_events_total": 0,
+            "was_clipped": false,
+            "preclip_would_have_gone_negative": false
+          },
+          {
+            "state": "respiratory",
+            "min_value_observed_postclip": 34.97331044963168,
+            "min_value_observed_preclip": 34.97331044963168,
+            "n_lower_bound_clip_events_total": 0,
+            "n_upper_bound_clip_events_total": 80133,
+            "was_clipped": true,
+            "preclip_would_have_gone_negative": false
+          },
+          {
+            "state": "quality_of_life",
+            "min_value_observed_postclip": 8.951280111006053,
+            "min_value_observed_preclip": 8.951280111006053,
+            "n_lower_bound_clip_events_total": 0,
+            "n_upper_bound_clip_events_total": 21,
+            "was_clipped": true,
+            "preclip_would_have_gone_negative": false
+          },
+          {
+            "state": "anti_capsid_humoral",
+            "min_value_observed_postclip": 0.0,
+            "min_value_observed_preclip": -5.125179331289084e-10,
+            "n_lower_bound_clip_events_total": 11797,
+            "n_upper_bound_clip_events_total": 0,
+            "was_clipped": true,
+            "preclip_would_have_gone_negative": false
+          },
+          {
+            "state": "anti_capsid_cellular",
+            "min_value_observed_postclip": 0.0,
+            "min_value_observed_preclip": -5.137343478841475e-10,
+            "n_lower_bound_clip_events_total": 11813,
+            "n_upper_bound_clip_events_total": 2,
+            "was_clipped": true,
+            "preclip_would_have_gone_negative": false
+          }
+        ],
+        "any_clipping_occurred_anywhere": true,
+        "elapsed_s": 4.128330230712891
+      },
+      "tolerance_used": {
+        "criterion": "post-clip min >= lower bound for every state (by construction of the clamp); pre-clip figures reported for transparency, not part of pass/fail"
+      }
+    }
+  ]
+}

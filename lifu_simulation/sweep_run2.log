@@ -1,0 +1,67 @@
+Using 8 worker processes.
+Sweep: 27 LIFU combos x 8 regions x 300 realisations = 64800 trajectories
+Controls: 4 arms x 8 regions x 300 realisations = 9600 trajectories
+[lifu]  f=0.50MHz P=0.20MPa DC=0.5%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_0.50MHz_0.20MPa_0.5pct.npz  (446.2s, 2400 trajectories)
+[lifu]  f=0.50MHz P=0.20MPa DC=1.0%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_0.50MHz_0.20MPa_1.0pct.npz  (335.9s, 2400 trajectories)
+[lifu]  f=0.50MHz P=0.20MPa DC=2.0%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_0.50MHz_0.20MPa_2.0pct.npz  (395.5s, 2400 trajectories)
+[lifu]  f=0.50MHz P=0.35MPa DC=0.5%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_0.50MHz_0.35MPa_0.5pct.npz  (196.3s, 2400 trajectories)
+[lifu]  f=0.50MHz P=0.35MPa DC=1.0%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_0.50MHz_0.35MPa_1.0pct.npz  (232.0s, 2400 trajectories)
+[lifu]  f=0.50MHz P=0.35MPa DC=2.0%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_0.50MHz_0.35MPa_2.0pct.npz  (303.8s, 2400 trajectories)
+[lifu]  f=0.50MHz P=0.45MPa DC=0.5%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_0.50MHz_0.45MPa_0.5pct.npz  (311.5s, 2400 trajectories)
+[lifu]  f=0.50MHz P=0.45MPa DC=1.0%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_0.50MHz_0.45MPa_1.0pct.npz  (330.0s, 2400 trajectories)
+[lifu]  f=0.50MHz P=0.45MPa DC=2.0%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_0.50MHz_0.45MPa_2.0pct.npz  (368.9s, 2400 trajectories)
+[lifu]  f=0.65MHz P=0.20MPa DC=0.5%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_0.65MHz_0.20MPa_0.5pct.npz  (385.9s, 2400 trajectories)
+[lifu]  f=0.65MHz P=0.20MPa DC=1.0%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_0.65MHz_0.20MPa_1.0pct.npz  (395.3s, 2400 trajectories)
+[lifu]  f=0.65MHz P=0.20MPa DC=2.0%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_0.65MHz_0.20MPa_2.0pct.npz  (336.8s, 2400 trajectories)
+[lifu]  f=0.65MHz P=0.35MPa DC=0.5%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_0.65MHz_0.35MPa_0.5pct.npz  (408.4s, 2400 trajectories)
+[lifu]  f=0.65MHz P=0.35MPa DC=1.0%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_0.65MHz_0.35MPa_1.0pct.npz  (335.0s, 2400 trajectories)
+[lifu]  f=0.65MHz P=0.35MPa DC=2.0%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_0.65MHz_0.35MPa_2.0pct.npz  (223.1s, 2400 trajectories)
+[lifu]  f=0.65MHz P=0.45MPa DC=0.5%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_0.65MHz_0.45MPa_0.5pct.npz  (173.8s, 2400 trajectories)
+[lifu]  f=0.65MHz P=0.45MPa DC=1.0%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_0.65MHz_0.45MPa_1.0pct.npz  (244.1s, 2400 trajectories)
+[lifu]  f=0.65MHz P=0.45MPa DC=2.0%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_0.65MHz_0.45MPa_2.0pct.npz  (169.3s, 2400 trajectories)
+[lifu]  f=1.00MHz P=0.20MPa DC=0.5%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_1.00MHz_0.20MPa_0.5pct.npz  (167.8s, 2400 trajectories)
+[lifu]  f=1.00MHz P=0.20MPa DC=1.0%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_1.00MHz_0.20MPa_1.0pct.npz  (165.0s, 2400 trajectories)
+[lifu]  f=1.00MHz P=0.20MPa DC=2.0%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_1.00MHz_0.20MPa_2.0pct.npz  (173.7s, 2400 trajectories)
+[lifu]  f=1.00MHz P=0.35MPa DC=0.5%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_1.00MHz_0.35MPa_0.5pct.npz  (185.6s, 2400 trajectories)
+[lifu]  f=1.00MHz P=0.35MPa DC=1.0%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_1.00MHz_0.35MPa_1.0pct.npz  (205.1s, 2400 trajectories)
+[lifu]  f=1.00MHz P=0.35MPa DC=2.0%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_1.00MHz_0.35MPa_2.0pct.npz  (187.7s, 2400 trajectories)
+[lifu]  f=1.00MHz P=0.45MPa DC=0.5%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_1.00MHz_0.45MPa_0.5pct.npz  (175.3s, 2400 trajectories)
+[lifu]  f=1.00MHz P=0.45MPa DC=1.0%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_1.00MHz_0.45MPa_1.0pct.npz  (173.1s, 2400 trajectories)
+[lifu]  f=1.00MHz P=0.45MPa DC=2.0%  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_1.00MHz_0.45MPa_2.0pct.npz  (174.8s, 2400 trajectories)
+[ctrl]  arm=natural      -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_control_natural.npz  (122.0s, 2400 trajectories)
+[ctrl]  arm=mono         -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_control_mono.npz  (127.7s, 2400 trajectories)
+[ctrl]  arm=bi           -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_control_bi.npz  (132.2s, 2400 trajectories)
+[ctrl]  arm=tri_no_lifu  -> /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results/results_control_tri_no_lifu.npz  (130.6s, 2400 trajectories)
+Sweep complete in 7953.6s. Results in /Users/kartheekmacair/Desktop/gm2_lifu_simulation/results
+Wrote /Users/kartheekmacair/Desktop/gm2_lifu_simulation/lifu_results_summary.csv (216 rows)
+Wrote /Users/kartheekmacair/Desktop/gm2_lifu_simulation/lifu_results_full.pkl
+
+=== Best LIFU combination per region ===
+  Frontal Cortex    f=0.50MHz  P=0.45MPa  DC=2.0%  reduction=79.1% (eta=0.844)
+  Parietal Cortex   f=0.50MHz  P=0.45MPa  DC=2.0%  reduction=79.1% (eta=0.817)
+  Thalamus          f=0.50MHz  P=0.45MPa  DC=2.0%  reduction=79.1% (eta=0.763)
+  Basal Ganglia     f=0.50MHz  P=0.45MPa  DC=2.0%  reduction=79.1% (eta=0.777)
+  Temporal Lobe     f=0.50MHz  P=0.45MPa  DC=2.0%  reduction=79.1% (eta=0.790)
+  Occipital Lobe    f=0.50MHz  P=0.45MPa  DC=2.0%  reduction=79.1% (eta=0.831)
+  Cerebellum        f=0.50MHz  P=0.45MPa  DC=2.0%  reduction=79.1% (eta=0.803)
+  Hippocampus       f=0.50MHz  P=0.45MPa  DC=2.0%  reduction=79.1% (eta=0.782)
+
+=== Overall best combination (mean across all 8 regions) ===
+  f=0.50MHz  P=0.45MPa  DC=2.0%  -> 79.1% mean GM2 reduction
+
+=== Main-effect sensitivity (range of mean reduction across parameter levels) ===
+  frequency    range = 0.5 pct points  levels: {0.5: 77.57509443495009, 0.65: 77.4436747233073, 1.0: 77.09766642252605}
+  pressure     range = 1.3 pct points  levels: {0.2: 76.56619177924262, 0.35: 77.66200595431857, 0.45: 77.88823784722223}
+  duty_cycle   range = 3.3 pct points  levels: {0.5: 75.55245547824435, 1.0: 77.68313683403863, 2.0: 78.88084326850043}
+
+=== Top 5 parameter combinations (mean reduction across all regions) ===
+  1. f=0.50MHz  P=0.45MPa  DC=2.0%  -> 79.1% mean reduction
+  2. f=0.65MHz  P=0.45MPa  DC=2.0%  -> 79.1% mean reduction
+  3. f=0.50MHz  P=0.35MPa  DC=2.0%  -> 79.1% mean reduction
+  4. f=0.65MHz  P=0.35MPa  DC=2.0%  -> 79.1% mean reduction
+  5. f=1.00MHz  P=0.45MPa  DC=2.0%  -> 79.0% mean reduction
+
+=== Control arms (no LIFU) vs. natural history ===
+  bi            mean reduction = 70.1%
+  mono          mean reduction = 62.2%
+  tri_no_lifu   mean reduction = 78.9%

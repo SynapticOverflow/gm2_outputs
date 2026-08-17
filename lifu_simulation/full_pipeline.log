@@ -1,0 +1,30 @@
+Using 8 workers. 3000 samples x 10 realisations = 30000 trajectories, plus 50 baseline realisations.
+Natural-history baseline (depth-independent): mean day-365 GM2 = 130.98 nmol/g (2.9s)
+Simulated 30000 trajectories in 2092.1s
+Wrote /Users/kartheekmacair/Desktop/gm2_lifu_simulation/timing_training_data.csv (3000 rows)
+Loaded 3000 training rows from /Users/kartheekmacair/Desktop/gm2_lifu_simulation/timing_training_data.csv
+Wrote /Users/kartheekmacair/Desktop/gm2_lifu_simulation/lifu_timing_model.joblib
+Wrote /Users/kartheekmacair/Desktop/gm2_lifu_simulation/timing_model_metrics.json
+
+Train R^2 = 0.430   Test R^2 = 0.026
+Train MAE = 4.21 pct points   Test MAE = 5.10 pct points
+
+Feature importances (higher = more predictive of efficacy):
+  t_first_hr   0.271
+  f_mhz        0.140
+  depth_mm     0.124
+  eta          0.116
+  spacing_hr   0.111
+  P_mpa        0.110
+  DC           0.101
+  n_sessions   0.028
+=== Recommended LIFU protocol per brain region ===
+
+Traceback (most recent call last):
+  File "/Users/kartheekmacair/Desktop/gm2_lifu_simulation/recommend_timing.py", line 107, in <module>
+    main()
+    ~~~~^^
+  File "/Users/kartheekmacair/Desktop/gm2_lifu_simulation/recommend_timing.py", line 82, in main
+    rows.append(dict(region=region, depth_mm=depth_mm, **best))
+                ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: dict() got multiple values for keyword argument 'depth_mm'

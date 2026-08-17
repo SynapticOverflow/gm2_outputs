@@ -1,0 +1,65 @@
+{
+  "task": "width_sensitivity_correlation",
+  "source_file": "gm2_full14_as_documented.json",
+  "scenario": "as_documented",
+  "n_params_total": 14,
+  "n_params_nonzero_ST": 9,
+  "params_excluded_ST_exactly_zero": [
+    "inf_threshold",
+    "k_inf",
+    "k_res",
+    "rho_g",
+    "rho_i"
+  ],
+  "parameter_names": [
+    "k_T4_entry",
+    "t4_dose_total",
+    "fus_entry_gain_scale",
+    "gm2_synth",
+    "k_T4_payload",
+    "km_brain",
+    "vmax_brain",
+    "k_T4_decay",
+    "IC50"
+  ],
+  "widths": [
+    0.6,
+    0.6,
+    0.25,
+    0.25,
+    0.25,
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "width_definition": "as_documented half-width hw used in sobol_driver_v2.make_bounds: bounds=[base*(1-hw), base*(1+hw)]; TIER2_AS_DOCUMENTED params (k_T4_entry, t4_dose_total, inf_threshold, rho_g, rho_i) use hw=0.60, all other params use hw=0.25",
+  "ST_values": [
+    0.04367111531513821,
+    0.07922422990449211,
+    2.9994473057374006e-06,
+    0.22765281997186762,
+    0.09860265093341711,
+    0.19675810162705049,
+    0.21753214296117682,
+    0.22708048816577825,
+    0.0032848751568708037
+  ],
+  "ST_conf_values": [
+    0.019841266639186,
+    0.0357579088164574,
+    1.211442064178207e-06,
+    0.04632860493332181,
+    0.019757413500956864,
+    0.03917485251017201,
+    0.055030128580556184,
+    0.04648935434696412,
+    0.0006646246207788898
+  ],
+  "spearman_r": -0.3105295017040594,
+  "spearman_p": 0.41604858168736847,
+  "interpretation": "Strong positive correlation would mean the as_documented ranking tracks assigned prior width rather than biology (the paper's central claim under test); a weak/non-significant correlation is evidence against that.",
+  "run_meta": {
+    "timestamp_utc": "2026-08-16T19:00:00.955234+00:00"
+  }
+}

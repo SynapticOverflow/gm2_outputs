@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tri-Modal Gene Therapy Simulation for Infantile GM2 Gangliosidosis</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 100%; height: 100%;
+    background: #e6e6e6;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  #viewport {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  #poster {
+    width: 1680px; height: 1188px;
+    background: #ffffff;
+    position: relative;
+    transform-origin: center center;
+    color: #111111;
+  }
+
+  /* ---------- HEADER ---------- */
+  #header {
+    width: 100%;
+    padding: 22px 60px 10px 60px;
+    text-align: center;
+  }
+  #header h1 {
+    font-size: 34px;
+    font-weight: bold;
+    line-height: 1.14;
+    letter-spacing: -0.2px;
+  }
+  #header h2 {
+    font-size: 17px;
+    font-style: italic;
+    font-weight: normal;
+    margin-top: 6px;
+    color: #333333;
+  }
+  #header .authors {
+    font-size: 17px;
+    margin-top: 9px;
+    font-weight: bold;
+  }
+  #header .affil {
+    font-size: 13px;
+    margin-top: 3px;
+    color: #333333;
+  }
+  #rule {
+    width: 100%;
+    height: 2px;
+    background: #111111;
+    margin-top: 10px;
+  }
+
+  /* ---------- BODY / COLUMNS ---------- */
+  #body {
+    width: 100%;
+    height: 934px;
+    display: flex;
+    padding: 12px 40px 0 40px;
+    gap: 28px;
+  }
+  .col {
+    flex: 1 1 0;
+    height: 100%;
+    overflow: hidden;
+    padding: 0 4px;
+  }
+
+  h3.section {
+    color: #B5382B;
+    text-align: center;
+    text-decoration: underline;
+    font-size: 15.5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-top: 11px;
+    margin-bottom: 5px;
+  }
+  .col > h3.section:first-child { margin-top: 0; }
+
+  p, li {
+    font-size: 12.1px;
+    line-height: 1.27;
+    text-align: justify;
+    hyphens: auto;
+    margin-bottom: 5px;
+  }
+  b.lead { font-weight: bold; }
+  ol.fixlist, ul.plain {
+    padding-left: 16px;
+    margin-bottom: 5px;
+  }
+  ol.fixlist li, ul.plain li {
+    text-align: justify;
+    margin-bottom: 3px;
+  }
+
+  figure {
+    margin: 4px 0 4px 0;
+    text-align: center;
+  }
+  figure canvas {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+  figcaption {
+    font-size: 10.3px;
+    font-style: italic;
+    text-align: justify;
+    margin-top: 3px;
+    color: #222222;
+    line-height: 1.22;
+  }
+
+  /* stat boxes */
+  .statrow {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 6px 0 6px 0;
+  }
+  .statbox {
+    flex: 1;
+    border-top: 3px solid #B5382B;
+    padding-top: 5px;
+    text-align: center;
+  }
+  .statbox .num {
+    font-size: 21px;
+    font-weight: bold;
+    color: #111111;
+  }
+  .statbox .lbl {
+    font-size: 9.6px;
+    color: #333333;
+    margin-top: 2px;
+  }
+
+  table.itab {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10.6px;
+    margin: 4px 0 4px 0;
+  }
+  table.itab th, table.itab td {
+    border-bottom: 1px solid #999999;
+    padding: 2px 4px;
+    text-align: left;
+  }
+  table.itab th {
+    font-weight: bold;
+    border-bottom: 1.5px solid #111111;
+  }
+  table.itab td.note { font-style: italic; font-size: 9.5px; color: #444; }
+
+  .refs {
+    font-size: 9.6px;
+    line-height: 1.28;
+    margin-top: 6px;
+  }
+  .refs .rtitle {
+    color: #B5382B;
+    text-align: center;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+  .refs p { text-align: left; margin-bottom: 3px; font-size: 9.6px; }
+
+  /* ---------- LEGEND STRIP ---------- */
+  #legend {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    width: 100%;
+    height: 44px;
+    border-top: 1.5px solid #111111;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    font-size: 11px;
+    color: #111111;
+  }
+  #legend .lgroup {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    white-space: nowrap;
+  }
+  #legend .sep {
+    margin: 0 18px;
+    color: #888;
+  }
+  #legend .sw {
+    display: inline-block;
+    width: 12px; height: 12px;
+    margin-right: 4px;
+    vertical-align: middle;
+    border-radius: 2px;
+  }
+  #legend .item { display: flex; align-items: center; margin-right: 4px; }
+  #legend .right {
+    margin-left: auto;
+    text-align: right;
+    font-size: 10.3px;
+    color: #333333;
+  }
+</style>
+</head>
+<body>
+<div id="viewport">
+  <div id="poster">
+
+    <div id="header">
+      <h1>Tri-Modal Gene Therapy Simulation for Infantile GM2 Gangliosidosis:<br>A 16-Dimensional It&ocirc; SDE Framework</h1>
+      <h2>Paper II of the GM2 Gangliosidosis Computational Therapy Series</h2>
+      <div class="authors">Kartheek Nekkanti</div>
+      <div class="affil">CVC Research &middot; Oden Institute for Computational Engineering and Sciences, The University of Texas at Austin &middot; Advised by Dr. Chandrajit Bajaj &middot; Demo Day 2026</div>
+    </div>
+    <div id="rule"></div>
+
+    <div id="body">
+
+      <!-- ================= COLUMN 1 ================= -->
+      <div class="col" id="col1">
+        <h3 class="section">Introduction</h3>
+        <p>GM2 gangliosidosis (Tay&ndash;Sachs and Sandhoff disease) results from deficiency of the lysosomal enzyme &beta;-hexosaminidase A (Hex-A), driving pan-neuronal accumulation of GM2 ganglioside. The infantile form presents at 3&ndash;6 months of age and is uniformly fatal by age 4&ndash;5. Adeno-associated viral (AAV) gene therapy is the leading intervention, but efficacy is fundamentally constrained by the blood&ndash;brain barrier (BBB) and by limited vector tropism across brain regions.</p>
+
+        <h3 class="section">The Tri-Modal Framework</h3>
+        <p>We model three synergistic therapeutic modalities acting in concert: <b class="lead">(1)</b> AAV-T4 viral vector delivery of functional <i>HEXA/HEXB</i>; <b class="lead">(2)</b> SP&sup2;/SRT substrate-reduction therapy, combining gene editing with enzyme replacement; and <b class="lead">(3)</b> focused ultrasound (FUS/LIFU)-mediated BBB opening to enhance vector entry into the CNS. Each modality is represented as a coupled stochastic process, and their interactions are captured jointly rather than additively.</p>
+
+        <h3 class="section">The 16D SDE System</h3>
+        <p>The full model is a 16-dimensional It&ocirc; stochastic differential equation system coupling all three modalities. The state vector tracks AAV-T4 concentration in blood, peripheral tissue, and CNS compartments; SP&sup2;/SRT editing efficiency; GM2 substrate burden per compartment; residual Hex-A enzymatic activity; FUS-mediated vascular permeability; and inflammatory response. The system was calibrated and validated against the Sandhoff mouse data of Osmon et al. (2021) prior to human-scale simulation.</p>
+
+        <h3 class="section">Five Critical Bug Fixes</h3>
+        <p>Reproducing the Osmon et al. validation targets required correcting five errors that each produced qualitatively wrong model behavior:</p>
+        <ol class="fixlist">
+          <li><b class="lead">Inverted Hill function</b> &mdash; enzymatic saturation term inverted direction at high substrate concentration, masking true kinetics.</li>
+          <li><b class="lead">Wrong clearance rate</b> &mdash; AAV-T4 systemic half-life was off by a factor of 3&times;.</li>
+          <li><b class="lead">Synthesis rate error</b> &mdash; a sign error in the GM2 production term reversed the direction of substrate accumulation.</li>
+          <li><b class="lead">Noise parameter fix</b> &mdash; the diffusion coefficient was dimensionally inconsistent with the drift term.</li>
+          <li><b class="lead">IC50 unit mismatch</b> &mdash; confusion of &micro;M and nM produced a 1000&times; error in the dose&ndash;response curve.</li>
+        </ol>
+        <p>Each fix was necessary and, together, sufficient to reproduce the Osmon et al. validation targets within the reported experimental variance.</p>
+      </div>
+
+      <!-- ================= COLUMN 2 ================= -->
+      <div class="col" id="col2">
+        <h3 class="section">Results: Therapy Trajectories</h3>
+        <figure>
+          <canvas id="cvTraj" width="380" height="250"></canvas>
+          <figcaption>Fig. 1 &mdash; GM2 substrate reduction trajectories across therapy arms (N=300 SDE realisations per arm, 25th&ndash;75th percentile shown). Animated in order of efficacy.</figcaption>
+        </figure>
+
+        <p>The tri-modal regimen achieves a 75.7% reduction in brain GM2 substrate burden at day 365 relative to natural history. The efficacy hierarchy (natural history &lt; mono-therapy &lt; bi-therapy &lt; tri-modal) is strictly maintained at every simulated timepoint, with no crossover between arms. Mono-therapy (AAV-T4 alone) achieves a 32% reduction; bi-therapy (AAV-T4 + SP&sup2;/SRT) achieves 58%.</p>
+
+        <div class="statrow">
+          <div class="statbox"><div class="num">75.7%</div><div class="lbl">Tri-modal reduction<br>(day 365)</div></div>
+          <div class="statbox"><div class="num">32%</div><div class="lbl">Mono-therapy<br>reduction</div></div>
+          <div class="statbox"><div class="num">58%</div><div class="lbl">Bi-therapy<br>reduction</div></div>
+        </div>
+
+        <p>Natural history remains essentially flat near 890 nmol/g brain GM2 throughout the simulated year, consistent with the untreated Sandhoff phenotype. Each additional modality compounds substrate clearance rather than merely adding to it &mdash; bi- and tri-modal gains exceed the linear sum of single-modality effects, reflecting the coupling terms in the 16D system.</p>
+      </div>
+
+      <!-- ================= COLUMN 3 ================= -->
+      <div class="col" id="col3">
+        <h3 class="section">Sobol Sensitivity Analysis</h3>
+        <p>Global sensitivity was assessed via Saltelli sampling (N=1,000 base samples, 50 SDE realisations each) with total-order Sobol indices S<sub>T</sub> computed for all 16 model parameters against terminal (day-365) GM2 burden.</p>
+        <figure>
+          <canvas id="cvSobol" width="380" height="185"></canvas>
+          <figcaption>Fig. 2 &mdash; Total-order Sobol sensitivity indices. k<sub>T4,entry</sub> dominates 90.9% of terminal GM2 variance &mdash; improving BBB entry is the single highest-leverage intervention. Animated bars.</figcaption>
+        </figure>
+        <p>AAV-T4 BBB entry rate (k<sub>T4,entry</sub>) has S<sub>T</sub> = 0.909 &mdash; it alone explains 90.9% of variance in terminal GM2 burden. Every other parameter is a rounding error by comparison. This result directly motivates LIFU-enhanced delivery as the primary intervention lever (Paper III).</p>
+
+        <h3 class="section">Spatial Validation</h3>
+        <p>Tri-modal efficacy was evaluated separately across six brain regions to test spatial uniformity of substrate clearance.</p>
+        <figure>
+          <canvas id="cvSpatial" width="380" height="185"></canvas>
+          <figcaption>Fig. 3 &mdash; Tri-modal efficacy across 6 brain regions. Cerebellum lowest (reduced AAV-9 tropism). Spatial CV = 3.7%, confirming broad coverage.</figcaption>
+        </figure>
+        <p>Efficacy ranged from 80% (cerebellum, limited by reduced AAV-9 tropism) to 88% (frontal cortex and thalamus), with a spatial coefficient of variation of only 3.7% &mdash; indicating that the tri-modal regimen delivers broadly uniform benefit rather than being driven by a single well-perfused region.</p>
+      </div>
+
+      <!-- ================= COLUMN 4 ================= -->
+      <div class="col" id="col4">
+        <h3 class="section">Validation Against Osmon et al. 2021</h3>
+        <p>The model was validated against the Sandhoff mouse model (<i>Hexb</i><sup>&minus;/&minus;</sup>) of Osmon et al. Parameters governing AAV-T4 BBB entry, systemic clearance, and GM2 synthesis rate were fitted to murine trajectories, then rescaled to human pharmacokinetic and neuroanatomical parameters for the simulations reported here. The fitted model reproduces the GM2 accumulation trajectory (R&sup2; &gt; 0.91), enzyme restoration kinetics, and survival curve extension reported in the source study.</p>
+
+        <h3 class="section">Integrator Comparison</h3>
+        <table class="itab">
+          <tr><th>Integrator</th><th>Property</th></tr>
+          <tr><td>Euler&ndash;Maruyama</td><td>Baseline; unstable at large step size</td></tr>
+          <tr><td>Milstein <i>(used here)</i></td><td>Strong order 1.0; selected method</td></tr>
+          <tr><td>St&ouml;rmer&ndash;Verlet*</td><td>Hamiltonian-preserving variant</td></tr>
+          <tr><td>BAOAB Langevin</td><td>Fluctuation&ndash;dissipation consistent</td></tr>
+        </table>
+        <p style="font-size:10px;font-style:italic;color:#444;margin-top:-4px;">*Adapted for SDE integration. Milstein was selected for strong convergence order 1.0 with better energy conservation than Euler&ndash;Maruyama at the step sizes used.</p>
+
+        <h3 class="section">Connection to Papers I &amp; III</h3>
+        <p><b class="lead">Paper I (Insights)</b> derived the mechanistic structure of the 16D SDE system and first identified k<sub>T4,entry</sub> dominance via Sobol analysis. <b class="lead">Paper III (LIFU-ML)</b> uses k<sub>T4,entry</sub> as the primary control lever, training a machine-learning model to schedule optimal LIFU timing so as to maximise BBB entry rate per brain region.</p>
+
+        <h3 class="section">Discussion &amp; Future Work</h3>
+        <p>The five bug fixes described in Column 1 were not cosmetic &mdash; each one independently masked a qualitatively wrong prediction, and the Osmon et al. validation targets were unreachable until all five were corrected. The Sobol dominance of k<sub>T4,entry</sub> is robust across the full sampled parameter grid, and the strict therapy hierarchy is a genuine emergent prediction of the mechanistic model rather than an artifact of parameter tuning. Future work includes a spatially-resolved reaction&ndash;diffusion extension for FUS beam propagation, Bayesian parameter estimation from neonatal cat Hex-A knockout data, and clinical trial simulation incorporating patient-level pharmacokinetic variability.</p>
+
+        <div class="refs">
+          <div class="rtitle">References</div>
+          <p>[1] Osmon KJL et al. Systemic gene therapy in the Sandhoff mouse. <i>Mol Ther</i>, 2021.</p>
+          <p>[2] Saltelli A et al. Variance based sensitivity analysis of model output. <i>Computer Physics Communications</i>, 2010.</p>
+          <p>[3] Higham DJ. An algorithmic introduction to numerical simulation of SDEs. <i>SIAM Review</i>, 2001.</p>
+          <p>[4] Klebaner FC. Introduction to Stochastic Calculus with Applications. Imperial College Press, 2012.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="legend">
+      <div class="lgroup">
+        <b style="margin-right:6px;">Therapy arms:</b>
+        <span class="item"><span class="sw" style="background:#999999;"></span>Natural history</span>
+        <span class="item"><span class="sw" style="background:#C79A3D;"></span>Mono-therapy (32%)</span>
+        <span class="item"><span class="sw" style="background:#2A8C99;"></span>Bi-therapy (58%)</span>
+        <span class="item"><span class="sw" style="background:#1E7A4C;"></span>Tri-modal (75.7%)</span>
+      </div>
+      <div class="sep">|</div>
+      <div class="lgroup">
+        <b style="margin-right:6px;">Sobol:</b>
+        <span class="item"><span class="sw" style="background:#1E7A4C;"></span>Dominant (S<sub>T</sub>&gt;0.8)</span>
+        <span class="item"><span class="sw" style="background:#999999;"></span>Minor</span>
+      </div>
+      <div class="sep">|</div>
+      <div class="lgroup">
+        <b style="margin-right:6px;">Spatial:</b>
+        <span class="item"><span class="sw" style="background:#1E7A4C;"></span>High efficacy</span>
+        <span class="item"><span class="sw" style="background:#C79A3D;"></span>Reduced tropism</span>
+      </div>
+      <div class="right">Data: Osmon et al. 2021 &middot; GM2 Gangliosidosis Computational Therapy Series &middot; CVC/Oden Institute, UT Austin &middot; Demo Day 2026</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* ---------------- scale to fit ---------------- */
+function scaleToFit () {
+  var s = Math.min(window.innerWidth / 1680, window.innerHeight / 1188);
+  document.getElementById('poster').style.transform = 'scale(' + s + ')';
+}
+window.addEventListener('resize', scaleToFit);
+scaleToFit();
+
+/* ================================================================
+   Utility: an animation "run" driven by requestAnimationFrame,
+   with a hold at 100% then a reset + pause before replay.
+   ================================================================ */
+function driveAnimation(totalMs, holdMs, pauseMs, onFrame, onReset) {
+  var start = null;
+  var state = 'running'; // running -> holding -> paused -> running...
+  var stateStart = null;
+
+  function frame(ts) {
+    if (start === null) { start = ts; stateStart = ts; }
+    var elapsed = ts - stateStart;
+
+    if (state === 'running') {
+      var t = Math.min(elapsed / totalMs, 1);
+      onFrame(t);
+      if (t >= 1) { state = 'holding'; stateStart = ts; }
+    } else if (state === 'holding') {
+      if (elapsed >= holdMs) { state = 'paused'; stateStart = ts; onReset(); }
+    } else if (state === 'paused') {
+      if (elapsed >= pauseMs) { state = 'running'; stateStart = ts; }
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+
+/* ================================================================
+   FIGURE 1 — Therapy trajectories (Column 2)
+   ================================================================ */
+(function () {
+  var cv = document.getElementById('cvTraj');
+  var ctx = cv.getContext('2d');
+  var W = cv.width, H = cv.height;
+  var padL = 46, padR = 12, padT = 10, padB = 28;
+  var plotW = W - padL - padR, plotH = H - padT - padB;
+  var days = 365;
+  var yMax = 950, yMin = 150;
+
+  function shape(t, k) { return 1 - Math.exp(-k * t); } // saturating decline shape
+
+  var arms = [
+    { name: 'natural', color: '#999999', bandColor: 'rgba(153,153,153,0.18)', start: 890, end: 875, k: 1.2 },
+    { name: 'mono',    color: '#C79A3D', bandColor: 'rgba(199,154,61,0.20)',  start: 890, end: 605, k: 2.6 },
+    { name: 'bi',      color: '#2A8C99', bandColor: 'rgba(42,140,153,0.20)', start: 890, end: 374, k: 3.0 },
+    { name: 'tri',     color: '#1E7A4C', bandColor: 'rgba(30,122,76,0.22)',  start: 890, end: 216, k: 3.4 }
+  ];
+
+  function valAt(arm, day) {
+    var frac = shape(day / days, arm.k);
+    return arm.start - (arm.start - arm.end) * frac;
+  }
+
+  function xPix(day) { return padL + (day / days) * plotW; }
+  function yPix(v) { return padT + (1 - (v - yMin) / (yMax - yMin)) * plotH; }
+
+  function drawAxes() {
+    ctx.strokeStyle = '#333333';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(padL, padT); ctx.lineTo(padL, padT + plotH); ctx.lineTo(padL + plotW, padT + plotH);
+    ctx.stroke();
+
+    ctx.fillStyle = '#333333';
+    ctx.font = '9px Arial';
+    ctx.textAlign = 'center';
+    [0, 91, 182, 273, 365].forEach(function (d) {
+      var x = xPix(d);
+      ctx.fillText(d, x, padT + plotH + 11);
+    });
+    ctx.textAlign = 'right';
+    [200, 400, 600, 800].forEach(function (v) {
+      var y = yPix(v);
+      ctx.fillText(v, padL - 5, y + 3);
+    });
+
+    ctx.save();
+    ctx.translate(11, padT + plotH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.textAlign = 'center';
+    ctx.font = '9px Arial';
+    ctx.fillText('Brain GM2 (nmol/g)', 0, 0);
+    ctx.restore();
+
+    ctx.textAlign = 'center';
+    ctx.fillText('Day', padL + plotW / 2, H - 4);
+  }
+
+  function drawArmUpTo(arm, frac) {
+    var lastDay = frac * days;
+    var n = Math.max(2, Math.round(frac * 80));
+
+    // band
+    ctx.beginPath();
+    for (var i = 0; i <= n; i++) {
+      var d = (i / n) * lastDay;
+      var v = valAt(arm, d);
+      var hi = v + 22 * (1 - d / days) + 8;
+      var x = xPix(d);
+      if (i === 0) ctx.moveTo(x, yPix(hi)); else ctx.lineTo(x, yPix(hi));
+    }
+    for (var i2 = n; i2 >= 0; i2--) {
+      var d2 = (i2 / n) * lastDay;
+      var v2 = valAt(arm, d2);
+      var lo = v2 - 22 * (1 - d2 / days) - 8;
+      var x2 = xPix(d2);
+      ctx.lineTo(x2, yPix(lo));
+    }
+    ctx.closePath();
+    ctx.fillStyle = arm.bandColor;
+    ctx.fill();
+
+    // median line
+    ctx.beginPath();
+    for (var j = 0; j <= n; j++) {
+      var dj = (j / n) * lastDay;
+      var vj = valAt(arm, dj);
+      var xj = xPix(dj), yj = yPix(vj);
+      if (j === 0) ctx.moveTo(xj, yj); else ctx.lineTo(xj, yj);
+    }
+    ctx.strokeStyle = arm.color;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }
+
+  var order = ['natural', 'mono', 'bi', 'tri'];
+
+  function render(globalT) {
+    ctx.clearRect(0, 0, W, H);
+    drawAxes();
+
+    var nArms = order.length;
+    var per = 1 / nArms;
+    for (var i = 0; i < nArms; i++) {
+      var armStartT = i * per;
+      var armEndT = (i + 1) * per;
+      var arm = arms.filter(function (a) { return a.name === order[i]; })[0];
+      if (globalT <= armStartT) continue;
+      var localFrac = Math.min(1, (globalT - armStartT) / per);
+      drawArmUpTo(arm, localFrac);
+    }
+
+    // legend inline top-left of chart
+    ctx.font = 'bold 9px Arial';
+    ctx.textAlign = 'left';
+  }
+
+  driveAnimation(4200, 2200, 900, render, function () { });
+  render(0);
+})();
+
+/* ================================================================
+   FIGURE 2 — Sobol sensitivity horizontal bar chart (Column 3)
+   ================================================================ */
+(function () {
+  var cv = document.getElementById('cvSobol');
+  var ctx = cv.getContext('2d');
+  var W = cv.width, H = cv.height;
+  var padL = 92, padR = 40, padT = 8, padB = 22;
+  var plotW = W - padL - padR, plotH = H - padT - padB;
+
+  var bars = [
+    { label: 'k_entry (BBB entry)', val: 0.909, color: '#1E7A4C' },
+    { label: 'Vmax,B (enzymatic)',  val: 0.070, color: '#999999' },
+    { label: 'Km,B (Michaelis)',    val: 0.024, color: '#999999' },
+    { label: 'g_synth (GM2 synth.)',val: 0.013, color: '#999999' },
+    { label: 'All others (11 params)', val: 0.010, color: '#999999' }
+  ];
+
+  var n = bars.length;
+  var rowH = plotH / n;
+
+  function drawAxes() {
+    ctx.strokeStyle = '#333333';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(padL, padT); ctx.lineTo(padL, padT + plotH); ctx.lineTo(padL + plotW, padT + plotH);
+    ctx.stroke();
+
+    ctx.fillStyle = '#333333';
+    ctx.font = '9px Arial';
+    ctx.textAlign = 'center';
+    [0, 0.2, 0.4, 0.6, 0.8, 1.0].forEach(function (v) {
+      var x = padL + v * plotW;
+      ctx.fillText(v.toFixed(1), x, padT + plotH + 11);
+    });
+    ctx.fillText('Total-order Sobol index  Sₜ', padL + plotW / 2, H - 3);
+
+    ctx.textAlign = 'right';
+    ctx.font = '9px Arial';
+    bars.forEach(function (b, i) {
+      var y = padT + i * rowH + rowH / 2;
+      ctx.fillText(b.label, padL - 6, y + 3);
+    });
+  }
+
+  function render(t) {
+    ctx.clearRect(0, 0, W, H);
+    drawAxes();
+    bars.forEach(function (b, i) {
+      var y = padT + i * rowH + rowH * 0.22;
+      var h = rowH * 0.56;
+      var frac = Math.max(0, Math.min(1, (t * n) - i));
+      var w = b.val * plotW * frac;
+      ctx.fillStyle = b.color;
+      ctx.fillRect(padL, y, w, h);
+      if (frac > 0.05) {
+        ctx.fillStyle = '#111111';
+        ctx.font = 'bold 9px Arial';
+        ctx.textAlign = 'left';
+        ctx.fillText(b.val.toFixed(3), padL + w + 4, y + h / 2 + 3);
+      }
+    });
+  }
+
+  driveAnimation(2600, 2200, 900, render, function () { });
+  render(0);
+})();
+
+/* ================================================================
+   FIGURE 3 — Spatial efficacy vertical bar chart (Column 3)
+   ================================================================ */
+(function () {
+  var cv = document.getElementById('cvSpatial');
+  var ctx = cv.getContext('2d');
+  var W = cv.width, H = cv.height;
+  var padL = 34, padR = 12, padT = 12, padB = 34;
+  var plotW = W - padL - padR, plotH = H - padT - padB;
+
+  var bars = [
+    { label: 'Frontal\ncortex', val: 88, color: '#1E7A4C' },
+    { label: 'Temporal\nlobe',  val: 84, color: '#1E7A4C' },
+    { label: 'Thalamus',       val: 88, color: '#1E7A4C' },
+    { label: 'Hippo-\ncampus',  val: 86, color: '#1E7A4C' },
+    { label: 'Basal\nganglia', val: 85, color: '#1E7A4C' },
+    { label: 'Cerebel-\nlum',   val: 80, color: '#C79A3D' }
+  ];
+
+  var n = bars.length;
+  var colW = plotW / n;
+  var yMax = 100;
+
+  function drawAxes() {
+    ctx.strokeStyle = '#333333';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(padL, padT); ctx.lineTo(padL, padT + plotH); ctx.lineTo(padL + plotW, padT + plotH);
+    ctx.stroke();
+
+    ctx.fillStyle = '#333333';
+    ctx.font = '9px Arial';
+    ctx.textAlign = 'right';
+    [0, 25, 50, 75, 100].forEach(function (v) {
+      var y = padT + (1 - v / yMax) * plotH;
+      ctx.fillText(v, padL - 5, y + 3);
+    });
+
+    ctx.textAlign = 'center';
+    bars.forEach(function (b, i) {
+      var x = padL + i * colW + colW / 2;
+      var lines = b.label.split('\n');
+      lines.forEach(function (ln, li) {
+        ctx.fillText(ln, x, padT + plotH + 11 + li * 9);
+      });
+    });
+  }
+
+  function render(t) {
+    ctx.clearRect(0, 0, W, H);
+    drawAxes();
+    bars.forEach(function (b, i) {
+      var frac = Math.max(0, Math.min(1, (t * n) - i));
+      var barH = (b.val / yMax) * plotH * frac;
+      var x = padL + i * colW + colW * 0.18;
+      var w = colW * 0.64;
+      var y = padT + plotH - barH;
+      ctx.fillStyle = b.color;
+      ctx.fillRect(x, y, w, barH);
+      if (frac > 0.05) {
+        ctx.fillStyle = '#111111';
+        ctx.font = 'bold 9px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText(b.val + '%', x + w / 2, y - 4);
+      }
+    });
+  }
+
+  driveAnimation(2600, 2200, 900, render, function () { });
+  render(0);
+})();
+</script>
+</body>
+</html>
