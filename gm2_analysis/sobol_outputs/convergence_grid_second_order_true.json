@@ -1,0 +1,208 @@
+{
+  "run_meta": {
+    "task": "task2c_convergence_grid_second_order_true",
+    "N_grid": [
+      64,
+      128,
+      256,
+      512,
+      1024
+    ],
+    "dt": 0.2,
+    "seed": 42,
+    "num_resamples": 1000,
+    "calc_second_order": true,
+    "n_params": 14,
+    "param_names": [
+      "k_T4_entry",
+      "t4_dose_total",
+      "fus_entry_gain_scale",
+      "gm2_synth",
+      "k_T4_payload",
+      "km_brain",
+      "vmax_brain",
+      "k_T4_decay",
+      "IC50",
+      "inf_threshold",
+      "k_inf",
+      "k_res",
+      "rho_g",
+      "rho_i"
+    ],
+    "prior_scenario": "as_documented",
+    "n_workers": 128,
+    "timestamp_utc": "2026-08-26T22:40:14.405564+00:00",
+    "model_file": "gm2_model_v2.py",
+    "model_sha256_16": "6693427fa909a0a9",
+    "note": "Identical protocol to task2_convergence_grid.py / data/convergence_grid.json (same param, N grid, B=1000 bootstrap resamples, seed, dt, as_documented priors) except calc_second_order=True throughout (sample+analyze), matching the actual production gm2_full14_*.json / task1_full14.py sampling scheme (k=30N) rather than the calc_second_order=False k=16N scheme the original convergence_grid.json used."
+  },
+  "N": [
+    64,
+    128,
+    256,
+    512,
+    1024
+  ],
+  "n_evals": [
+    1920,
+    3840,
+    7680,
+    15360,
+    30720
+  ],
+  "k_entry_ST": [
+    0.03039340797830709,
+    0.031252637087813,
+    0.04109427797345228,
+    0.040217799587703114,
+    0.041279446883409864
+  ],
+  "top5_params": [
+    [
+      [
+        "k_T4_decay",
+        0.2276102528781075
+      ],
+      [
+        "vmax_brain",
+        0.22307971053356104
+      ],
+      [
+        "km_brain",
+        0.20759735095397583
+      ],
+      [
+        "gm2_synth",
+        0.16692581538854578
+      ],
+      [
+        "k_T4_payload",
+        0.1230664551666608
+      ]
+    ],
+    [
+      [
+        "vmax_brain",
+        0.2595649515524158
+      ],
+      [
+        "k_T4_decay",
+        0.2417262826297014
+      ],
+      [
+        "gm2_synth",
+        0.24048607030445351
+      ],
+      [
+        "km_brain",
+        0.2006299134360569
+      ],
+      [
+        "k_T4_payload",
+        0.09868384627624231
+      ]
+    ],
+    [
+      [
+        "vmax_brain",
+        0.22036102312284106
+      ],
+      [
+        "gm2_synth",
+        0.21674542292718277
+      ],
+      [
+        "k_T4_decay",
+        0.20917133387146514
+      ],
+      [
+        "km_brain",
+        0.1762072138639046
+      ],
+      [
+        "k_T4_payload",
+        0.08884153784533354
+      ]
+    ],
+    [
+      [
+        "k_T4_decay",
+        0.22989295146478095
+      ],
+      [
+        "vmax_brain",
+        0.22676519735303935
+      ],
+      [
+        "gm2_synth",
+        0.21853138907072864
+      ],
+      [
+        "km_brain",
+        0.1926571362023949
+      ],
+      [
+        "k_T4_payload",
+        0.09507573822557354
+      ]
+    ],
+    [
+      [
+        "k_T4_decay",
+        0.2332956114552117
+      ],
+      [
+        "gm2_synth",
+        0.2269927179867994
+      ],
+      [
+        "vmax_brain",
+        0.22526481384403801
+      ],
+      [
+        "km_brain",
+        0.19238422553693507
+      ],
+      [
+        "k_T4_payload",
+        0.10034124045241936
+      ]
+    ]
+  ],
+  "bootstrap_se": [
+    0.007646823959742958,
+    0.006552078636580368,
+    0.007770044388532015,
+    0.005717716541009082,
+    0.004199921353691254
+  ],
+  "bootstrap_se_relative": [
+    0.2515948183632708,
+    0.2096488247750254,
+    0.189078498801016,
+    0.14216880584280686,
+    0.10174364413247976
+  ],
+  "Y_mean": [
+    3.82592435598057,
+    3.8211165220237024,
+    3.8405099858795393,
+    3.831349213565061,
+    3.8308029901200977
+  ],
+  "Y_std": [
+    1.2446635619839972,
+    1.247287168978109,
+    1.322519287627523,
+    1.2783584334640483,
+    1.276508751961994
+  ],
+  "elapsed_s": [
+    5.254757881164551,
+    9.172832727432251,
+    17.271897792816162,
+    33.48106861114502,
+    65.84426689147949
+  ],
+  "total_elapsed_s": 131.0249581336975
+}

@@ -1,0 +1,145 @@
+{
+  "run_meta": {
+    "B": 1000,
+    "seed": 42,
+    "method": "percentile bootstrap on 200 matched seed-pairs",
+    "config": "k2",
+    "fus_entry_gain_scale": 1.665961
+  },
+  "day45": {
+    "untreated_vs_FUS_alone": {
+      "mean_paired_diff": 2.3400646540494564e-08,
+      "ci95_lo": 2.0445552454617653e-08,
+      "ci95_hi": 2.6776478243561996e-08,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "AAV_vs_AAV_FUS": {
+      "mean_paired_diff": 5.630459123743203,
+      "ci95_lo": 5.485785071421496,
+      "ci95_hi": 5.777637128982724,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_vs_SRT_FUS": {
+      "mean_paired_diff": 0.061812317492376964,
+      "ci95_lo": 0.05922817459523062,
+      "ci95_hi": 0.0643324493007041,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_AAV_vs_tri_modal": {
+      "mean_paired_diff": 5.683471872567087,
+      "ci95_lo": 5.533849457962378,
+      "ci95_hi": 5.821362048451481,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    }
+  },
+  "day90": {
+    "untreated_vs_FUS_alone": {
+      "mean_paired_diff": 2.42854155132477e-07,
+      "ci95_lo": 2.1494337517502515e-07,
+      "ci95_hi": 2.723060983083059e-07,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "AAV_vs_AAV_FUS": {
+      "mean_paired_diff": 0.11698553426445056,
+      "ci95_lo": 0.026426764023129067,
+      "ci95_hi": 0.2959421801541632,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_vs_SRT_FUS": {
+      "mean_paired_diff": 0.1035398905514105,
+      "ci95_lo": 0.09873143959828155,
+      "ci95_hi": 0.1083304471526516,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_AAV_vs_tri_modal": {
+      "mean_paired_diff": 0.11041036678974744,
+      "ci95_lo": 0.02382832595602425,
+      "ci95_hi": 0.2797990301903701,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    }
+  },
+  "day180": {
+    "untreated_vs_FUS_alone": {
+      "mean_paired_diff": 9.535938600890859e-07,
+      "ci95_lo": 8.373039409566019e-07,
+      "ci95_hi": 1.0839093469616756e-06,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "AAV_vs_AAV_FUS": {
+      "mean_paired_diff": 0.01208773620281861,
+      "ci95_lo": 0.010451841614741997,
+      "ci95_hi": 0.013875316065562911,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_vs_SRT_FUS": {
+      "mean_paired_diff": 0.07748148706107763,
+      "ci95_lo": 0.06912932303812955,
+      "ci95_hi": 0.0862140094131331,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_AAV_vs_tri_modal": {
+      "mean_paired_diff": 0.010862803337171602,
+      "ci95_lo": 0.009336540466704549,
+      "ci95_hi": 0.012461361327557142,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    }
+  },
+  "day365": {
+    "untreated_vs_FUS_alone": {
+      "mean_paired_diff": 8.147460503238335e-07,
+      "ci95_lo": 7.143445688502226e-07,
+      "ci95_hi": 9.264157613042556e-07,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "AAV_vs_AAV_FUS": {
+      "mean_paired_diff": -0.035453369927263514,
+      "ci95_lo": -0.05206483112975127,
+      "ci95_hi": -0.021924215054564513,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_vs_SRT_FUS": {
+      "mean_paired_diff": 0.012835061999556316,
+      "ci95_lo": 0.010437446895376307,
+      "ci95_hi": 0.015855634302840805,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_AAV_vs_tri_modal": {
+      "mean_paired_diff": -0.03161445037494704,
+      "ci95_lo": -0.045201568701704435,
+      "ci95_hi": -0.019553031864402635,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    }
+  }
+}

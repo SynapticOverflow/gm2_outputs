@@ -1,0 +1,81 @@
+{
+  "task": "fus_protocol_params",
+  "source_files": [
+    "gm2_model_v2.py (make_base_params, FUSEvent class, DEFAULT_FUS_EVENTS, fus_multiplier, drift_full k_entry_eff term)",
+    "sobol_driver_v2.py (PARAM_NAMES / BASELINES -- fus_entry_gain_scale appears as a swept Sobol parameter, baseline value taken from make_base_params)",
+    "factorial_arms_shapley.py (uses DEFAULT_FUS_EVENTS unmodified for the FUS arm of the 8-arm factorial that produced factorial_arms_shapley*.json)",
+    "methods_17_states.md (documented FUS-multiplier equation, matches code)"
+  ],
+  "model_sha256_16": "6693427fa909a0a9",
+  "note_on_model_scope": "gm2_model_v2.py's FUS representation is purely phenomenological: a smoothed top-hat 'gain multiplier' m_FUS(t) applied multiplicatively to two rate constants (k_p2b -> SRT brain uptake, via fus_uptake_gain_scale; k_T4_entry -> AAV-T4 BBB entry, via fus_entry_gain_scale). There is no acoustic/biophysical submodel anywhere in this project's Sobol pipeline (gm2_model_v2.py, gm2_solver.py, sobol_driver*.py, factorial_arms_shapley.py) -- no pressure field, no MI formula, no microbubble concentration/dose state or parameter. (A biophysical FUS/microbubble model -- lifu_acoustic.py -- exists in a SEPARATE project, ~/lifu_gm2_250k/, which trains a neural-network surrogate for a different purpose; it is not wired into gm2_model_v2.py or any Sobol/factorial run in gm2_sobol/, so its parameters are out of scope here and would misrepresent this model if reported as 'the' FUS protocol.)",
+  "fields": {
+    "peak_negative_pressure_mpa": {
+      "value": null,
+      "applicable": false,
+      "reason": "Not modeled. gm2_model_v2.py's FUS term is a dimensionless multiplicative gain envelope (FUSEvent.gain, unitless), not an acoustic pressure field. No MPa-valued parameter exists anywhere in gm2_model_v2.py, gm2_solver.py, or the Sobol drivers."
+    },
+    "mechanical_index": {
+      "value": null,
+      "applicable": false,
+      "reason": "Not modeled, for the same reason as peak negative pressure -- MI = PNP/sqrt(f_center) requires a pressure and a frequency, neither of which appears in this model."
+    },
+    "microbubble_dose": {
+      "value": null,
+      "applicable": false,
+      "reason": "Not modeled. No microbubble compartment, concentration, or dose parameter exists in gm2_model_v2.py's state vector or parameter dict; BBB-opening effect is represented directly as the FUS gain multiplier, with no upstream microbubble mechanism."
+    },
+    "first_sonication_day": {
+      "value": 30.0,
+      "units": "days",
+      "applicable": true,
+      "source": "gm2_model_v2.py DEFAULT_FUS_EVENTS[0].day = 30.0 (also coincides with t4_admin_day=30.0, the AAV-T4 administration day, in run_single()/factorial_arms_shapley.py's run_arm())"
+    },
+    "number_of_sessions": {
+      "value": 3,
+      "applicable": true,
+      "source": "gm2_model_v2.py DEFAULT_FUS_EVENTS contains 3 FUSEvent entries (days [30.0, 60.0, 90.0])"
+    },
+    "session_duration": {
+      "value": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "units": "hours",
+      "applicable": true,
+      "source": "gm2_model_v2.py FUSEvent.duration_hours, all 3 sessions use duration_hours=1.0 (i.e. [1.0, 1.0, 1.0]); each event's multiplier envelope additionally has smooth_tau_hours=0.5 (default) controlling Gaussian edge-smoothing, not the nominal duration itself",
+      "smooth_tau_hours": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "inter_session_spacing_days": {
+      "value": [
+        30.0,
+        30.0
+      ],
+      "units": "days",
+      "applicable": true,
+      "source": "Computed from DEFAULT_FUS_EVENTS day values ([30.0, 60.0, 90.0]): evenly spaced at 30 days (day 30 -> 60 -> 90)"
+    },
+    "fus_entry_gain_scale": {
+      "value": 1.5,
+      "applicable": true,
+      "source": "gm2_model_v2.py make_base_params(): 'fus_entry_gain_scale': 1.5 (baseline/default value). This is the actual numeric setting used to run the default/factorial model (run_single(), factorial_arms_shapley.py) -- distinct from its ROLE as a swept Sobol parameter in sobol_driver_v2.PARAM_NAMES, where it is varied within a prior interval (see parameter_provenance.json) rather than held fixed at 1.5.",
+      "mechanistic_role": "k_T4_entry_effective = k_T4_entry * (1 + fus_entry_gain_scale * (m_FUS(t) - 1)) * immune_suppression -- i.e. it scales how much the FUS gain envelope (m_FUS - 1, which peaks per-event at FUSEvent.gain) boosts the baseline BBB entry rate k_T4_entry.",
+      "related_but_distinct_parameter": {
+        "fus_uptake_gain_scale": 1.0,
+        "note": "Separate gain-scale parameter (baseline 1.0) that scales the FUS envelope's effect on SRT brain uptake (k_p2b), not AAV-T4 entry. Not asked for explicitly but included since it is easily confused with fus_entry_gain_scale."
+      },
+      "per_event_gain_is_a_different_parameter": {
+        "FUSEvent.gain_per_session_by_day": {
+          "30.0": 1.8,
+          "60.0": 1.6,
+          "90.0": 1.5
+        },
+        "note": "Each of the 3 sessions has its OWN 'gain' (day30: 1.8, day60: 1.6, day90: 1.5) that shapes the peak height of that session's contribution to m_FUS(t). This is NOT the same number as fus_entry_gain_scale (1.5, a single global sensitivity coefficient) even though the day-90 session's gain (1.5) happens to numerically coincide with fus_entry_gain_scale's baseline value."
+      }
+    }
+  }
+}

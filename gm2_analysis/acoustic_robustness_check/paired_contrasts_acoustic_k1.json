@@ -1,0 +1,145 @@
+{
+  "run_meta": {
+    "B": 1000,
+    "seed": 42,
+    "method": "percentile bootstrap on 200 matched seed-pairs",
+    "config": "k1",
+    "fus_entry_gain_scale": 1.5
+  },
+  "day45": {
+    "untreated_vs_FUS_alone": {
+      "mean_paired_diff": 2.1065885249527126e-08,
+      "ci95_lo": 1.8405408443555873e-08,
+      "ci95_hi": 2.4106082598507327e-08,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "AAV_vs_AAV_FUS": {
+      "mean_paired_diff": 5.0701092611410425,
+      "ci95_lo": 4.939779782442101,
+      "ci95_hi": 5.202665816818413,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_vs_SRT_FUS": {
+      "mean_paired_diff": 0.06181231515957563,
+      "ci95_lo": 0.059228172167310876,
+      "ci95_hi": 0.06433244703328225,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_AAV_vs_tri_modal": {
+      "mean_paired_diff": 5.123856919306526,
+      "ci95_lo": 4.989020748081523,
+      "ci95_hi": 5.248055957201028,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    }
+  },
+  "day90": {
+    "untreated_vs_FUS_alone": {
+      "mean_paired_diff": 2.1859020016279374e-07,
+      "ci95_lo": 1.9344356685557785e-07,
+      "ci95_hi": 2.45098523466325e-07,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "AAV_vs_AAV_FUS": {
+      "mean_paired_diff": 0.10579141369654596,
+      "ci95_lo": 0.023841714165274662,
+      "ci95_hi": 0.26771289147356375,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_vs_SRT_FUS": {
+      "mean_paired_diff": 0.10353986635486984,
+      "ci95_lo": 0.09873141621040454,
+      "ci95_hi": 0.10833042305320574,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_AAV_vs_tri_modal": {
+      "mean_paired_diff": 0.09996021157885888,
+      "ci95_lo": 0.02154811587953899,
+      "ci95_hi": 0.2533608170912685,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    }
+  },
+  "day180": {
+    "untreated_vs_FUS_alone": {
+      "mean_paired_diff": 8.581060886569958e-07,
+      "ci95_lo": 7.534488633620385e-07,
+      "ci95_hi": 9.751474860344445e-07,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "AAV_vs_AAV_FUS": {
+      "mean_paired_diff": 0.010899315640831934,
+      "ci95_lo": 0.009425536901871902,
+      "ci95_hi": 0.01251218181111212,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_vs_SRT_FUS": {
+      "mean_paired_diff": 0.07748139237161183,
+      "ci95_lo": 0.0691292357437762,
+      "ci95_hi": 0.08621390544323476,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_AAV_vs_tri_modal": {
+      "mean_paired_diff": 0.009794914700114208,
+      "ci95_lo": 0.008418295286205245,
+      "ci95_hi": 0.011236620825225864,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    }
+  },
+  "day365": {
+    "untreated_vs_FUS_alone": {
+      "mean_paired_diff": 7.330042965492112e-07,
+      "ci95_lo": 6.424731750787061e-07,
+      "ci95_hi": 8.333677285996543e-07,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "AAV_vs_AAV_FUS": {
+      "mean_paired_diff": -0.03182594242129918,
+      "ci95_lo": -0.04676906826574433,
+      "ci95_hi": -0.01964917689396022,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_vs_SRT_FUS": {
+      "mean_paired_diff": 0.012834981765693953,
+      "ci95_lo": 0.010437364961443315,
+      "ci95_hi": 0.015855547246096884,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_AAV_vs_tri_modal": {
+      "mean_paired_diff": -0.028380461550517308,
+      "ci95_lo": -0.04059915944999851,
+      "ci95_hi": -0.017526525969927167,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    }
+  }
+}

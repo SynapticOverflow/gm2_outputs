@@ -1,0 +1,252 @@
+{
+  "task": "parameter_provenance_table",
+  "source_files": [
+    "sobol_driver_v2.py (PARAM_NAMES, BASELINES, TIER2_AS_DOCUMENTED, TIER1_HALF_WIDTH, TIER2_HALF_WIDTH, make_bounds()) -- primary source, used unmodified by task1_full14.py",
+    "gm2_model_v2.py make_base_params()/disease_params('tay-sachs') -- baseline/central values",
+    "sobol_driver.py header comment -- original tiering rationale and the CV~0.144 figure",
+    "ml/robustness_audit.py PriorSpec list (lines 521-534) -- independent confirmation of the same 14 baselines and tier assignments"
+  ],
+  "model_sha256_16": "6693427fa909a0a9",
+  "scenario_reported": "as_documented (the evidentiary-tiering scenario; equal_width and tier1_promotion are deliberate perturbations of these same 14 baselines/tiers, not independent provenance)",
+  "n_params": 14,
+  "params": {
+    "gm2_synth": {
+      "central_value": 2.3,
+      "distribution_type": "uniform",
+      "distribution_type_source": "SALib problem dict passed to sobol_sample()/sobol_analyze() in sobol_driver_v2.py has no 'dists' key for any parameter -> SALib defaults every parameter to a uniform distribution over the given bounds; no log-uniform or other distribution is used anywhere in this project's Sobol pipeline.",
+      "as_documented_bounds": {
+        "lower": 1.7249999999999999,
+        "upper": 2.875
+      },
+      "as_documented_bounds_note": "These ARE the full support of the Uniform(lower, upper) prior used for sampling (i.e. equivalent to the 0th/100th percentile, not literally the 2.5th/97.5th of a distribution with tails beyond the bounds, since a uniform prior's support is bounded by construction). For reference, the empirical 2.5th/97.5th percentiles of this same Uniform(lower,upper) would be lower+0.025*(upper-lower) and lower+0.975*(upper-lower).",
+      "half_width_fraction": 0.25,
+      "relative_width_cv": 0.14433756729740646,
+      "relative_width_cv_note": "CV = half_width/sqrt(3), the standard formula for a Uniform(base*(1-hw), base*(1+hw)) prior; hw=0.25 -> CV~0.1443 (Tier 1), hw=0.60 -> CV~0.3464 (Tier 2). The hw=0.25/CV~0.144 pairing is stated verbatim in this project's own sobol_driver.py comment.",
+      "evidence_tier": 1,
+      "evidence_tier_source": "sobol_driver_v2.py TIER2_AS_DOCUMENTED set (line 42) / ml/robustness_audit.py PriorSpec(...).tier assignments (lines 521-534) -- both agree exactly on which 5 of 14 params are Tier 2.",
+      "source_count": null,
+      "source_count_note": "Not recorded anywhere in the code/comments/docs as an explicit count."
+    },
+    "k_T4_decay": {
+      "central_value": 0.004166666666666667,
+      "distribution_type": "uniform",
+      "distribution_type_source": "SALib problem dict passed to sobol_sample()/sobol_analyze() in sobol_driver_v2.py has no 'dists' key for any parameter -> SALib defaults every parameter to a uniform distribution over the given bounds; no log-uniform or other distribution is used anywhere in this project's Sobol pipeline.",
+      "as_documented_bounds": {
+        "lower": 0.003125,
+        "upper": 0.005208333333333333
+      },
+      "as_documented_bounds_note": "These ARE the full support of the Uniform(lower, upper) prior used for sampling (i.e. equivalent to the 0th/100th percentile, not literally the 2.5th/97.5th of a distribution with tails beyond the bounds, since a uniform prior's support is bounded by construction). For reference, the empirical 2.5th/97.5th percentiles of this same Uniform(lower,upper) would be lower+0.025*(upper-lower) and lower+0.975*(upper-lower).",
+      "half_width_fraction": 0.25,
+      "relative_width_cv": 0.14433756729740646,
+      "relative_width_cv_note": "CV = half_width/sqrt(3), the standard formula for a Uniform(base*(1-hw), base*(1+hw)) prior; hw=0.25 -> CV~0.1443 (Tier 1), hw=0.60 -> CV~0.3464 (Tier 2). The hw=0.25/CV~0.144 pairing is stated verbatim in this project's own sobol_driver.py comment.",
+      "evidence_tier": 1,
+      "evidence_tier_source": "sobol_driver_v2.py TIER2_AS_DOCUMENTED set (line 42) / ml/robustness_audit.py PriorSpec(...).tier assignments (lines 521-534) -- both agree exactly on which 5 of 14 params are Tier 2.",
+      "source_count": null,
+      "source_count_note": "Not recorded anywhere in the code/comments/docs as an explicit count."
+    },
+    "vmax_brain": {
+      "central_value": 12.5,
+      "distribution_type": "uniform",
+      "distribution_type_source": "SALib problem dict passed to sobol_sample()/sobol_analyze() in sobol_driver_v2.py has no 'dists' key for any parameter -> SALib defaults every parameter to a uniform distribution over the given bounds; no log-uniform or other distribution is used anywhere in this project's Sobol pipeline.",
+      "as_documented_bounds": {
+        "lower": 9.375,
+        "upper": 15.625
+      },
+      "as_documented_bounds_note": "These ARE the full support of the Uniform(lower, upper) prior used for sampling (i.e. equivalent to the 0th/100th percentile, not literally the 2.5th/97.5th of a distribution with tails beyond the bounds, since a uniform prior's support is bounded by construction). For reference, the empirical 2.5th/97.5th percentiles of this same Uniform(lower,upper) would be lower+0.025*(upper-lower) and lower+0.975*(upper-lower).",
+      "half_width_fraction": 0.25,
+      "relative_width_cv": 0.14433756729740646,
+      "relative_width_cv_note": "CV = half_width/sqrt(3), the standard formula for a Uniform(base*(1-hw), base*(1+hw)) prior; hw=0.25 -> CV~0.1443 (Tier 1), hw=0.60 -> CV~0.3464 (Tier 2). The hw=0.25/CV~0.144 pairing is stated verbatim in this project's own sobol_driver.py comment.",
+      "evidence_tier": 1,
+      "evidence_tier_source": "sobol_driver_v2.py TIER2_AS_DOCUMENTED set (line 42) / ml/robustness_audit.py PriorSpec(...).tier assignments (lines 521-534) -- both agree exactly on which 5 of 14 params are Tier 2.",
+      "source_count": null,
+      "source_count_note": "Not recorded anywhere in the code/comments/docs as an explicit count."
+    },
+    "km_brain": {
+      "central_value": 75.0,
+      "distribution_type": "uniform",
+      "distribution_type_source": "SALib problem dict passed to sobol_sample()/sobol_analyze() in sobol_driver_v2.py has no 'dists' key for any parameter -> SALib defaults every parameter to a uniform distribution over the given bounds; no log-uniform or other distribution is used anywhere in this project's Sobol pipeline.",
+      "as_documented_bounds": {
+        "lower": 56.25,
+        "upper": 93.75
+      },
+      "as_documented_bounds_note": "These ARE the full support of the Uniform(lower, upper) prior used for sampling (i.e. equivalent to the 0th/100th percentile, not literally the 2.5th/97.5th of a distribution with tails beyond the bounds, since a uniform prior's support is bounded by construction). For reference, the empirical 2.5th/97.5th percentiles of this same Uniform(lower,upper) would be lower+0.025*(upper-lower) and lower+0.975*(upper-lower).",
+      "half_width_fraction": 0.25,
+      "relative_width_cv": 0.14433756729740646,
+      "relative_width_cv_note": "CV = half_width/sqrt(3), the standard formula for a Uniform(base*(1-hw), base*(1+hw)) prior; hw=0.25 -> CV~0.1443 (Tier 1), hw=0.60 -> CV~0.3464 (Tier 2). The hw=0.25/CV~0.144 pairing is stated verbatim in this project's own sobol_driver.py comment.",
+      "evidence_tier": 1,
+      "evidence_tier_source": "sobol_driver_v2.py TIER2_AS_DOCUMENTED set (line 42) / ml/robustness_audit.py PriorSpec(...).tier assignments (lines 521-534) -- both agree exactly on which 5 of 14 params are Tier 2.",
+      "source_count": null,
+      "source_count_note": "Not recorded anywhere in the code/comments/docs as an explicit count."
+    },
+    "k_T4_payload": {
+      "central_value": 0.08,
+      "distribution_type": "uniform",
+      "distribution_type_source": "SALib problem dict passed to sobol_sample()/sobol_analyze() in sobol_driver_v2.py has no 'dists' key for any parameter -> SALib defaults every parameter to a uniform distribution over the given bounds; no log-uniform or other distribution is used anywhere in this project's Sobol pipeline.",
+      "as_documented_bounds": {
+        "lower": 0.06,
+        "upper": 0.1
+      },
+      "as_documented_bounds_note": "These ARE the full support of the Uniform(lower, upper) prior used for sampling (i.e. equivalent to the 0th/100th percentile, not literally the 2.5th/97.5th of a distribution with tails beyond the bounds, since a uniform prior's support is bounded by construction). For reference, the empirical 2.5th/97.5th percentiles of this same Uniform(lower,upper) would be lower+0.025*(upper-lower) and lower+0.975*(upper-lower).",
+      "half_width_fraction": 0.25,
+      "relative_width_cv": 0.14433756729740646,
+      "relative_width_cv_note": "CV = half_width/sqrt(3), the standard formula for a Uniform(base*(1-hw), base*(1+hw)) prior; hw=0.25 -> CV~0.1443 (Tier 1), hw=0.60 -> CV~0.3464 (Tier 2). The hw=0.25/CV~0.144 pairing is stated verbatim in this project's own sobol_driver.py comment.",
+      "evidence_tier": 1,
+      "evidence_tier_source": "sobol_driver_v2.py TIER2_AS_DOCUMENTED set (line 42) / ml/robustness_audit.py PriorSpec(...).tier assignments (lines 521-534) -- both agree exactly on which 5 of 14 params are Tier 2.",
+      "source_count": null,
+      "source_count_note": "Not recorded anywhere in the code/comments/docs as an explicit count."
+    },
+    "k_T4_entry": {
+      "central_value": 0.06,
+      "distribution_type": "uniform",
+      "distribution_type_source": "SALib problem dict passed to sobol_sample()/sobol_analyze() in sobol_driver_v2.py has no 'dists' key for any parameter -> SALib defaults every parameter to a uniform distribution over the given bounds; no log-uniform or other distribution is used anywhere in this project's Sobol pipeline.",
+      "as_documented_bounds": {
+        "lower": 0.024,
+        "upper": 0.096
+      },
+      "as_documented_bounds_note": "These ARE the full support of the Uniform(lower, upper) prior used for sampling (i.e. equivalent to the 0th/100th percentile, not literally the 2.5th/97.5th of a distribution with tails beyond the bounds, since a uniform prior's support is bounded by construction). For reference, the empirical 2.5th/97.5th percentiles of this same Uniform(lower,upper) would be lower+0.025*(upper-lower) and lower+0.975*(upper-lower).",
+      "half_width_fraction": 0.6,
+      "relative_width_cv": 0.34641016151377546,
+      "relative_width_cv_note": "CV = half_width/sqrt(3), the standard formula for a Uniform(base*(1-hw), base*(1+hw)) prior; hw=0.25 -> CV~0.1443 (Tier 1), hw=0.60 -> CV~0.3464 (Tier 2). The hw=0.25/CV~0.144 pairing is stated verbatim in this project's own sobol_driver.py comment.",
+      "evidence_tier": 2,
+      "evidence_tier_source": "sobol_driver_v2.py TIER2_AS_DOCUMENTED set (line 42) / ml/robustness_audit.py PriorSpec(...).tier assignments (lines 521-534) -- both agree exactly on which 5 of 14 params are Tier 2.",
+      "source_count": null,
+      "source_count_note": "Not recorded as a literal numeric field, but sobol_driver.py's header comment describes Tier-2 params generically as 'single-dataset support, per the MICCAI draft's own tiering language' -- for THIS parameter that qualitative language would imply source_count=1, but no dataset name/citation/count is actually given anywhere; reporting null rather than inventing a citation."
+    },
+    "t4_dose_total": {
+      "central_value": 1.0,
+      "distribution_type": "uniform",
+      "distribution_type_source": "SALib problem dict passed to sobol_sample()/sobol_analyze() in sobol_driver_v2.py has no 'dists' key for any parameter -> SALib defaults every parameter to a uniform distribution over the given bounds; no log-uniform or other distribution is used anywhere in this project's Sobol pipeline.",
+      "as_documented_bounds": {
+        "lower": 0.4,
+        "upper": 1.6
+      },
+      "as_documented_bounds_note": "These ARE the full support of the Uniform(lower, upper) prior used for sampling (i.e. equivalent to the 0th/100th percentile, not literally the 2.5th/97.5th of a distribution with tails beyond the bounds, since a uniform prior's support is bounded by construction). For reference, the empirical 2.5th/97.5th percentiles of this same Uniform(lower,upper) would be lower+0.025*(upper-lower) and lower+0.975*(upper-lower).",
+      "half_width_fraction": 0.6,
+      "relative_width_cv": 0.34641016151377546,
+      "relative_width_cv_note": "CV = half_width/sqrt(3), the standard formula for a Uniform(base*(1-hw), base*(1+hw)) prior; hw=0.25 -> CV~0.1443 (Tier 1), hw=0.60 -> CV~0.3464 (Tier 2). The hw=0.25/CV~0.144 pairing is stated verbatim in this project's own sobol_driver.py comment.",
+      "evidence_tier": 2,
+      "evidence_tier_source": "sobol_driver_v2.py TIER2_AS_DOCUMENTED set (line 42) / ml/robustness_audit.py PriorSpec(...).tier assignments (lines 521-534) -- both agree exactly on which 5 of 14 params are Tier 2.",
+      "source_count": null,
+      "source_count_note": "Not recorded. Unlike the other 4 Tier-2 params, t4_dose_total's Tier-2 (wide-prior) assignment in sobol_driver_v2.py is NOT justified by an evidence/dataset argument at all -- its docstring justifies it purely mechanistically (dose and k_T4_entry are coupled through the same product term per the BUG2 saturation finding, so testing entry-rate sensitivity without varying dose was incomplete). No dataset-count claim of any kind exists for it."
+    },
+    "fus_entry_gain_scale": {
+      "central_value": 1.5,
+      "distribution_type": "uniform",
+      "distribution_type_source": "SALib problem dict passed to sobol_sample()/sobol_analyze() in sobol_driver_v2.py has no 'dists' key for any parameter -> SALib defaults every parameter to a uniform distribution over the given bounds; no log-uniform or other distribution is used anywhere in this project's Sobol pipeline.",
+      "as_documented_bounds": {
+        "lower": 1.125,
+        "upper": 1.875
+      },
+      "as_documented_bounds_note": "These ARE the full support of the Uniform(lower, upper) prior used for sampling (i.e. equivalent to the 0th/100th percentile, not literally the 2.5th/97.5th of a distribution with tails beyond the bounds, since a uniform prior's support is bounded by construction). For reference, the empirical 2.5th/97.5th percentiles of this same Uniform(lower,upper) would be lower+0.025*(upper-lower) and lower+0.975*(upper-lower).",
+      "half_width_fraction": 0.25,
+      "relative_width_cv": 0.14433756729740646,
+      "relative_width_cv_note": "CV = half_width/sqrt(3), the standard formula for a Uniform(base*(1-hw), base*(1+hw)) prior; hw=0.25 -> CV~0.1443 (Tier 1), hw=0.60 -> CV~0.3464 (Tier 2). The hw=0.25/CV~0.144 pairing is stated verbatim in this project's own sobol_driver.py comment.",
+      "evidence_tier": 1,
+      "evidence_tier_source": "sobol_driver_v2.py TIER2_AS_DOCUMENTED set (line 42) / ml/robustness_audit.py PriorSpec(...).tier assignments (lines 521-534) -- both agree exactly on which 5 of 14 params are Tier 2.",
+      "source_count": null,
+      "source_count_note": "Not recorded anywhere in the code/comments/docs as an explicit count."
+    },
+    "IC50": {
+      "central_value": 50.0,
+      "distribution_type": "uniform",
+      "distribution_type_source": "SALib problem dict passed to sobol_sample()/sobol_analyze() in sobol_driver_v2.py has no 'dists' key for any parameter -> SALib defaults every parameter to a uniform distribution over the given bounds; no log-uniform or other distribution is used anywhere in this project's Sobol pipeline.",
+      "as_documented_bounds": {
+        "lower": 37.5,
+        "upper": 62.5
+      },
+      "as_documented_bounds_note": "These ARE the full support of the Uniform(lower, upper) prior used for sampling (i.e. equivalent to the 0th/100th percentile, not literally the 2.5th/97.5th of a distribution with tails beyond the bounds, since a uniform prior's support is bounded by construction). For reference, the empirical 2.5th/97.5th percentiles of this same Uniform(lower,upper) would be lower+0.025*(upper-lower) and lower+0.975*(upper-lower).",
+      "half_width_fraction": 0.25,
+      "relative_width_cv": 0.14433756729740646,
+      "relative_width_cv_note": "CV = half_width/sqrt(3), the standard formula for a Uniform(base*(1-hw), base*(1+hw)) prior; hw=0.25 -> CV~0.1443 (Tier 1), hw=0.60 -> CV~0.3464 (Tier 2). The hw=0.25/CV~0.144 pairing is stated verbatim in this project's own sobol_driver.py comment.",
+      "evidence_tier": 1,
+      "evidence_tier_source": "sobol_driver_v2.py TIER2_AS_DOCUMENTED set (line 42) / ml/robustness_audit.py PriorSpec(...).tier assignments (lines 521-534) -- both agree exactly on which 5 of 14 params are Tier 2.",
+      "source_count": null,
+      "source_count_note": "Not recorded anywhere in the code/comments/docs as an explicit count."
+    },
+    "inf_threshold": {
+      "central_value": 650.0,
+      "distribution_type": "uniform",
+      "distribution_type_source": "SALib problem dict passed to sobol_sample()/sobol_analyze() in sobol_driver_v2.py has no 'dists' key for any parameter -> SALib defaults every parameter to a uniform distribution over the given bounds; no log-uniform or other distribution is used anywhere in this project's Sobol pipeline.",
+      "as_documented_bounds": {
+        "lower": 260.0,
+        "upper": 1040.0
+      },
+      "as_documented_bounds_note": "These ARE the full support of the Uniform(lower, upper) prior used for sampling (i.e. equivalent to the 0th/100th percentile, not literally the 2.5th/97.5th of a distribution with tails beyond the bounds, since a uniform prior's support is bounded by construction). For reference, the empirical 2.5th/97.5th percentiles of this same Uniform(lower,upper) would be lower+0.025*(upper-lower) and lower+0.975*(upper-lower).",
+      "half_width_fraction": 0.6,
+      "relative_width_cv": 0.34641016151377546,
+      "relative_width_cv_note": "CV = half_width/sqrt(3), the standard formula for a Uniform(base*(1-hw), base*(1+hw)) prior; hw=0.25 -> CV~0.1443 (Tier 1), hw=0.60 -> CV~0.3464 (Tier 2). The hw=0.25/CV~0.144 pairing is stated verbatim in this project's own sobol_driver.py comment.",
+      "evidence_tier": 2,
+      "evidence_tier_source": "sobol_driver_v2.py TIER2_AS_DOCUMENTED set (line 42) / ml/robustness_audit.py PriorSpec(...).tier assignments (lines 521-534) -- both agree exactly on which 5 of 14 params are Tier 2.",
+      "source_count": null,
+      "source_count_note": "Not recorded as a literal numeric field, but sobol_driver.py's header comment describes Tier-2 params generically as 'single-dataset support, per the MICCAI draft's own tiering language' -- for THIS parameter that qualitative language would imply source_count=1, but no dataset name/citation/count is actually given anywhere; reporting null rather than inventing a citation."
+    },
+    "k_inf": {
+      "central_value": 0.2,
+      "distribution_type": "uniform",
+      "distribution_type_source": "SALib problem dict passed to sobol_sample()/sobol_analyze() in sobol_driver_v2.py has no 'dists' key for any parameter -> SALib defaults every parameter to a uniform distribution over the given bounds; no log-uniform or other distribution is used anywhere in this project's Sobol pipeline.",
+      "as_documented_bounds": {
+        "lower": 0.15000000000000002,
+        "upper": 0.25
+      },
+      "as_documented_bounds_note": "These ARE the full support of the Uniform(lower, upper) prior used for sampling (i.e. equivalent to the 0th/100th percentile, not literally the 2.5th/97.5th of a distribution with tails beyond the bounds, since a uniform prior's support is bounded by construction). For reference, the empirical 2.5th/97.5th percentiles of this same Uniform(lower,upper) would be lower+0.025*(upper-lower) and lower+0.975*(upper-lower).",
+      "half_width_fraction": 0.25,
+      "relative_width_cv": 0.14433756729740646,
+      "relative_width_cv_note": "CV = half_width/sqrt(3), the standard formula for a Uniform(base*(1-hw), base*(1+hw)) prior; hw=0.25 -> CV~0.1443 (Tier 1), hw=0.60 -> CV~0.3464 (Tier 2). The hw=0.25/CV~0.144 pairing is stated verbatim in this project's own sobol_driver.py comment.",
+      "evidence_tier": 1,
+      "evidence_tier_source": "sobol_driver_v2.py TIER2_AS_DOCUMENTED set (line 42) / ml/robustness_audit.py PriorSpec(...).tier assignments (lines 521-534) -- both agree exactly on which 5 of 14 params are Tier 2.",
+      "source_count": null,
+      "source_count_note": "Not recorded anywhere in the code/comments/docs as an explicit count."
+    },
+    "k_res": {
+      "central_value": 0.05,
+      "distribution_type": "uniform",
+      "distribution_type_source": "SALib problem dict passed to sobol_sample()/sobol_analyze() in sobol_driver_v2.py has no 'dists' key for any parameter -> SALib defaults every parameter to a uniform distribution over the given bounds; no log-uniform or other distribution is used anywhere in this project's Sobol pipeline.",
+      "as_documented_bounds": {
+        "lower": 0.037500000000000006,
+        "upper": 0.0625
+      },
+      "as_documented_bounds_note": "These ARE the full support of the Uniform(lower, upper) prior used for sampling (i.e. equivalent to the 0th/100th percentile, not literally the 2.5th/97.5th of a distribution with tails beyond the bounds, since a uniform prior's support is bounded by construction). For reference, the empirical 2.5th/97.5th percentiles of this same Uniform(lower,upper) would be lower+0.025*(upper-lower) and lower+0.975*(upper-lower).",
+      "half_width_fraction": 0.25,
+      "relative_width_cv": 0.14433756729740646,
+      "relative_width_cv_note": "CV = half_width/sqrt(3), the standard formula for a Uniform(base*(1-hw), base*(1+hw)) prior; hw=0.25 -> CV~0.1443 (Tier 1), hw=0.60 -> CV~0.3464 (Tier 2). The hw=0.25/CV~0.144 pairing is stated verbatim in this project's own sobol_driver.py comment.",
+      "evidence_tier": 1,
+      "evidence_tier_source": "sobol_driver_v2.py TIER2_AS_DOCUMENTED set (line 42) / ml/robustness_audit.py PriorSpec(...).tier assignments (lines 521-534) -- both agree exactly on which 5 of 14 params are Tier 2.",
+      "source_count": null,
+      "source_count_note": "Not recorded anywhere in the code/comments/docs as an explicit count."
+    },
+    "rho_g": {
+      "central_value": 0.001,
+      "distribution_type": "uniform",
+      "distribution_type_source": "SALib problem dict passed to sobol_sample()/sobol_analyze() in sobol_driver_v2.py has no 'dists' key for any parameter -> SALib defaults every parameter to a uniform distribution over the given bounds; no log-uniform or other distribution is used anywhere in this project's Sobol pipeline.",
+      "as_documented_bounds": {
+        "lower": 0.0004,
+        "upper": 0.0016
+      },
+      "as_documented_bounds_note": "These ARE the full support of the Uniform(lower, upper) prior used for sampling (i.e. equivalent to the 0th/100th percentile, not literally the 2.5th/97.5th of a distribution with tails beyond the bounds, since a uniform prior's support is bounded by construction). For reference, the empirical 2.5th/97.5th percentiles of this same Uniform(lower,upper) would be lower+0.025*(upper-lower) and lower+0.975*(upper-lower).",
+      "half_width_fraction": 0.6,
+      "relative_width_cv": 0.34641016151377546,
+      "relative_width_cv_note": "CV = half_width/sqrt(3), the standard formula for a Uniform(base*(1-hw), base*(1+hw)) prior; hw=0.25 -> CV~0.1443 (Tier 1), hw=0.60 -> CV~0.3464 (Tier 2). The hw=0.25/CV~0.144 pairing is stated verbatim in this project's own sobol_driver.py comment.",
+      "evidence_tier": 2,
+      "evidence_tier_source": "sobol_driver_v2.py TIER2_AS_DOCUMENTED set (line 42) / ml/robustness_audit.py PriorSpec(...).tier assignments (lines 521-534) -- both agree exactly on which 5 of 14 params are Tier 2.",
+      "source_count": null,
+      "source_count_note": "Not recorded as a literal numeric field, but sobol_driver.py's header comment describes Tier-2 params generically as 'single-dataset support, per the MICCAI draft's own tiering language' -- for THIS parameter that qualitative language would imply source_count=1, but no dataset name/citation/count is actually given anywhere; reporting null rather than inventing a citation."
+    },
+    "rho_i": {
+      "central_value": 0.01,
+      "distribution_type": "uniform",
+      "distribution_type_source": "SALib problem dict passed to sobol_sample()/sobol_analyze() in sobol_driver_v2.py has no 'dists' key for any parameter -> SALib defaults every parameter to a uniform distribution over the given bounds; no log-uniform or other distribution is used anywhere in this project's Sobol pipeline.",
+      "as_documented_bounds": {
+        "lower": 0.004,
+        "upper": 0.016
+      },
+      "as_documented_bounds_note": "These ARE the full support of the Uniform(lower, upper) prior used for sampling (i.e. equivalent to the 0th/100th percentile, not literally the 2.5th/97.5th of a distribution with tails beyond the bounds, since a uniform prior's support is bounded by construction). For reference, the empirical 2.5th/97.5th percentiles of this same Uniform(lower,upper) would be lower+0.025*(upper-lower) and lower+0.975*(upper-lower).",
+      "half_width_fraction": 0.6,
+      "relative_width_cv": 0.34641016151377546,
+      "relative_width_cv_note": "CV = half_width/sqrt(3), the standard formula for a Uniform(base*(1-hw), base*(1+hw)) prior; hw=0.25 -> CV~0.1443 (Tier 1), hw=0.60 -> CV~0.3464 (Tier 2). The hw=0.25/CV~0.144 pairing is stated verbatim in this project's own sobol_driver.py comment.",
+      "evidence_tier": 2,
+      "evidence_tier_source": "sobol_driver_v2.py TIER2_AS_DOCUMENTED set (line 42) / ml/robustness_audit.py PriorSpec(...).tier assignments (lines 521-534) -- both agree exactly on which 5 of 14 params are Tier 2.",
+      "source_count": null,
+      "source_count_note": "Not recorded as a literal numeric field, but sobol_driver.py's header comment describes Tier-2 params generically as 'single-dataset support, per the MICCAI draft's own tiering language' -- for THIS parameter that qualitative language would imply source_count=1, but no dataset name/citation/count is actually given anywhere; reporting null rather than inventing a citation."
+    }
+  }
+}

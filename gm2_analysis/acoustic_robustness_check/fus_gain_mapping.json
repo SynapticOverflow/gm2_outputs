@@ -1,0 +1,111 @@
+{
+  "_generated_by": "derive_fus_gain_mapping.py (2026-09-15, Step 1)",
+  "gm2_model_v2_sha256_16": "6693427fa909a0a9",
+  "reference_operating_point": {
+    "frequency_MHz": 0.5,
+    "source_pressure_P0_MPa": 0.6,
+    "duty_cycle": 0.01,
+    "source": "eta_results.json -> reference_operating_point"
+  },
+  "mi_sigmoid": {
+    "MI0_adult_fit": 0.43607459906216733,
+    "width": 0.11718528206917055,
+    "MI0_k1.0": 0.43607459906216733,
+    "MI0_k2.0": 0.21803729953108367
+  },
+  "primary_age_months": 6.0,
+  "per_region": [
+    {
+      "region": "Frontal Cortex",
+      "T": 0.8502638789046743,
+      "MI_in_situ": 0.7214728254857671,
+      "p_open_k1.0": 0.9194904830079657,
+      "p_open_k2.0": 0.9865610030871872,
+      "ratio": 1.0729431367900744
+    },
+    {
+      "region": "Parietal Cortex",
+      "T": 0.8290450897589604,
+      "MI_in_situ": 0.703468085853565,
+      "p_open_k1.0": 0.9073585432389063,
+      "p_open_k2.0": 0.9843640201846866,
+      "ratio": 1.0848677488293674
+    },
+    {
+      "region": "Thalamus",
+      "T": 0.7826690339183862,
+      "MI_in_situ": 0.6641166975700977,
+      "p_open_k1.0": 0.8750093974307133,
+      "p_open_k2.0": 0.9782598860117709,
+      "ratio": 1.1179992910753092
+    },
+    {
+      "region": "Basal Ganglia",
+      "T": 0.7898901155377576,
+      "MI_in_situ": 0.6702439885067686,
+      "p_open_k1.0": 0.8806167151897528,
+      "p_open_k2.0": 0.9793445324668215,
+      "ratio": 1.1121121318436422
+    },
+    {
+      "region": "Temporal Lobe",
+      "T": 0.8013397371139154,
+      "MI_in_situ": 0.6799593145769938,
+      "p_open_k1.0": 0.8890613563366764,
+      "p_open_k2.0": 0.9809566280072364,
+      "ratio": 1.10336212570211
+    },
+    {
+      "region": "Occipital Lobe",
+      "T": 0.7644922874234557,
+      "MI_in_situ": 0.6486932167223287,
+      "p_open_k1.0": 0.8598903892962197,
+      "p_open_k2.0": 0.975277301369188,
+      "ratio": 1.1341879308215168
+    },
+    {
+      "region": "Cerebellum",
+      "T": 0.7428020752257485,
+      "MI_in_situ": 0.63028846136588,
+      "p_open_k1.0": 0.8398783192003334,
+      "p_open_k2.0": 0.9711940173229904,
+      "ratio": 1.1563508607385955
+    },
+    {
+      "region": "Hippocampus",
+      "T": 0.7944502009392074,
+      "MI_in_situ": 0.6741133492789545,
+      "p_open_k1.0": 0.884044658178222,
+      "p_open_k2.0": 0.9800020053656789,
+      "ratio": 1.108543551844088
+    }
+  ],
+  "p_open_k1.0_brainmean": 0.8819187327348488,
+  "p_open_k2.0_brainmean": 0.9794949242269451,
+  "opening_probability_ratio": 1.1106407970148342,
+  "saturation_ceiling_on_ratio": 1.133891324542998,
+  "calibrated_fus_entry_gain_scale": 1.5,
+  "fus_entry_gain_scale_k1.0": 1.5,
+  "fus_entry_gain_scale_k2.0": 1.6659611955222513,
+  "rejected_alternative_rule_gain_k2.0": 1.555320398507417,
+  "age_sensitivity": {
+    "1.5": {
+      "p_open_k1.0_mean": 0.8991946091780432,
+      "p_open_k2.0_mean": 0.9828235360816111,
+      "ratio": 1.0930042574209975,
+      "gain_k2.0": 1.6395063861314962
+    },
+    "6.0": {
+      "p_open_k1.0_mean": 0.8819187327348488,
+      "p_open_k2.0_mean": 0.9794949242269451,
+      "ratio": 1.1106407970148342,
+      "gain_k2.0": 1.6659611955222513
+    },
+    "12.0": {
+      "p_open_k1.0_mean": 0.8535425480708413,
+      "p_open_k2.0_mean": 0.9738738755817264,
+      "ratio": 1.1409787101801256,
+      "gain_k2.0": 1.7114680652701884
+    }
+  }
+}
