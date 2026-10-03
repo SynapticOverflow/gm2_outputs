@@ -1,0 +1,341 @@
+{
+  "_purpose": "Step 1 deliverable for the lifu_acoustic_model_v1.py calibration task. Every numeric value below was extracted from a real, identifiable published source via web search + fetch of the primary (or best-available secondary) source on 2026-09-11. Nothing here is fabricated. Fields 'verification' record how each number was obtained (primary fetch vs. search-snippet secondary reference) and its confidence caveats. Where a needed quantity has no usable published data, that is recorded explicitly under 'no_data_found' rather than omitted.",
+  "date_compiled": "2026-09-11",
+
+  "sources": [
+    {
+      "id": "pichardo2011",
+      "citation": "Pichardo S, Sin VW, Hynynen K (2011). Multi-frequency characterization of the speed of sound and attenuation coefficient for longitudinal transmission of freshly excised human skulls. Physics in Medicine and Biology 56(1):219-250.",
+      "doi_or_pmid": "PMID 21149950",
+      "species": "human (ex vivo)",
+      "pediatric_or_adult": "adult",
+      "model_system": "ex vivo cadaveric skull specimens, n=7 skulls, 33 measurement locations (supra-orbital region: frontal/parietal/occipital)",
+      "verification": "primary source fetched directly (PMC3166773)",
+      "reported_data": {
+        "frequency_range_MHz": [0.27, 0.836, 1.402, 1.965, 2.525],
+        "attenuation_Np_per_m": {
+          "0.27_MHz": {"mean": 33.8, "sd": 7.6},
+          "0.836_MHz": {"mean": 231, "sd": 15},
+          "1.402_MHz": {"mean": 334, "sd": 42},
+          "note": "no measurable attenuation reported at 1.965/2.525 MHz with this experimental setup"
+        },
+        "speed_of_sound_m_per_s": {
+          "0.27_MHz": {"mean": 2291, "sd": 160},
+          "0.836_MHz": {"mean": 2408, "sd": 112},
+          "1.402_MHz": {"mean": 2389, "sd": 199},
+          "1.965_MHz": {"mean": 2253, "sd": 132},
+          "2.525_MHz": {"mean": 2031, "sd": 36}
+        },
+        "skull_thickness_mm": {"mean": 7.44, "sd": 1.98, "range": [5.2, 9.6]},
+        "skull_density_kg_per_m3": {"mean": 1904, "sd": 117, "range": [1200, 2500]}
+      },
+      "use_in_model": "Adult-skull frequency-dependent bone attenuation power-law fit (attenuation vs. frequency at 3 usable frequency points); adult reference skull thickness (7.44 mm) used as the denominator for infant/adult bone thickness-ratio scaling."
+    },
+
+    {
+      "id": "colas2015",
+      "citation": "Colas EC, Waspe A, Mougenot C, Looi T, Pichardo S, Drake J (2015). Acoustic characterization of a neonate skull using a clinical MR-guided high intensity focused ultrasound system for pediatric neurological disorder treatment planning. Journal of Therapeutic Ultrasound 3(Suppl 1):P14.",
+      "doi_or_pmid": "conference abstract, J Ther Ultrasound suppl",
+      "species": "human (ex vivo, neonatal)",
+      "pediatric_or_adult": "pediatric (neonate)",
+      "model_system": "n=1 degassed cadaveric neonatal skull",
+      "verification": "primary abstract fetched directly (PMC4489800)",
+      "reported_data": {
+        "frequency_MHz": [1.0, 1.2],
+        "insertion_loss_dB_through_fontanelle": {"1.0_MHz": {"mean": 0.9, "sd": 0.8}, "1.2_MHz": {"mean": 0.5, "sd": 0.5}},
+        "time_of_flight_delay_us_fontanelle": {"mean": -0.09, "sd": 0.02, "note": "same at both frequencies"},
+        "insertion_loss_dB_through_ossified_bone": {
+          "parietal": {"1.0_MHz": {"mean": 1.6, "sd": 0.7}, "1.2_MHz": {"mean": 1.2, "sd": 0.5}},
+          "frontal":  {"1.0_MHz": {"mean": 2.9, "sd": 1.1}, "1.2_MHz": {"mean": 2.0, "sd": 0.7}},
+          "lateral":  {"1.0_MHz": {"mean": 2.05, "sd": 0.05, "range_dB": [2.0, 2.1]}, "1.2_MHz": {"mean": 1.45, "sd": 0.25, "range_dB": [1.2, 1.7]}}
+        }
+      },
+      "critical_limitation": "n=1 specimen. These are total insertion-loss numbers for one neonatal skull at two closely-spaced frequencies (1.0-1.2 MHz only), NOT a frequency-resolved attenuation coefficient (dB/cm/MHz) curve, and NOT stratified by age beyond 'neonate'. Cannot be extrapolated to other frequencies or ages with any confidence; used here as a single anchor point, explicitly flagged.",
+      "use_in_model": "Anchor for the near-transparent open-fontanelle transmission window (contrasted against the much larger adult ossified-skull attenuation from pichardo2011), and as the 1 MHz anchor for the closed/ossified infant-bone insertion-loss magnitude before thickness-scaling."
+    },
+
+    {
+      "id": "alsanea2025",
+      "citation": "Alsanea Y, Ruiz-Maldonado TM, Coats B (2025). Data-driven standards for infant skull thickness distributions in computational modeling and analysis. Journal of Anatomy 247(6):1268-1282.",
+      "doi_or_pmid": "10.1111/joa.14287",
+      "species": "human",
+      "pediatric_or_adult": "pediatric (infant, 0-12 months)",
+      "model_system": "n=266 infants, CT imaging, ages birth to 12 months",
+      "verification": "primary source fetched directly (PMC12588167)",
+      "reported_data": {
+        "skull_thickness_mm_by_age_and_region": {
+          "0_to_1.5_mo":  {"n": 35, "left_parietal": 1.45, "right_parietal": 1.49, "frontal": 2.07, "occipital": 1.64},
+          "1.5_to_5.9_mo": {"n": 89, "left_parietal": 1.74, "right_parietal": 1.75, "frontal": 2.39, "occipital": 1.92},
+          "5.9_to_10.2_mo": {"n": 72, "left_parietal": 2.05, "right_parietal": 2.12, "frontal": 2.60, "occipital": 2.20},
+          "10.2_to_12_mo": {"n": 70, "left_parietal": 2.22, "right_parietal": 2.25, "frontal": 2.76, "occipital": 2.43}
+        },
+        "finding": "bone thickness increases significantly with age in all measured bones (p<0.0001), steepest growth rate in the 0-1.5 month bracket"
+      },
+      "limitation": "Geometric (CT) thickness only -- no acoustic attenuation coefficient or density/Hounsfield data reported. No temporal/mastoid-region thickness reported (only frontal, parietal, occipital). Age range capped at 12 months; ages beyond 12 months require extrapolation, flagged separately in the model code.",
+      "use_in_model": "Age- and region-dependent infant skull-bone thickness, used to scale the adult bone attenuation coefficient (pichardo2011) down to infant path length once a given fontanelle is closed at the modeled age."
+    },
+
+    {
+      "id": "tung2011",
+      "citation": "Tung YS, Vlachos F, Feshitan JA, Borden MA, Konofagou EE (2011). The mechanism of interaction between focused ultrasound and microbubbles in blood-brain barrier opening in mice. Journal of the Acoustical Society of America 130(5):3059-3067.",
+      "doi_or_pmid": "PMID 22087933",
+      "species": "mouse (C57BL/6)",
+      "pediatric_or_adult": "adult animal (not pediatric)",
+      "model_system": "n=67 mice, in vivo, right hippocampus (target depth ~3 mm)",
+      "verification": "primary source fetched directly (PMC3248062)",
+      "reported_data": {
+        "frequency_MHz": 1.5,
+        "peak_negative_pressures_tested_MPa": [0.15, 0.30, 0.45, 0.60],
+        "PRF_Hz": 10,
+        "burst_length_cycles": 100,
+        "sonication_duration_s": 60,
+        "microbubble_diameters_um": ["1-2", "4-5", "6-8"],
+        "microbubble_concentration_per_mL": 1.0e7,
+        "BBB_opening_threshold_MPa_by_bubble_size": {"1_2_um": 0.45, "4_5_um": 0.30, "6_8_um": 0.30},
+        "MI_at_threshold": {"1_2_um": 0.367, "4_5_um": 0.245, "6_8_um": 0.245, "formula": "MI = PNP_MPa / sqrt(f_MHz), f=1.5 MHz => sqrt(f)=1.2247"},
+        "inertial_cavitation_dose_vs_opening_volume": {"R2": 0.85, "condition": "at or above 0.45 MPa"}
+      },
+      "use_in_model": "One of three independent cross-species anchor points for the MI-based cavitation dose-response sigmoid; also the only real data point on microbubble-diameter dependence of threshold (used qualitatively, flagged, not incorporated as a fitted concentration term since concentration and diameter are different variables)."
+    },
+
+    {
+      "id": "mcdannold2008",
+      "citation": "McDannold N, Vykhodtseva N, Hynynen K (2008). Blood-brain barrier disruption induced by focused ultrasound and circulating preformed microbubbles appears to be characterized by the mechanical index. Ultrasound in Medicine & Biology 34(5):834-840.",
+      "doi_or_pmid": "PMID 18207311",
+      "species": "rabbit (new 2.04 MHz data, n=11, 40 sonicated locations) + historical rabbit/rat comparison data pooled from prior studies",
+      "pediatric_or_adult": "adult animal (not pediatric)",
+      "model_system": "in vivo rabbit (primary new data) plus pooled historical rabbit/rat data across a wider frequency sweep",
+      "verification": "CORRECTED 2026-09-12 (item 1, this task): primary source fetched and read directly (PMC2442477, free full text). Supersedes the 2026-09-11 secondary-sourced value. The primary text gives the probit-regression 50%-probability MI threshold as 0.46 (95% CI: 0.42-0.50), not 0.47 as previously recorded from search-snippet secondary confirmation. The frequency range for the pooled regression is wider than previously recorded (up to 2.04 MHz, not capped at 1.63 MHz) because the new data point at 2.04 MHz is included in the pooled fit. The core finding used in this model -- that MI (not raw pressure) is the frequency-independent threshold variable -- is confirmed directly from the primary text.",
+      "reported_data": {
+        "frequency_range_MHz": [0.26, 2.04],
+        "PRF_Hz": 1,
+        "outcome_measure": "contrast-enhanced MRI, probit regression on BBB disruption incidence, pooled across frequencies",
+        "MI_at_50pct_probability_of_BBBD": 0.46,
+        "MI_at_50pct_probability_95CI": [0.42, 0.50],
+        "MI_definition": "peak negative pressure (MPa) / sqrt(frequency in MHz)",
+        "key_finding": "the threshold for BBB disruption expressed in terms of MI is independent of frequency (primary text, directly quoted finding)"
+      },
+      "use_in_model": "Primary calibration anchor (50% probability point) for the MI-based cavitation dose-response sigmoid center. This is the single most important calibration number in the whole model. As of 2026-09-12 this is primary-sourced with a reported 95% CI, resolving the single largest secondary-sourcing flag identified in LIFU_MODEL_V1_REPORT.md Section 6, item 2."
+    },
+
+    {
+      "id": "chu2016",
+      "citation": "Chu PC, Liu HL, Lai HY, Lin CY, Tsai HC, Pei YC (2016). Focused ultrasound-induced blood-brain barrier opening: association with mechanical index and cavitation index analyzed by dynamic contrast-enhanced magnetic-resonance imaging. Scientific Reports 6:33264.",
+      "doi_or_pmid": "10.1038/srep33264",
+      "species": "rat (Sprague-Dawley)",
+      "pediatric_or_adult": "adult animal (not pediatric)",
+      "model_system": "in vivo rat, 0.4 and 1 MHz sonication",
+      "verification": "primary source fetched directly (PMC5024096)",
+      "reported_data": {
+        "frequency_MHz": [0.4, 1.0],
+        "MI_range": [0.41, 1.12],
+        "cavitation_index_range": [0.43, 1.77],
+        "pressure_range_MPa": [0.25, 0.83],
+        "correlation_signal_intensity_vs_MI_r2": 0.9682,
+        "correlation_Gd_AUC_vs_MI_r2": 0.9666,
+        "correlation_Ktrans_vs_MI_r2": 0.9684,
+        "safety_finding": "MI < 0.6 -> intact BBB opening without significant erythrocyte extravasation; frequency-independence of the MI relationship explicitly noted"
+      },
+      "use_in_model": "Third cross-species anchor point for the MI sigmoid (used as an upper/safety-adjacent point, MI~0.6), and direct literature support for using MI (not raw pressure) as the frequency-normalizing cavitation variable -- the correlation is reported as frequency-independent across 0.4 and 1 MHz in the same study."
+    },
+
+    {
+      "id": "wei_hsu2013",
+      "citation": "Wei KC, Chu PC, Wang HYJ, Huang CY, Chen PY, Tsai HC, et al. (2013). Focused Ultrasound-Induced Blood-Brain Barrier Opening to Enhance Temozolomide Delivery for Glioblastoma Treatment: A Preclinical Study. PLOS ONE 8(3):e58995.",
+      "doi_or_pmid": "10.1371/journal.pone.0058995",
+      "species": "rat (Fischer 344, 9L glioma model)",
+      "pediatric_or_adult": "adult animal (not pediatric)",
+      "model_system": "in vivo rat glioma",
+      "verification": "primary source fetched directly. NOTE: this is very likely the paper the task brief referred to as 'Hsu et al. 2013' (a co-author on the byline is Hsu), but the verified first author is Wei K-C, not Hsu. It should be cited as Wei et al. 2013 (or 'Wei, Chu, ... Hsu, et al.'), not 'Hsu et al. 2013'. Flagged explicitly so this citation is not silently misattributed.",
+      "reported_data": {
+        "frequency_MHz": 0.5,
+        "in_situ_pressure_MPa": 0.6,
+        "note_on_pressure": "0.6 MPa AFTER a 25% skull insertion-loss correction was already applied -- i.e. this is an in-situ/derated value, not source output",
+        "burst_length_ms": 10,
+        "PRF_Hz": 1,
+        "duty_cycle_pct": 1.0,
+        "sonication_duration_s": 60,
+        "microbubble": "SonoVue, 0.1 mL/kg bolus",
+        "outcome": "3.8-fold increase in Evans blue in normal tissue, 2.1-fold in tumor; no hemorrhage/edema observed at these settings"
+      },
+      "use_in_model": "Not used as a threshold/dose-response fit point (this paper reports one operating point, not a swept dose-response curve); used only as a real-world safe-and-effective operating-point sanity check against the fitted MI sigmoid (MI = 0.6/sqrt(0.5) = 0.849 at this in-situ pressure)."
+    },
+
+    {
+      "id": "hsu2022",
+      "citation": "Hsu YH, Lee WC, Chu SS, Chao ME, Wu KS, Liu RS, Wong TT (2022). Influence of Acoustic Parameters and Sonication Schemes on Transcranial Blood-Brain Barrier Disruption Induced by Pulsed Weakly Focused Ultrasound. Pharmaceutics 14(6):1207.",
+      "doi_or_pmid": "10.3390/pharmaceutics14061207",
+      "species": "mouse (C57BL/6, 19-25 g)",
+      "pediatric_or_adult": "adult animal (not pediatric)",
+      "model_system": "in vivo mouse",
+      "verification": "primary source fetched directly (PMC9227051). This is the actual 'Hsu' first-authored 2013-adjacent paper found in this search; it is dated 2022, not 2013. Flagged: the task brief's 'Hsu et al. 2013' reference could not be verified as an existing publication under that exact author/year; this 2022 paper by the same first author is the closest verified match and is used instead, with the year discrepancy stated explicitly.",
+      "reported_data": {
+        "frequency_MHz": 1.0,
+        "pressure_MPa": 0.56,
+        "burst_lengths_ms_tested": [10, 30, 50],
+        "PRF_Hz": 1,
+        "duty_cycle_pct_tested": [1.0, 3.0, 5.0],
+        "sonication_durations_s_tested": [60, 90, 120, 150],
+        "microbubble": "SonoVue, 100/150/200/300 uL/kg",
+        "finding_duty_cycle": "Evans-blue (BBB-opening proxy) brain accumulation increased monotonically as burst length/duty cycle increased from 10 ms (1%) to 50 ms (5%) at fixed PRF -- direction and ordering are reported; exact per-step magnitudes were not recoverable from the accessible text.",
+        "finding_sonication_time": "no significant difference in accumulation across 60-150 s at fixed duty cycle",
+        "finding_two_spot_scheme": "two-spot sonication increased accumulation 74.8% over one-spot at equal total dose",
+        "safety": "Grade 1 (minor) and Grade 2 (petechial) hemorrhage each in 50% of one-spot-treated animals at these settings; no Grade 3"
+      },
+      "use_in_model": "Only real quantitative-direction evidence found for duty-cycle dependence of BBB-opening extent. Used to set the qualitative shape of DC_factor (still increasing, not saturated, between 1% and 5% duty cycle) and to override the previous ASSUMED DC_SATURATION=0.02 (2%) constant, which this data contradicts (opening was still increasing at 5%). Exact curve steepness beyond the ordering is NOT derivable from this source and is flagged ASSUMED in the model."
+    },
+
+    {
+      "id": "goss1978_duck",
+      "citation": "Goss SA, Johnston RL, Dunn F (1978). Comprehensive compilation of empirical ultrasonic properties of mammalian tissues. Journal of the Acoustical Society of America 64(2):423-457. Cross-checked against the commonly cited compiled brain-tissue value (e.g. Duck FA, Physical Properties of Tissue, 1990).",
+      "doi_or_pmid": "PMID 361793",
+      "species": "mammalian (compiled, multi-species)",
+      "pediatric_or_adult": "not age-stratified in the compiled value used here",
+      "model_system": "literature compilation of >140 primary papers",
+      "verification": "primary PDF fetch failed (binary/corrupted extraction); the brain-tissue attenuation value used here (~0.5-0.6 dB/cm/MHz) was obtained from search-engine snippets citing this compilation and the Duck (1990) textbook restating it, not read directly from the primary PDF text. Flagged as secondary-sourced and treated as an approximate literature range, not a precise point value.",
+      "reported_data": {
+        "brain_attenuation_dB_per_cm_at_1MHz_reported_range": [0.5, 0.58],
+        "generic_soft_tissue_attenuation_dB_per_cm_per_MHz": 0.5
+      },
+      "use_in_model": "Post-skull/post-fontanelle brain-tissue path attenuation coefficient (the dominant term for deep regions like Thalamus, since most of the 25-55 mm path is brain, not bone/fontanelle). This value is close to, and now replaces with an actual citation, the previous file's unverifiable 'per task brief / NIST reference values' claim for the same 0.5 dB/cm/MHz-ish magnitude."
+    },
+
+    {
+      "id": "fontanelle_closure_ages",
+      "citation": "StatPearls: Anatomy, Head and Neck: Fontanelles (NCBI Bookshelf NBK542197); Children's Hospital Colorado patient education page; AAFP 'The Abnormal Fontanel' (2003).",
+      "doi_or_pmid": "NBK542197 (StatPearls)",
+      "species": "human",
+      "pediatric_or_adult": "pediatric",
+      "model_system": "clinical/anatomical reference, not a primary research study",
+      "verification": "search-snippet secondary confirmation across 3 independent clinical-reference sources; standard, widely-taught pediatric anatomy facts, not a novel measurement.",
+      "reported_data": {
+        "anterior_fontanelle_closure_months": {"median": 13.8, "range": [12, 24]},
+        "posterior_fontanelle_closure_months": {"range": [1.5, 2.0]},
+        "mastoid_fontanelle_closure_months": {"range": [6, 18]},
+        "sphenoid_fontanelle_closure_months": "not found in accessible sources -- NO_DATA"
+      },
+      "use_in_model": "Age gate that switches each region's transmission path between the 'open fontanelle' (colas2015-anchored, near-transparent) regime and the 'closed/ossified' (alsanea2025 thickness-scaled adult attenuation) regime, per region-to-fontanelle assignment inherited from the pre-existing lifu_acoustic.py region table."
+    },
+
+    {
+      "id": "wu2025_pediatric_fus",
+      "citation": "Wu CC, Zalontay L, Pouliopoulos AN, et al. (2025). Blood-brain barrier opening with neuronavigation-guided focused ultrasound in pediatric patients with diffuse midline glioma. Science Translational Medicine 17(eadq6645).",
+      "doi_or_pmid": "10.1126/scitranslmed.adq6645, PMID 41223245",
+      "species": "human, pediatric",
+      "pediatric_or_adult": "pediatric, ages 4-21 years eligible (trial enrolled/treated 3 patients within this range) -- ossified skull, NOT open-fontanelle/infant",
+      "model_system": "single-arm first-in-pediatric clinical trial (NCT04804709), n=3 patients treated, 26 FUS-BBBO procedures total",
+      "verification": "primary source fetched directly (open-access author-hosted PDF mirror of the final published Sci Transl Med article, cross-checked against the PubMed/Science.org listing for the same DOI)",
+      "reported_data": {
+        "device": "UltraNav (Delsona), single-element H-231 transducer (Sonic Concepts)",
+        "frequency_MHz": 0.25,
+        "target_in_situ_peak_negative_pressure_MPa": 0.2,
+        "MI_at_target": 0.4,
+        "MI_definition": "0.2 MPa / sqrt(0.25 MHz) = 0.4",
+        "dosing_method": "patient-specific: pre-treatment CT-based skull density/speed-of-sound map, 3D k-Wave simulation per target, insertion-loss coefficient computed per patient, source power adjusted so ESTIMATED in-situ PNP = 0.2 MPa",
+        "why_this_pressure": "explicitly stated as the lowest derated peak-negative pressure permitted under the study's investigational-device-exemption (IND) safety constraints, NOT derived from a measured pediatric BBB-opening threshold -- i.e. this is a regulatory/safety floor, not a biological calibration point. Quote (paraphrased from Discussion): preclinical work used a higher pressure than the clinical device's permitted floor.",
+        "outcome": "BBBO confirmed by contrast MRI in all 3 patients over the course of treatment; per-procedure paired-MRI confirmation rate was partial (of 22 1-NOTS procedures, MRI pairing was done for 9: 3 confirmed open, 6 confirmed not open; 13 procedures were not paired with an MRI)",
+        "adverse_events": "no serious AEs attributed to the FUS device itself; one grade 1 transient skin irritation"
+      },
+      "critical_limitation": "Ages 4-21 (trial-treated patients were within this pediatric range but exact individual ages were not extracted from the accessible text) with an ossified skull and per-patient CT-based acoustic derating -- this is NOT the open-fontanelle/infant (0-12 month) population this model targets. Because the operating MI (0.4) was chosen for regulatory-safety reasons (the IND's permitted floor), NOT to test or measure a pediatric-specific biological threshold, the partial (not saturated) opening rate observed at MI=0.4 CANNOT be interpreted as evidence that pediatric/juvenile human BBB opens at a lower or higher MI than the adult anchor (mcdannold2008, MI=0.46). It is, at most, a rough consistency check: a MI slightly below the adult 50%-probability point producing a mixed (not-all, not-none) opening rate in real pediatric human tissue is NOT inconsistent with the adult-derived sigmoid, but does not confirm or calibrate it either.",
+      "use_in_model": "NOT used as a calibration anchor for the MI sigmoid (see critical_limitation). Cited in the model report as the only located real-world human pediatric FUS-BBBO dose data, presented as context/consistency-check for the non-infant end of the pediatric age range, clearly separated from the infant-specific biological-scaling gap that item 2 (2026-09-12) addresses. Also independently informative: its CT-based per-patient acoustic derating methodology (attenuation coefficient from k-Wave simulation on patient CT) is structurally the same kind of approach this model's transmission term T(f,region,age) already uses for infants, which is a point of methodological convergence worth noting even though the population differs."
+    },
+
+    {
+      "id": "hanafy_dietrich2026",
+      "citation": "Hanafy AS, Dietrich D (2026). Transient weakening of the blood-brain barrier in neonatal mice. Fluids and Barriers of the CNS 23:98.",
+      "doi_or_pmid": "10.1186/s12987-026-00858-7, PMID 42587311",
+      "species": "mouse (C57BL/6-background, ages embryonic day 18 through postnatal day 25)",
+      "pediatric_or_adult": "developmental time-course, NOT ultrasound-related -- general (passive, unperturbed) BBB tracer-permeability maturation study",
+      "model_system": "in situ microperfusion of capillaries (ISMICAP) combined with two-photon microscopy, striatum, multiple small-molecule and one macromolecule tracer at each of E18/P0-P2/P12/P25",
+      "verification": "primary source fetched directly (PMC13471617, free full text)",
+      "reported_data": {
+        "tracers_and_ages": "7-hydroxycoumarin-3-carboxylic acid (7HCC), sulforhodamine 101 (SR101), biocytin-tetramethylrhodamine (TMR, small-molecule dyes) and FM1-43 (membrane probe) at peak neonatal permeability (~P1-P2) vs. adolescent/near-adult baseline (P25); bovine serum albumin (BSA, ~66 kDa macromolecule) at P2 vs P25",
+        "FM1-43_abluminal_fluorescence_normalized": {"P1": {"mean": 0.18, "sd": 0.02}, "P25": {"mean": 0.09, "sd": 0.01}, "fold_change_P1_over_P25": 2.0},
+        "SR101_TMR_extravascular_fluorescence_pct": {
+          "P25": {"SR101_mean_pct": 0.9, "SR101_sd": 0.2, "TMR_mean_pct": 0.7, "TMR_sd": 0.4},
+          "peak_neonatal_note": "reported only graphically (Fig 1b) in the accessible text, not as an exact table value; approximately 3.5-6x the P25 magnitude by visual estimate -- NOT used as a precise number in this model, cited only as directional corroboration that the effect is real and, if anything, larger than the FM1-43 ratio for some small-molecule tracers"
+        },
+        "BSA_finding": "extravascular BSA signal normalized to intraluminal fluorescence DID NOT DIFFER between P2 and P25 striata -- i.e. no measurable neonatal-vs-adult difference for this macromolecular (66 kDa) tracer",
+        "qualitative_finding": "small-molecule tracer paracellular permeability increases abruptly but transiently in neonates (peaking ~P1-P2) then declines to its lowest, adult-like level by P25; effect size and even presence of the effect is tracer/size-dependent -- present and ~2-fold (FM1-43, precisely quantified) to ~5-fold (SR101/TMR, graphically estimated) for small molecules, ABSENT for a 66 kDa macromolecule (BSA)"
+      },
+      "critical_limitation": "(1) NOT a focused-ultrasound or cavitation study -- this is baseline/passive paracellular tracer permeability, used here only BY ANALOGY to a mechanically-forced cavitation-induced opening, a mechanistic leap that is not itself validated anywhere in the literature. (2) Mouse postnatal-day ages do not map onto human infant months via any citation obtained in this search; this model applies the finding as a coarse binary (infant-regime vs. adult-regime) bound across the entire 0-12 month human target range rather than inventing an interpolated age curve within human infancy that no source supports. (3) The size-dependence (present for small dyes, absent for a 66 kDa macromolecule) matters directly for this application: gm2_model_v2.py's actual FUS-relevant cargo (AAV capsids, ~20-25 nm, therefore far larger than BSA) is mechanistically closer in size to the macromolecule tracer that showed NO age effect than to the small-molecule dyes that showed a 2-5x effect. This is stated explicitly rather than picking whichever number is more convenient.",
+      "use_in_model": "Basis for the 2026-09-12 item-2 infant biological-scaling bounds (see 'infant_bbb_scaling_derivation' section below): the FM1-43 2.0-fold ratio is used as the LOWER MI-threshold bound (infant opens more easily than adult, by analogy to small-molecule paracellular permeability), and the BSA null finding is used as the UPPER MI-threshold bound (infant no different from adult, by analogy to macromolecule/AAV-scale permeability, the more mechanistically relevant size class for this project's actual FUS application). No single point estimate is derived from this source -- see derivation section for why a bounded range, not a point value, is the honest reading of this evidence."
+    },
+
+    {
+      "id": "zhou2024_biorxiv_transporters",
+      "citation": "Zhou X, et al. (2024). Proteomic Profiling Reveals Age-Related Changes in Transporter Proteins in the Human Blood-Brain Barrier. bioRxiv preprint.",
+      "doi_or_pmid": "10.1101/2024.07.26.604313, PMID 39091855",
+      "species": "human, postmortem BBB tissue proteomics",
+      "pediatric_or_adult": "lifespan cohort, 'Development' group = 34 weeks gestation to 3 years, through 'Adult' (4-60y) and 'Elderly' (>60y)",
+      "model_system": "quantitative proteomics of isolated human brain microvessels across age groups",
+      "verification": "primary source fetched directly (PMC11291171 / bioRxiv preprint, not yet peer-reviewed as of this search -- flagged as preprint status)",
+      "reported_data": {
+        "TFRC_transferrin_receptor_pct_reduction_development_to_adult": 78.5,
+        "SLC7A5_LAT1_pct_reduction_development_to_adult": 55.2,
+        "ABCB1_Pgp_expression_range_fmol_per_ug": [1.45, 13.78],
+        "note": "these are TRANSPORTER-MEDIATED pathway proteins (receptor-mediated transcytosis, amino-acid transport, efflux), not tight-junction/paracellular structural proteins"
+      },
+      "critical_limitation": "Preprint (not confirmed peer-reviewed/published in a journal as of this search). Mechanistically further from FUS-cavitation's paracellular tight-junction disruption mechanism than hanafy_dietrich2026 -- these transporters govern active/receptor-mediated and efflux pathways, not the passive paracellular gap that ultrasound-induced cavitation mechanically forces open. Age-band resolution (0-3 years lumped as one 'Development' group) is too coarse to isolate an infant-specific (0-12mo) number.",
+      "use_in_model": "NOT used as a quantitative input to the eta model. Cited as corroborating, independent (human, not mouse) evidence that SOME age-dependent structural/molecular difference in the pediatric human BBB is real and substantial in magnitude (order 50-80% changes in specific proteins), which supports treating age-dependence as physiologically plausible in principle -- but its transporter-pathway focus means it does not itself supply a usable cavitation-relevant number, so it is not used to set the numeric bounds (those come from hanafy_dietrich2026)."
+    }
+  ],
+
+  "infant_bbb_dose_response_scaling_2026-09-12": {
+    "_purpose": "Item 2 of the 2026-09-12 task: broaden the search for infant/neonatal/juvenile FUS-BBB-opening dose-response data; if none exists, use the first of options A (age-scaling from general BBB-permeability-maturation literature), B (allometric/tissue-property first-principles scaling), or C (explicit bounded sensitivity range) that has real supporting evidence, in that order, combining methods if partial evidence supports each.",
+    "search_result": "Broadened search (piglet, neonatal rodent, juvenile animal, and human pediatric FUS-BBB-opening dose-response) confirms the 2026-09-11 finding: no direct infant/neonatal/open-fontanelle FUS-BBB-opening dose-response study exists in the literature located by this search. One human pediatric FUS-BBBO trial was found and its primary text obtained (wu2025_pediatric_fus, ages 4-21y) but it targets an ossified-skull population outside this model's 0-12-month infant/open-fontanelle scope, and its operating MI was a regulatory safety floor, not a measured threshold -- see wu2025_pediatric_fus.critical_limitation. One relevant large-animal (piglet) FUS-BBBO study was located via search but its primary text was paywalled/inaccessible in this session, so no usable quantitative number could be extracted from it; it is not cited with numbers as a result.",
+    "option_used": "A, combined with C for delivery: a real, cited, general (non-FUS) BBB-permeability-maturation source (hanafy_dietrich2026) supplies two real quantitative ratios that bound, rather than pin down, an analogy-based correction to the adult MI-response sigmoid center. Option A alone (a single point-scaling factor) was rejected as dishonest because the source's own data is tracer-size-dependent and bidirectional in what it implies (2x for small molecules, 1x/no-effect for a macromolecule) -- collapsing that to one number would hide real disagreement in the source evidence. Option B (allometric/first-principles tissue-property scaling) was not reached: no independently-measured infant vs adult tissue stiffness, water content, or myelination data usable for a first-principles cavitation-threshold derivation was found in this pass beyond what alsanea2025 (geometric thickness only) already supplies, which is already fully used in the transmission term and has no bearing on the biological cavitation threshold. Option C (bounded range) was therefore used for the actual model output, with both bounds now DERIVED from a real citation rather than from qualitative direction-only reasoning as the task's own fallback describes -- this is a stronger position than plain Option C.",
+    "derivation": [
+      "1. hanafy_dietrich2026 measured neonatal (~P1-P2) vs near-adult (P25) mouse BBB paracellular tracer permeability for several tracers of different size.",
+      "2. For FM1-43 (a small membrane-partitioning probe, exact table values reported with SD): P1 = 0.18 +/- 0.02, P25 = 0.09 +/- 0.01 (normalized abluminal fluorescence) -> ratio = 2.0 (P1/P25).",
+      "3. For BSA (~66 kDa, the tracer closest in size to this project's actual FUS-relevant cargo, AAV capsids ~20-25 nm / much larger than small-molecule dyes): no measurable difference between P2 and P25 -> ratio = 1.0.",
+      "4. ASSUMPTION (explicitly not literature-derived, stated here rather than hidden): the mechanical index required to reach a given BBB-opening probability scales inversely, and linearly, with this baseline passive-permeability ratio -- i.e. MI0_infant = MI0_adult / k, for k in {1.0 (macromolecule-consistent, upper bound on MI0, i.e. LEAST permissive plausible infant value), 2.0 (small-molecule-consistent, lower bound on MI0, i.e. MOST permissive plausible infant value)}. This proportionality assumption is a physically-motivated analogy (more baseline paracellular leak -> less additional mechanical force needed to force further transient opening), not a validated pharmacodynamic law; no source in this search establishes the functional form of that relationship for cavitation-induced (as opposed to passive) BBB opening.",
+      "5. Applying this to the corrected mcdannold2008 central anchor (MI0_adult = 0.46, item 1 of this task): MI0_infant in [0.46/2.0, 0.46/1.0] = [0.23, 0.46].",
+      "6. No literature evidence was found supporting an infant threshold HIGHER than the adult value (i.e. k<1.0, infant LESS permeable) -- the upper bound of this range is therefore 'no different from adult' (k=1.0), the most conservative reading consistent with available evidence, not a literature-sourced claim that infants are less permeable.",
+      "7. This range is propagated through the full eta model (transmission x cavitation x duty-cycle) as an additional Monte Carlo axis, on top of (not replacing) the existing literature-uncertainty propagation from v1 -- see lifu_acoustic_model_v2.py, INFANT_MI_K_LOWER_BOUND / INFANT_MI_K_UPPER_BOUND. This widens, rather than narrows, v1's reported uncertainty, since v1 silently used the adult-only point value (equivalent to fixing k=1.0) with no infant-specific bound at all."
+    ],
+    "honest_reading": "This is an analogy-based bound, not a measurement. It rests on: (a) a real, primary-sourced, quantitative age-dependent permeability finding in mice, general (not FUS) BBB biology; (b) an explicit, stated (not hidden) assumption that this baseline-permeability ratio translates linearly into an inverse MI-threshold shift for FUS-cavitation-induced opening, which is unproven; (c) a species leap (mouse to human) and a mechanism leap (passive paracellular tracer diffusion to forced mechanical cavitation) that are both flagged, not elided. The resulting range (MI0 in [0.23, 0.46], i.e. up to 2x more permissive than adult, down to no different from adult) should be read as the plausible envelope this specific chain of literature-grounded reasoning supports -- not as 'the infant threshold is between these two numbers' in a validated sense."
+  },
+
+  "parameters_with_real_usable_data": [
+    "Adult skull bone attenuation vs. frequency (3 real points, 1 source, pichardo2011)",
+    "Adult skull thickness and density (1 source, pichardo2011)",
+    "Infant skull thickness vs. age, 4 regions x 4 age brackets, 0-12 months (1 source, n=266, alsanea2025)",
+    "Infant open-fontanelle insertion loss at 1-1.2 MHz (1 source, n=1 specimen, colas2015)",
+    "Infant ossified-skull insertion loss at 1-1.2 MHz (1 source, n=1 specimen, colas2015)",
+    "Cavitation-onset dose-response in terms of mechanical index, cross-checked across 3 independent species/studies (tung2011 mouse, mcdannold2008 rabbit, chu2016 rat)",
+    "MI as the appropriate frequency-normalizing variable for cavitation threshold (explicitly demonstrated frequency-independent within chu2016 and across mcdannold2008's frequency sweep)",
+    "Qualitative direction (not magnitude) of duty-cycle dependence of BBB-opening extent, 1-5% duty cycle (hsu2022)",
+    "Standard/consensus duty cycle used across the field (~1%, burst 10ms @ PRF 1Hz) -- convergent convention across wei_hsu2013, hsu2022, and the broader field (O'Reilly/Hynynen protocol description)",
+    "Fontanelle closure ages by fontanelle (anterior/posterior/mastoid) (clinical reference, not primary research)",
+    "Brain (post-skull) tissue attenuation coefficient order-of-magnitude, ~0.5-0.6 dB/cm/MHz (secondary-sourced compilation)"
+  ],
+
+  "parameters_with_no_usable_data_found": [
+    {
+      "parameter": "Microbubble CONCENTRATION (bubbles/mL or mL/kg dose) vs. cavitation-threshold shift, as a quantitative dose-response curve",
+      "why_not_found": "Available studies vary microbubble SIZE (tung2011) or report single fixed doses with hemorrhage grading (hsu2022, wei_hsu2013), not a swept concentration-vs-threshold curve. No usable concentration-dose-response curve was found in this search.",
+      "disposition_in_model": "kept as an explicitly ASSUMED power-law exponent, flagged in code, unchanged in kind (though re-justified) from the pre-existing lifu_acoustic.py treatment."
+    },
+    {
+      "parameter": "Any BBB-opening dose-response data measured directly in an infant/neonatal/open-fontanelle model at any age (FUS-specific)",
+      "why_not_found": "UPDATED 2026-09-12 (item 2, broadened search): still no preclinical (piglet, neonatal rodent) or clinical infant/neonatal FUS-BBB-opening dose-response study was located with accessible primary text. A piglet FUS-BBBO study exists (closed-loop cavitation feedback, large-animal model) but its primary text is paywalled/inaccessible, so no usable number could be extracted. The pediatric human FUS-BBB trial (wu2025_pediatric_fus, Wu et al. 2025, Sci Transl Med) WAS obtained in full text this pass (previously 403/inaccessible) -- but it targets ages 4-21y with an ossified skull, not the 0-12-month open-fontanelle regime, and its operating pressure was an IND regulatory safety floor rather than a measured biological threshold (see wu2025_pediatric_fus.critical_limitation), so it does not fill this specific gap even though it is now accessible.",
+      "disposition_in_model": "This remains the single largest gap in the entire model for the specific target population (0-12 months, open fontanelle): every cavitation-threshold number is still adult-human-derived-anchor or adult-animal (mouse/rat/rabbit) dose-response. UPDATED: rather than leaving this gap unaddressed, a bounded biological-scaling correction has now been derived (see 'infant_bbb_dose_response_scaling_2026-09-12' above) from a real, cited, general (non-FUS) BBB-permeability-maturation source (hanafy_dietrich2026), applied explicitly BY ANALOGY, with the resulting uncertainty propagated as a wider range in lifu_acoustic_model_v2.py rather than collapsed to a single adult-equivalent point value. This is presented as a documented, bounded estimate under uncertainty, not a claim that the underlying data gap has been closed -- the gap statement above (no direct infant FUS-BBB dose-response measurement exists) remains true and is still flagged at the top of the model report."
+    },
+    {
+      "parameter": "Frequency-resolved (not just 2-point) attenuation coefficient specifically for infant/neonatal bone",
+      "why_not_found": "colas2015 (the only neonatal skull acoustic dataset found) reports total insertion loss at only 1.0 and 1.2 MHz for n=1 specimen -- not a frequency curve, and not an intrinsic per-mm attenuation coefficient.",
+      "disposition_in_model": "the model extrapolates using the ADULT frequency-dependence shape (pichardo2011) scaled by the infant/adult thickness ratio; this assumes infant ossified bone has the same per-mm frequency-dependence as adult cortical bone, which is NOT independently verified and is flagged ASSUMED-EXTRAPOLATION in the code."
+    },
+    {
+      "parameter": "Region-specific (temporal/mastoid) infant skull thickness",
+      "why_not_found": "alsanea2025 reports only frontal, parietal, and occipital regional thickness; no temporal or mastoid-specific thickness by age was found.",
+      "disposition_in_model": "regions assigned to the mastoid-fontanelle route use the mean of parietal+occipital thickness as a proxy, flagged ASSUMED."
+    },
+    {
+      "parameter": "Sphenoid fontanelle closure age",
+      "why_not_found": "not reported in the clinical references consulted.",
+      "disposition_in_model": "not used; no region in the existing lifu_acoustic.py table is assigned to the sphenoid fontanelle."
+    }
+  ]
+}

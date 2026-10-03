@@ -1,0 +1,271 @@
+{
+  "_generated_by": "generate_eta_results_v2.py + lifu_acoustic_model_v2.py",
+  "_date": "2026-09-12",
+  "_supersedes": "eta_results_v1_archived_2026-09-11.json (kept, unmodified, as the historical record)",
+  "_status": "REAL MODEL OUTPUT -- literature-parameterized biophysical model, NOT a placeholder/default prior. See literature_calibration_data.json for full source-by-source provenance (including the new 'infant_bbb_dose_response_scaling_2026-09-12' derivation) and LIFU_MODEL_V2_ADDENDUM.md for the full item-1/2/3 report. This does NOT mean these values are clinically validated -- see 'biggest_caveat'.",
+  "biggest_caveat": "No published FUS-BBB-opening dose-response study exists in any infant, neonate, or open-fontanelle skull (re-confirmed by a broadened search on 2026-09-12). The cavitation dose-response sigmoid is fit to 3 adult-animal studies (mouse/rabbit/rat); the skull-transmission term is fit to human adult ex vivo skull data plus a single (n=1) neonatal cadaver skull specimen and a 266-infant CT thickness study. As of 2026-09-12, a bounded (not point) biological-scaling correction is applied to the cavitation term for the infant age range, derived BY ANALOGY from a real, cited, general (non-FUS) mouse BBB-permeability-maturation study -- this makes the model's uncertainty WIDER and more honest than the 2026-09-11 version, which silently assumed infant biology = adult biology. It does not close the underlying data gap: no direct infant FUS-BBB measurement exists. See 'infant_biological_scaling' below for the full, labeled range.",
+  "infant_biological_scaling": {
+    "method": "Option A (age-scaling from general BBB-permeability-maturation literature) combined with Option C (explicit bounded range, not a point estimate), per the task's A-then-B-then-C escalation order. Option B (allometric/tissue-property first-principles scaling) was not reached -- no independently-measured infant tissue-mechanical-property data usable for a cavitation-threshold derivation was found beyond the geometric CT thickness data already used in the transmission term.",
+    "citation": "Hanafy AS, Dietrich D (2026). Transient weakening of the blood-brain barrier in neonatal mice. Fluids and Barriers of the CNS 23:98. DOI 10.1186/s12987-026-00858-7 (mouse, general/passive BBB tracer-permeability maturation, NOT a FUS study -- applied here as an analogy, stated explicitly).",
+    "bounds": {
+      "conservative_k1.0": "MI0_infant = MI0_adult (no shift). Basis: BSA (66 kDa macromolecule, size-class closest to this project's actual AAV-scale FUS cargo) showed NO measurable neonatal-vs-adult permeability difference in the cited source.",
+      "permissive_k2.0": "MI0_infant = MI0_adult / 2. Basis: FM1-43 (small-molecule tracer) showed a 2.0x (0.18+/-0.02 vs 0.09+/-0.01) neonatal-vs-adult permeability ratio in the cited source.",
+      "no_less_permeable_bound": "No literature evidence was found supporting an infant threshold HIGHER than the adult value; that direction is absent from the range because no source supports it, not because it was assumed away."
+    },
+    "honest_reading": "This is an analogy-based, explicitly-flagged bound, not a measurement. It rests on a real citation for general (non-FUS) BBB biology, an unproven-but-stated proportionality assumption linking baseline permeability to cavitation-forced opening threshold, and a species leap (mouse to human) applied as a coarse infant/adult binary rather than a fabricated continuous age curve. See literature_calibration_data.json -> infant_bbb_dose_response_scaling_2026-09-12 for the full derivation."
+  },
+  "reference_operating_point": {
+    "frequency_MHz": 0.5,
+    "source_pressure_P0_MPa": 0.6,
+    "duty_cycle": 0.01,
+    "note": "P0/frequency/DC match the real published adult-rat operating point in Wei/Chu/Hsu et al. 2013 (PLOS ONE 8(3):e58995) -- used as a realistic reference call, not a validated infant protocol."
+  },
+  "model_fit_diagnostics": {
+    "adult_skull_attenuation_power_law": {
+      "form": "alpha_dB_per_cm = a * f_MHz^b",
+      "a": 20.777679544406464,
+      "b": 1.4410628137800716,
+      "log_log_r2": 0.8883367036018666,
+      "source": "pichardo2011, n=3 frequency points, 1 source -- no independent replication (unchanged from v1 -- item 3 found no additional usable CT/acoustic data)"
+    },
+    "MI_cavitation_sigmoid": {
+      "center_MI0": 0.43607459906216733,
+      "width": 0.11718528206917055,
+      "source": "3 cross-species anchors (tung2011 mouse, mcdannold2008 rabbit [CORRECTED 2026-09-12: MI=0.46, 95% CI (0.42, 0.5), primary-sourced -- was 0.47, secondary-sourced, in v1], chu2016 rat); only the mcdannold2008 anchor is a literal measured probability."
+    },
+    "infant_biological_scaling_k_bounds": [
+      1.0,
+      2.0
+    ],
+    "infant_biological_scaling_applies_up_to_age_months": 12.0,
+    "leave_one_out_validation": [
+      {
+        "held_out": "tung2011 (mouse)",
+        "held_out_MI": 0.245,
+        "assumed_true_probability": 0.2,
+        "predicted_probability": 0.06514038759901003,
+        "abs_error": 0.13485961240098998
+      },
+      {
+        "held_out": "mcdannold2008 (rabbit)",
+        "held_out_MI": 0.46,
+        "assumed_true_probability": 0.5,
+        "predicted_probability": 0.6233578919416478,
+        "abs_error": 0.12335789194164781
+      },
+      {
+        "held_out": "chu2016 (rat)",
+        "held_out_MI": 0.6,
+        "assumed_true_probability": 0.85,
+        "predicted_probability": 0.7115047156615696,
+        "abs_error": 0.1384952843384304
+      }
+    ]
+  },
+  "eta_by_age_months": {
+    "1.5": {
+      "Frontal Cortex": {
+        "eta_median": 0.16520310188750598,
+        "eta_p5": 0.14253180753883707,
+        "eta_p95": 0.18231832249121255,
+        "eta_conservative_k1.0": 0.15820585873522316,
+        "eta_permissive_k2.0": 0.1692038965167466,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      },
+      "Parietal Cortex": {
+        "eta_median": 0.15984751195427385,
+        "eta_p5": 0.13690851516765415,
+        "eta_p95": 0.1769138264783925,
+        "eta_conservative_k1.0": 0.1516782293370208,
+        "eta_permissive_k2.0": 0.16415617242825276,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      },
+      "Thalamus": {
+        "eta_median": 0.14890517719739774,
+        "eta_p5": 0.1253328939297121,
+        "eta_p95": 0.16614288902726776,
+        "eta_conservative_k1.0": 0.1381982008435929,
+        "eta_permissive_k2.0": 0.15403595178494842,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      },
+      "Basal Ganglia": {
+        "eta_median": 0.1514149875646249,
+        "eta_p5": 0.12826007929484506,
+        "eta_p95": 0.16840874013671062,
+        "eta_conservative_k1.0": 0.14134810941951637,
+        "eta_permissive_k2.0": 0.15636745177230382,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      },
+      "Temporal Lobe": {
+        "eta_median": 0.1541087078515278,
+        "eta_p5": 0.13122992489687257,
+        "eta_p95": 0.1711091798423544,
+        "eta_conservative_k1.0": 0.14471870408471893,
+        "eta_permissive_k2.0": 0.1588837745281559,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      },
+      "Occipital Lobe": {
+        "eta_median": 0.16114496529642514,
+        "eta_p5": 0.13987798057770778,
+        "eta_p95": 0.17685876417269908,
+        "eta_conservative_k1.0": 0.15329897051184815,
+        "eta_permissive_k2.0": 0.16539985637551344,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      },
+      "Cerebellum": {
+        "eta_median": 0.15564853058718478,
+        "eta_p5": 0.13421619125074585,
+        "eta_p95": 0.17147736085966372,
+        "eta_conservative_k1.0": 0.14656029910505605,
+        "eta_permissive_k2.0": 0.1602685573677817,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      },
+      "Hippocampus": {
+        "eta_median": 0.15247757403543188,
+        "eta_p5": 0.1294629440567967,
+        "eta_p95": 0.16948568138847458,
+        "eta_conservative_k1.0": 0.1426962787989554,
+        "eta_permissive_k2.0": 0.15737117811379112,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      }
+    },
+    "6.0": {
+      "Frontal Cortex": {
+        "eta_median": 0.1637431096415477,
+        "eta_p5": 0.14176966250635695,
+        "eta_p95": 0.1800906948705963,
+        "eta_conservative_k1.0": 0.15636190893965707,
+        "eta_permissive_k2.0": 0.1677674370521996,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      },
+      "Parietal Cortex": {
+        "eta_median": 0.15881091435792122,
+        "eta_p5": 0.13674948950175492,
+        "eta_p95": 0.17523313458431364,
+        "eta_conservative_k1.0": 0.15044822898461171,
+        "eta_permissive_k2.0": 0.16321643149390092,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      },
+      "Thalamus": {
+        "eta_median": 0.14799160554723323,
+        "eta_p5": 0.1250638268862191,
+        "eta_p95": 0.16458533210366313,
+        "eta_conservative_k1.0": 0.1369685519513211,
+        "eta_permissive_k2.0": 0.15313074398118864,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      },
+      "Basal Ganglia": {
+        "eta_median": 0.14975230605200907,
+        "eta_p5": 0.1276510745697293,
+        "eta_p95": 0.16560645031816656,
+        "eta_conservative_k1.0": 0.13911808778114287,
+        "eta_permissive_k2.0": 0.15471491318029773,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      },
+      "Temporal Lobe": {
+        "eta_median": 0.15237140296627422,
+        "eta_p5": 0.13061287022657475,
+        "eta_p95": 0.16829268508400397,
+        "eta_conservative_k1.0": 0.14248803871299465,
+        "eta_permissive_k2.0": 0.15721590528149432,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      },
+      "Occipital Lobe": {
+        "eta_median": 0.1444278215640158,
+        "eta_p5": 0.12436985689158114,
+        "eta_p95": 0.15503389543272514,
+        "eta_conservative_k1.0": 0.13147591412930254,
+        "eta_permissive_k2.0": 0.1491183949991811,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      },
+      "Cerebellum": {
+        "eta_median": 0.1391413695839505,
+        "eta_p5": 0.11864596983493053,
+        "eta_p95": 0.15026860154835234,
+        "eta_conservative_k1.0": 0.12477267168782423,
+        "eta_permissive_k2.0": 0.14428098630286976,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      },
+      "Hippocampus": {
+        "eta_median": 0.15079143657169172,
+        "eta_p5": 0.12882706140314099,
+        "eta_p95": 0.1666805519294543,
+        "eta_conservative_k1.0": 0.14046589126578424,
+        "eta_permissive_k2.0": 0.15571255801671796,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      }
+    },
+    "12.0": {
+      "Frontal Cortex": {
+        "eta_median": 0.1545004443975494,
+        "eta_p5": 0.13446574346964585,
+        "eta_p95": 0.1672325505128281,
+        "eta_conservative_k1.0": 0.14479401039565787,
+        "eta_permissive_k2.0": 0.1589402601733209,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      },
+      "Parietal Cortex": {
+        "eta_median": 0.15220247795898573,
+        "eta_p5": 0.13200882224372176,
+        "eta_p95": 0.16487125787650433,
+        "eta_conservative_k1.0": 0.14191295997958395,
+        "eta_permissive_k2.0": 0.15678755109597048,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      },
+      "Thalamus": {
+        "eta_median": 0.14168440927864218,
+        "eta_p5": 0.1205104672746646,
+        "eta_p95": 0.1547996922851257,
+        "eta_conservative_k1.0": 0.1284563364812965,
+        "eta_permissive_k2.0": 0.14693210196087042,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      },
+      "Basal Ganglia": {
+        "eta_median": 0.14035416495965666,
+        "eta_p5": 0.11949265607483969,
+        "eta_p95": 0.15260056165727742,
+        "eta_conservative_k1.0": 0.12660929172278726,
+        "eta_permissive_k2.0": 0.1456007507561047,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      },
+      "Temporal Lobe": {
+        "eta_median": 0.14300717470748117,
+        "eta_p5": 0.12227205830506559,
+        "eta_p95": 0.15499140290384264,
+        "eta_conservative_k1.0": 0.12996163881559894,
+        "eta_permissive_k2.0": 0.14802041237292385,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      },
+      "Occipital Lobe": {
+        "eta_median": 0.1375707271287354,
+        "eta_p5": 0.11612804483473003,
+        "eta_p95": 0.14963547044293002,
+        "eta_conservative_k1.0": 0.12266511978888411,
+        "eta_permissive_k2.0": 0.14277106539537457,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      },
+      "Cerebellum": {
+        "eta_median": 0.13238117135108418,
+        "eta_p5": 0.11027586171332249,
+        "eta_p95": 0.14495842872629905,
+        "eta_conservative_k1.0": 0.11602592220917815,
+        "eta_permissive_k2.0": 0.13803981987713188,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      },
+      "Hippocampus": {
+        "eta_median": 0.14140589149042843,
+        "eta_p5": 0.12059130987252528,
+        "eta_p95": 0.15355249222544914,
+        "eta_conservative_k1.0": 0.1279491875365653,
+        "eta_permissive_k2.0": 0.14656611882184395,
+        "note": "p5/p95 combine v1's literature-uncertainty axes with a uniform draw over the item-2 infant biological-scaling bound (k in [1.0, 2.0], age<=12mo only). conservative_k1.0_point and permissive_k2.0_point are the two labeled ends of that bound alone (no other uncertainty), shown separately per the task's instruction to report a labeled plausible range, not a single collapsed number."
+      }
+    }
+  },
+  "not_yet_calibrated": {
+    "sonication_order": "Computed by a separate trained surrogate (lifu_timing_model) that predicts region treatment priority from acoustic+timing features, NOT from this eta model, and that surrogate is itself trained on sde_lifu.py simulation output whose kinetic parameters are mostly ASSUMED (see PHASE1_acoustic_model_investigation.md). Remains uncalibrated.",
+    "per_session_duration": "Same as above -- from lifu_timing_model / sde_lifu.py, not this model. Remains uncalibrated.",
+    "total_time": "Same as above. Remains uncalibrated.",
+    "day_365_gm2_burden_per_region": "Computed by lifu_cfc_meanoutcome_model, a real trained surrogate of sde_lifu.py (itself mostly ASSUMED parameters), not of this eta model or any literature dose-response data. Remains uncalibrated."
+  }
+}
