@@ -55,3 +55,6 @@ top-level directories.
   (`final/`), earlier versions kept for provenance (`superseded/`), and
   the manuscript figure files for comparison (`reference_outputs/`). See
   `figure_scripts/README.md` for the figure-to-script map and provenance.
+
+- `figure_inputs/` — the per-disease `Y_raw` CSVs and model-trajectory
+  CSVs read by two of the figure scripts. See `figure_inputs/README.md`.
