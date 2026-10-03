@@ -8,11 +8,10 @@ convergence / saturation / Shapley figures, plus the follow-up
 acoustic-mechanism robustness check for the FUS (focused ultrasound)
 arm.
 
-This is a separate subproject from `lifu_simulation/` (an earlier,
-exploratory LIFU acoustic-delivery simulation) and from `task_outputs/`
-(percentile-CI, verification, and external-benchmark outputs already
-published here). None of the three subprojects share code or outputs;
-keep them in their own top-level directories.
+This is a separate subproject from `task_outputs/` (percentile-CI,
+verification, and external-benchmark outputs already published here).
+The two subprojects share no code or outputs; keep them in their own
+top-level directories.
 
 ## Contents
 
