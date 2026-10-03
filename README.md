@@ -17,7 +17,9 @@ Integrity: the SHA-256 of `gm2_analysis/gm2_model_v2.py` begins
 `6693427fa909a0a9`; every reported result was produced with that file.
 All simulations use a Milstein step of 0.2 d.
 
-Note: an earlier exploratory LIFU subproject (`lifu_simulation/`) shipped
-in releases v1.0.0-v1.0.1. It was removed from the main branch because no
-result in the paper depends on it; it remains in those earlier releases
-and in git history.
+Note: an earlier exploratory LIFU subproject (`lifu_simulation/`) is
+present in the earlier archived versions of this repository (GitHub
+releases v1.0.0 and v1.0.1, and the Zenodo record
+10.5281/zenodo.22926574). It was removed from the main branch because
+no result in the paper depends on it; it remains in those archived
+versions and in git history.

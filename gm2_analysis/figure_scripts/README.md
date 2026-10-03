@@ -48,8 +48,8 @@ scripts; none were found.
 | .../saturation_sweep_gm2_model_v2.json, convergence_grid.json | gm2_analysis/sobol_outputs/ |
 | .../factorial_arms_shapley*.json, shapley_with_ci.json | gm2_analysis/factorial_shapley_outputs/ |
 | /mnt/user-data/uploads/factorial_arms_shapley.json | gm2_analysis/factorial_shapley_outputs/ |
-| /mnt/user-data/uploads/<disease>_Y_raw.csv (x10) | **NOT IN THE REPOSITORY** |
-| /mnt/user-data/uploads/<disease>_trajectory.csv (x10) | **NOT IN THE REPOSITORY** |
+| /mnt/user-data/uploads/<disease>_Y_raw.csv (x10) | gm2_analysis/figure_inputs/Y_raw/ |
+| /mnt/user-data/uploads/<disease>_trajectory.csv (x10) | gm2_analysis/figure_inputs/trajectories/ |
 
 ## Input CSVs for two figures
 
