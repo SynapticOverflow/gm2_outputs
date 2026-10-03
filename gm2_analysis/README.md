@@ -51,6 +51,7 @@ top-level directories.
   derived; the `*_acoustic_k1*` / `*_acoustic_k2*` JSON files are the
   factorial/Shapley/paired-contrast results rerun at each bound.
 
-- `figure_scripts/` — intentionally empty. No standalone figure-generation
-  scripts for this project were found on `$HOME` or `$WORK`, so none are
-  archived here (see `figure_scripts/NOTE.md`).
+- `figure_scripts/` — the scripts that produced the manuscript figures
+  (`final/`), earlier versions kept for provenance (`superseded/`), and
+  the manuscript figure files for comparison (`reference_outputs/`). See
+  `figure_scripts/README.md` for the figure-to-script map and provenance.
