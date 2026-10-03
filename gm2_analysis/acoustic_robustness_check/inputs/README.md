@@ -12,6 +12,25 @@ used in the acoustic-FUS robustness check. They are included unchanged.
 - `LIFU_MODEL_V2_ADDENDUM.md`: notes on the acoustic model revision that
   produced the two files above.
 
-`lifu_acoustic_model_v2.py`, the code that produced `eta_results.json`
-(and which `derive_fus_gain_mapping.py` imports), is NOT included here.
+`lifu_acoustic_model_v2.py` (the code that produced `eta_results.json`,
+and which `derive_fus_gain_mapping.py` imports) and
+`lifu_acoustic_model_v1.py` (which v2 imports) are included unchanged.
 `../fus_gain_mapping.json` contains every derived number the paper uses.
+
+## Re-running the derivation
+
+`../../drivers/derive_fus_gain_mapping.py` has a hard-coded `LIFU_DIR`
+path (a TACC directory, `/home1/11502/kartheek_nekkanti/lifu_gm2_250k`)
+that must be pointed at this `inputs/` folder to re-run it. It needs numpy
+and scipy, and it writes `fus_gain_mapping.json` next to the script.
+
+Reproduction test (2026-10-03): a copy of the script with only `LIFU_DIR`
+changed was run in a scratch folder alongside copies of the four files
+here (Python 3.13.5, NumPy 2.1.3, SciPy 1.15.3). Its
+`fus_gain_mapping.json` was compared with `../fus_gain_mapping.json`
+across all 68 numeric fields: the largest absolute difference was
+9.7e-10 (`saturation_ceiling_on_ratio`), and no non-numeric field
+differed. `fus_entry_gain_scale` came out at 1.500000 (k=1.0) and
+1.665961 (k=2.0), matching the archived values to six decimals.
+Differences near 1e-9 are expected from the tolerance of the scipy
+`curve_fit` fit of the MI sigmoid.
