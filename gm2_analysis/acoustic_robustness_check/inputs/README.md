@@ -1,6 +1,6 @@
 # inputs
 
-These three files are the documented source of the infant
+This folder holds five files. The first three below are the documented source of the infant
 mechanical-index bound (`k` in [1.0, 2.0], `MI0_infant = MI0_adult / k`)
 used in the acoustic-FUS robustness check. They are included unchanged.
 

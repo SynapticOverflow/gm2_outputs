@@ -103,7 +103,9 @@ All 20 trajectory CSVs have a uniform step of dt = 0.2 d. The run
 metadata records dt = 0.2 in: the three `gm2_full14_*.json`, both
 convergence grids, the saturation sweep, the four factorial/Shapley JSONs,
 and the 20 equal-width and Tier-1-promoted cross-disease JSONs. No file
-records any other value. The ten as-documented `sobol_lsd_<disease>.json`
+read by a figure script records any other value. (The dt = 0.05 d
+refinement files in `gm2_analysis/dt_refinement_dt0.05/` are not read by
+any figure script.) The ten as-documented `sobol_lsd_<disease>.json`
 files record no dt; 0.2 d is the default of the driver that produced them
 (per the data owner's audit of the code).
 
@@ -122,6 +124,7 @@ files record no dt; 0.2 d is the default of the driver that produced them
    the plotting logic is the same. It was run and visually checked when
    written, and not re-run since.
 4. **Fig 3A vs. Table 4.** `fig2_robustness_combined.png` plots the production-run indices read from gm2_full14_*.json, while manuscript Table 4 reports the verification-run values with bootstrap CIs. The largest difference is 0.021 (total AAV dose, as-documented: 0.079 vs. 0.058); BBB-entry rate is 0.044 vs. 0.039. The figure draws point estimates only (no error bars); the manuscript caption states this and points to Tables 4 and 5 for intervals. Rebuilding the figure from `task_outputs/percentile_cis.json` would make figure and tables agree.
+5. **Seed-averaged Table 4 / Fig 2A.** The manuscript's Table 4 and Fig 2A now use the 10-seed-averaged indices in `task_outputs/seed_sensitivity/seed_averaged_percentile_cis.json`. `build_fig2_v3.py` and `reference_outputs/fig2_robustness_combined.png` in this archive still use the seed-42 `gm2_full14_*.json` files; the seed-averaged Fig 2 script is not yet archived here.
 
 ## superseded/
 
