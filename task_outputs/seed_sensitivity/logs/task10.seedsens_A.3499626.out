@@ -1,0 +1,351 @@
+host=c312-193.ls6.tacc.utexas.edu  job=3499626  runset=A  N=256  outdir=N256  start=2026-10-09T18:27:42Z
+model sha256 BEFORE:
+6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77fa8a4a6  ../../gm2_analysis/gm2_model_v2.py
+model sha256 = 6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77fa8a4a6  runset=A N=256 outdir=/home1/11502/kartheek_nekkanti/gm2_outputs/task_outputs/seed_sensitivity/N256 workers=128 SALib=1.5.2
+
+=== A_seed42 / as_documented: 7680 rows ===
+  A_seed42 as_documented 500/7680 evals, 2s elapsed, 128 workers, ETA 34s
+  A_seed42 as_documented 1000/7680 evals, 3s elapsed, 128 workers, ETA 20s
+  A_seed42 as_documented 1500/7680 evals, 5s elapsed, 128 workers, ETA 19s
+  A_seed42 as_documented 2000/7680 evals, 5s elapsed, 128 workers, ETA 14s
+  A_seed42 as_documented 2500/7680 evals, 7s elapsed, 128 workers, ETA 15s
+  A_seed42 as_documented 3000/7680 evals, 7s elapsed, 128 workers, ETA 11s
+  A_seed42 as_documented 3500/7680 evals, 8s elapsed, 128 workers, ETA 10s
+  A_seed42 as_documented 4000/7680 evals, 9s elapsed, 128 workers, ETA 8s
+  A_seed42 as_documented 4500/7680 evals, 10s elapsed, 128 workers, ETA 7s
+  A_seed42 as_documented 5000/7680 evals, 11s elapsed, 128 workers, ETA 6s
+  A_seed42 as_documented 5500/7680 evals, 12s elapsed, 128 workers, ETA 5s
+  A_seed42 as_documented 6000/7680 evals, 13s elapsed, 128 workers, ETA 4s
+  A_seed42 as_documented 6500/7680 evals, 14s elapsed, 128 workers, ETA 3s
+  A_seed42 as_documented 7000/7680 evals, 15s elapsed, 128 workers, ETA 1s
+  A_seed42 as_documented 7500/7680 evals, 16s elapsed, 128 workers, ETA 0s
+  A_seed42 as_documented done: 7680 evals in 17s with 128 workers (0.276s/eval effective serial cost)
+  A_seed42/as_documented: 17s  Var(Y)=1.6699 sumST=1.066  top5: gm2_synth=0.237, vmax_brain=0.222, k_T4_decay=0.221, km_brain=0.185, k_T4_payload=0.101
+
+=== A_seed7 / as_documented: 7680 rows ===
+  A_seed7 as_documented 500/7680 evals, 2s elapsed, 128 workers, ETA 23s
+  A_seed7 as_documented 1000/7680 evals, 3s elapsed, 128 workers, ETA 21s
+  A_seed7 as_documented 1500/7680 evals, 4s elapsed, 128 workers, ETA 15s
+  A_seed7 as_documented 2000/7680 evals, 5s elapsed, 128 workers, ETA 15s
+  A_seed7 as_documented 2500/7680 evals, 6s elapsed, 128 workers, ETA 12s
+  A_seed7 as_documented 3000/7680 evals, 7s elapsed, 128 workers, ETA 11s
+  A_seed7 as_documented 3500/7680 evals, 8s elapsed, 128 workers, ETA 10s
+  A_seed7 as_documented 4000/7680 evals, 9s elapsed, 128 workers, ETA 8s
+  A_seed7 as_documented 4500/7680 evals, 10s elapsed, 128 workers, ETA 7s
+  A_seed7 as_documented 5000/7680 evals, 11s elapsed, 128 workers, ETA 6s
+  A_seed7 as_documented 5500/7680 evals, 12s elapsed, 128 workers, ETA 5s
+  A_seed7 as_documented 6000/7680 evals, 13s elapsed, 128 workers, ETA 4s
+  A_seed7 as_documented 6500/7680 evals, 14s elapsed, 128 workers, ETA 2s
+  A_seed7 as_documented 7000/7680 evals, 15s elapsed, 128 workers, ETA 1s
+  A_seed7 as_documented 7500/7680 evals, 16s elapsed, 128 workers, ETA 0s
+  A_seed7 as_documented done: 7680 evals in 16s with 128 workers (0.270s/eval effective serial cost)
+  A_seed7/as_documented: 16s  Var(Y)=8.3759 sumST=1.069  top5: gm2_synth=0.304, vmax_brain=0.229, km_brain=0.168, k_T4_decay=0.144, t4_dose_total=0.143
+
+=== A_seed101 / as_documented: 7680 rows ===
+  A_seed101 as_documented 500/7680 evals, 2s elapsed, 128 workers, ETA 28s
+  A_seed101 as_documented 1000/7680 evals, 3s elapsed, 128 workers, ETA 20s
+  A_seed101 as_documented 1500/7680 evals, 4s elapsed, 128 workers, ETA 18s
+  A_seed101 as_documented 2000/7680 evals, 5s elapsed, 128 workers, ETA 14s
+  A_seed101 as_documented 2500/7680 evals, 6s elapsed, 128 workers, ETA 13s
+  A_seed101 as_documented 3000/7680 evals, 7s elapsed, 128 workers, ETA 11s
+  A_seed101 as_documented 3500/7680 evals, 8s elapsed, 128 workers, ETA 10s
+  A_seed101 as_documented 4000/7680 evals, 9s elapsed, 128 workers, ETA 8s
+  A_seed101 as_documented 4500/7680 evals, 10s elapsed, 128 workers, ETA 7s
+  A_seed101 as_documented 5000/7680 evals, 11s elapsed, 128 workers, ETA 6s
+  A_seed101 as_documented 5500/7680 evals, 12s elapsed, 128 workers, ETA 5s
+  A_seed101 as_documented 6000/7680 evals, 13s elapsed, 128 workers, ETA 4s
+  A_seed101 as_documented 6500/7680 evals, 14s elapsed, 128 workers, ETA 3s
+  A_seed101 as_documented 7000/7680 evals, 16s elapsed, 128 workers, ETA 2s
+  A_seed101 as_documented 7500/7680 evals, 16s elapsed, 128 workers, ETA 0s
+  A_seed101 as_documented done: 7680 evals in 16s with 128 workers (0.275s/eval effective serial cost)
+  A_seed101/as_documented: 16s  Var(Y)=151.2081 sumST=1.050  top5: gm2_synth=0.427, vmax_brain=0.205, k_T4_payload=0.125, k_T4_decay=0.112, km_brain=0.079
+
+=== A_seed2024 / as_documented: 7680 rows ===
+  A_seed2024 as_documented 500/7680 evals, 2s elapsed, 128 workers, ETA 23s
+  A_seed2024 as_documented 1000/7680 evals, 3s elapsed, 128 workers, ETA 19s
+  A_seed2024 as_documented 1500/7680 evals, 4s elapsed, 128 workers, ETA 16s
+  A_seed2024 as_documented 2000/7680 evals, 5s elapsed, 128 workers, ETA 13s
+  A_seed2024 as_documented 2500/7680 evals, 6s elapsed, 128 workers, ETA 12s
+  A_seed2024 as_documented 3000/7680 evals, 7s elapsed, 128 workers, ETA 10s
+  A_seed2024 as_documented 3500/7680 evals, 8s elapsed, 128 workers, ETA 9s
+  A_seed2024 as_documented 4000/7680 evals, 9s elapsed, 128 workers, ETA 8s
+  A_seed2024 as_documented 4500/7680 evals, 10s elapsed, 128 workers, ETA 7s
+  A_seed2024 as_documented 5000/7680 evals, 11s elapsed, 128 workers, ETA 6s
+  A_seed2024 as_documented 5500/7680 evals, 12s elapsed, 128 workers, ETA 5s
+  A_seed2024 as_documented 6000/7680 evals, 13s elapsed, 128 workers, ETA 4s
+  A_seed2024 as_documented 6500/7680 evals, 14s elapsed, 128 workers, ETA 2s
+  A_seed2024 as_documented 7000/7680 evals, 15s elapsed, 128 workers, ETA 1s
+  A_seed2024 as_documented 7500/7680 evals, 16s elapsed, 128 workers, ETA 0s
+  A_seed2024 as_documented done: 7680 evals in 16s with 128 workers (0.270s/eval effective serial cost)
+  A_seed2024/as_documented: 16s  Var(Y)=9.1080 sumST=1.062  top5: gm2_synth=0.286, vmax_brain=0.266, km_brain=0.199, k_T4_payload=0.134, t4_dose_total=0.088
+
+=== A_seed31337 / as_documented: 7680 rows ===
+  A_seed31337 as_documented 500/7680 evals, 2s elapsed, 128 workers, ETA 25s
+  A_seed31337 as_documented 1000/7680 evals, 3s elapsed, 128 workers, ETA 22s
+  A_seed31337 as_documented 1500/7680 evals, 4s elapsed, 128 workers, ETA 16s
+  A_seed31337 as_documented 2000/7680 evals, 5s elapsed, 128 workers, ETA 15s
+  A_seed31337 as_documented 2500/7680 evals, 6s elapsed, 128 workers, ETA 12s
+  A_seed31337 as_documented 3000/7680 evals, 7s elapsed, 128 workers, ETA 11s
+  A_seed31337 as_documented 3500/7680 evals, 8s elapsed, 128 workers, ETA 9s
+  A_seed31337 as_documented 4000/7680 evals, 9s elapsed, 128 workers, ETA 8s
+  A_seed31337 as_documented 4500/7680 evals, 10s elapsed, 128 workers, ETA 7s
+  A_seed31337 as_documented 5000/7680 evals, 11s elapsed, 128 workers, ETA 6s
+  A_seed31337 as_documented 5500/7680 evals, 12s elapsed, 128 workers, ETA 5s
+  A_seed31337 as_documented 6000/7680 evals, 13s elapsed, 128 workers, ETA 4s
+  A_seed31337 as_documented 6500/7680 evals, 14s elapsed, 128 workers, ETA 3s
+  A_seed31337 as_documented 7000/7680 evals, 15s elapsed, 128 workers, ETA 1s
+  A_seed31337 as_documented 7500/7680 evals, 16s elapsed, 128 workers, ETA 0s
+  A_seed31337 as_documented done: 7680 evals in 16s with 128 workers (0.274s/eval effective serial cost)
+  A_seed31337/as_documented: 16s  Var(Y)=9.3560 sumST=1.072  top5: gm2_synth=0.270, vmax_brain=0.240, k_T4_decay=0.199, km_brain=0.177, k_T4_payload=0.109
+
+=== A_seed90210 / as_documented: 7680 rows ===
+  A_seed90210 as_documented 500/7680 evals, 2s elapsed, 128 workers, ETA 29s
+  A_seed90210 as_documented 1000/7680 evals, 3s elapsed, 128 workers, ETA 22s
+  A_seed90210 as_documented 1500/7680 evals, 4s elapsed, 128 workers, ETA 17s
+  A_seed90210 as_documented 2000/7680 evals, 5s elapsed, 128 workers, ETA 15s
+  A_seed90210 as_documented 2500/7680 evals, 6s elapsed, 128 workers, ETA 13s
+  A_seed90210 as_documented 3000/7680 evals, 8s elapsed, 128 workers, ETA 12s
+  A_seed90210 as_documented 3500/7680 evals, 8s elapsed, 128 workers, ETA 9s
+  A_seed90210 as_documented 4000/7680 evals, 10s elapsed, 128 workers, ETA 9s
+  A_seed90210 as_documented 4500/7680 evals, 10s elapsed, 128 workers, ETA 7s
+  A_seed90210 as_documented 5000/7680 evals, 11s elapsed, 128 workers, ETA 6s
+  A_seed90210 as_documented 5500/7680 evals, 12s elapsed, 128 workers, ETA 5s
+  A_seed90210 as_documented 6000/7680 evals, 14s elapsed, 128 workers, ETA 4s
+  A_seed90210 as_documented 6500/7680 evals, 14s elapsed, 128 workers, ETA 3s
+  A_seed90210 as_documented 7000/7680 evals, 16s elapsed, 128 workers, ETA 2s
+  A_seed90210 as_documented 7500/7680 evals, 16s elapsed, 128 workers, ETA 0s
+  A_seed90210 as_documented done: 7680 evals in 17s with 128 workers (0.275s/eval effective serial cost)
+  A_seed90210/as_documented: 17s  Var(Y)=32.7429 sumST=1.068  top5: gm2_synth=0.369, vmax_brain=0.193, k_T4_decay=0.156, t4_dose_total=0.142, km_brain=0.113
+
+=== A_seed42 / equal_width: 7680 rows ===
+  A_seed42 equal_width 500/7680 evals, 2s elapsed, 128 workers, ETA 27s
+  A_seed42 equal_width 1000/7680 evals, 3s elapsed, 128 workers, ETA 21s
+  A_seed42 equal_width 1500/7680 evals, 4s elapsed, 128 workers, ETA 17s
+  A_seed42 equal_width 2000/7680 evals, 5s elapsed, 128 workers, ETA 14s
+  A_seed42 equal_width 2500/7680 evals, 6s elapsed, 128 workers, ETA 12s
+  A_seed42 equal_width 3000/7680 evals, 7s elapsed, 128 workers, ETA 11s
+  A_seed42 equal_width 3500/7680 evals, 8s elapsed, 128 workers, ETA 9s
+  A_seed42 equal_width 4000/7680 evals, 9s elapsed, 128 workers, ETA 8s
+  A_seed42 equal_width 4500/7680 evals, 10s elapsed, 128 workers, ETA 7s
+  A_seed42 equal_width 5000/7680 evals, 11s elapsed, 128 workers, ETA 6s
+  A_seed42 equal_width 5500/7680 evals, 12s elapsed, 128 workers, ETA 5s
+  A_seed42 equal_width 6000/7680 evals, 13s elapsed, 128 workers, ETA 4s
+  A_seed42 equal_width 6500/7680 evals, 15s elapsed, 128 workers, ETA 3s
+  A_seed42 equal_width 7000/7680 evals, 15s elapsed, 128 workers, ETA 1s
+  A_seed42 equal_width 7500/7680 evals, 16s elapsed, 128 workers, ETA 0s
+  A_seed42 equal_width done: 7680 evals in 16s with 128 workers (0.273s/eval effective serial cost)
+  A_seed42/equal_width: 16s  Var(Y)=1.3457 sumST=1.057  top5: gm2_synth=0.260, vmax_brain=0.245, k_T4_decay=0.242, km_brain=0.206, k_T4_payload=0.097
+
+=== A_seed7 / equal_width: 7680 rows ===
+  A_seed7 equal_width 500/7680 evals, 2s elapsed, 128 workers, ETA 28s
+  A_seed7 equal_width 1000/7680 evals, 3s elapsed, 128 workers, ETA 21s
+  A_seed7 equal_width 1500/7680 evals, 4s elapsed, 128 workers, ETA 17s
+  A_seed7 equal_width 2000/7680 evals, 5s elapsed, 128 workers, ETA 15s
+  A_seed7 equal_width 2500/7680 evals, 6s elapsed, 128 workers, ETA 12s
+  A_seed7 equal_width 3000/7680 evals, 7s elapsed, 128 workers, ETA 11s
+  A_seed7 equal_width 3500/7680 evals, 9s elapsed, 128 workers, ETA 10s
+  A_seed7 equal_width 4000/7680 evals, 9s elapsed, 128 workers, ETA 9s
+  A_seed7 equal_width 4500/7680 evals, 10s elapsed, 128 workers, ETA 7s
+  A_seed7 equal_width 5000/7680 evals, 12s elapsed, 128 workers, ETA 6s
+  A_seed7 equal_width 5500/7680 evals, 12s elapsed, 128 workers, ETA 5s
+  A_seed7 equal_width 6000/7680 evals, 13s elapsed, 128 workers, ETA 4s
+  A_seed7 equal_width 6500/7680 evals, 14s elapsed, 128 workers, ETA 3s
+  A_seed7 equal_width 7000/7680 evals, 15s elapsed, 128 workers, ETA 1s
+  A_seed7 equal_width 7500/7680 evals, 16s elapsed, 128 workers, ETA 0s
+  A_seed7 equal_width done: 7680 evals in 16s with 128 workers (0.273s/eval effective serial cost)
+  A_seed7/equal_width: 16s  Var(Y)=7.4070 sumST=1.058  top5: gm2_synth=0.342, vmax_brain=0.259, km_brain=0.191, k_T4_decay=0.161, k_T4_payload=0.065
+
+=== A_seed101 / equal_width: 7680 rows ===
+  A_seed101 equal_width 500/7680 evals, 2s elapsed, 128 workers, ETA 28s
+  A_seed101 equal_width 1000/7680 evals, 3s elapsed, 128 workers, ETA 22s
+  A_seed101 equal_width 1500/7680 evals, 4s elapsed, 128 workers, ETA 16s
+  A_seed101 equal_width 2000/7680 evals, 5s elapsed, 128 workers, ETA 14s
+  A_seed101 equal_width 2500/7680 evals, 6s elapsed, 128 workers, ETA 12s
+  A_seed101 equal_width 3000/7680 evals, 7s elapsed, 128 workers, ETA 11s
+  A_seed101 equal_width 3500/7680 evals, 8s elapsed, 128 workers, ETA 10s
+  A_seed101 equal_width 4000/7680 evals, 9s elapsed, 128 workers, ETA 8s
+  A_seed101 equal_width 4500/7680 evals, 10s elapsed, 128 workers, ETA 7s
+  A_seed101 equal_width 5000/7680 evals, 11s elapsed, 128 workers, ETA 6s
+  A_seed101 equal_width 5500/7680 evals, 12s elapsed, 128 workers, ETA 5s
+  A_seed101 equal_width 6000/7680 evals, 13s elapsed, 128 workers, ETA 4s
+  A_seed101 equal_width 6500/7680 evals, 14s elapsed, 128 workers, ETA 3s
+  A_seed101 equal_width 7000/7680 evals, 15s elapsed, 128 workers, ETA 1s
+  A_seed101 equal_width 7500/7680 evals, 16s elapsed, 128 workers, ETA 0s
+  A_seed101 equal_width done: 7680 evals in 16s with 128 workers (0.274s/eval effective serial cost)
+  A_seed101/equal_width: 16s  Var(Y)=126.5333 sumST=1.057  top5: gm2_synth=0.466, vmax_brain=0.231, k_T4_payload=0.134, k_T4_decay=0.123, km_brain=0.091
+
+=== A_seed2024 / equal_width: 7680 rows ===
+  A_seed2024 equal_width 500/7680 evals, 2s elapsed, 128 workers, ETA 25s
+  A_seed2024 equal_width 1000/7680 evals, 3s elapsed, 128 workers, ETA 20s
+  A_seed2024 equal_width 1500/7680 evals, 4s elapsed, 128 workers, ETA 18s
+  A_seed2024 equal_width 2000/7680 evals, 5s elapsed, 128 workers, ETA 14s
+  A_seed2024 equal_width 2500/7680 evals, 6s elapsed, 128 workers, ETA 13s
+  A_seed2024 equal_width 3000/7680 evals, 7s elapsed, 128 workers, ETA 11s
+  A_seed2024 equal_width 3500/7680 evals, 8s elapsed, 128 workers, ETA 10s
+  A_seed2024 equal_width 4000/7680 evals, 9s elapsed, 128 workers, ETA 8s
+  A_seed2024 equal_width 4500/7680 evals, 10s elapsed, 128 workers, ETA 7s
+  A_seed2024 equal_width 5000/7680 evals, 11s elapsed, 128 workers, ETA 6s
+  A_seed2024 equal_width 5500/7680 evals, 12s elapsed, 128 workers, ETA 5s
+  A_seed2024 equal_width 6000/7680 evals, 13s elapsed, 128 workers, ETA 4s
+  A_seed2024 equal_width 6500/7680 evals, 15s elapsed, 128 workers, ETA 3s
+  A_seed2024 equal_width 7000/7680 evals, 15s elapsed, 128 workers, ETA 1s
+  A_seed2024 equal_width 7500/7680 evals, 16s elapsed, 128 workers, ETA 0s
+  A_seed2024 equal_width done: 7680 evals in 16s with 128 workers (0.273s/eval effective serial cost)
+  A_seed2024/equal_width: 16s  Var(Y)=7.5354 sumST=1.064  top5: gm2_synth=0.316, vmax_brain=0.301, km_brain=0.227, k_T4_payload=0.145, k_T4_decay=0.056
+
+=== A_seed31337 / equal_width: 7680 rows ===
+  A_seed31337 equal_width 500/7680 evals, 2s elapsed, 128 workers, ETA 23s
+  A_seed31337 equal_width 1000/7680 evals, 3s elapsed, 128 workers, ETA 17s
+  A_seed31337 equal_width 1500/7680 evals, 4s elapsed, 128 workers, ETA 15s
+  A_seed31337 equal_width 2000/7680 evals, 5s elapsed, 128 workers, ETA 13s
+  A_seed31337 equal_width 2500/7680 evals, 6s elapsed, 128 workers, ETA 12s
+  A_seed31337 equal_width 3000/7680 evals, 7s elapsed, 128 workers, ETA 10s
+  A_seed31337 equal_width 3500/7680 evals, 8s elapsed, 128 workers, ETA 10s
+  A_seed31337 equal_width 4000/7680 evals, 9s elapsed, 128 workers, ETA 8s
+  A_seed31337 equal_width 4500/7680 evals, 10s elapsed, 128 workers, ETA 7s
+  A_seed31337 equal_width 5000/7680 evals, 11s elapsed, 128 workers, ETA 6s
+  A_seed31337 equal_width 5500/7680 evals, 12s elapsed, 128 workers, ETA 5s
+  A_seed31337 equal_width 6000/7680 evals, 13s elapsed, 128 workers, ETA 4s
+  A_seed31337 equal_width 6500/7680 evals, 14s elapsed, 128 workers, ETA 3s
+  A_seed31337 equal_width 7000/7680 evals, 15s elapsed, 128 workers, ETA 1s
+  A_seed31337 equal_width 7500/7680 evals, 16s elapsed, 128 workers, ETA 0s
+  A_seed31337 equal_width done: 7680 evals in 16s with 128 workers (0.272s/eval effective serial cost)
+  A_seed31337/equal_width: 16s  Var(Y)=7.9319 sumST=1.061  top5: gm2_synth=0.288, vmax_brain=0.260, k_T4_decay=0.211, km_brain=0.194, k_T4_payload=0.105
+
+=== A_seed90210 / equal_width: 7680 rows ===
+  A_seed90210 equal_width 500/7680 evals, 2s elapsed, 128 workers, ETA 29s
+  A_seed90210 equal_width 1000/7680 evals, 3s elapsed, 128 workers, ETA 22s
+  A_seed90210 equal_width 1500/7680 evals, 4s elapsed, 128 workers, ETA 18s
+  A_seed90210 equal_width 2000/7680 evals, 5s elapsed, 128 workers, ETA 14s
+  A_seed90210 equal_width 2500/7680 evals, 6s elapsed, 128 workers, ETA 13s
+  A_seed90210 equal_width 3000/7680 evals, 7s elapsed, 128 workers, ETA 11s
+  A_seed90210 equal_width 3500/7680 evals, 8s elapsed, 128 workers, ETA 10s
+  A_seed90210 equal_width 4000/7680 evals, 9s elapsed, 128 workers, ETA 8s
+  A_seed90210 equal_width 4500/7680 evals, 10s elapsed, 128 workers, ETA 7s
+  A_seed90210 equal_width 5000/7680 evals, 11s elapsed, 128 workers, ETA 6s
+  A_seed90210 equal_width 5500/7680 evals, 12s elapsed, 128 workers, ETA 5s
+  A_seed90210 equal_width 6000/7680 evals, 13s elapsed, 128 workers, ETA 4s
+  A_seed90210 equal_width 6500/7680 evals, 14s elapsed, 128 workers, ETA 3s
+  A_seed90210 equal_width 7000/7680 evals, 15s elapsed, 128 workers, ETA 1s
+  A_seed90210 equal_width 7500/7680 evals, 16s elapsed, 128 workers, ETA 0s
+  A_seed90210 equal_width done: 7680 evals in 17s with 128 workers (0.275s/eval effective serial cost)
+  A_seed90210/equal_width: 17s  Var(Y)=28.5150 sumST=1.049  top5: gm2_synth=0.412, vmax_brain=0.219, k_T4_decay=0.176, km_brain=0.130, k_T4_payload=0.066
+
+=== A_seed42 / tier1_promotion: 7680 rows ===
+  A_seed42 tier1_promotion 500/7680 evals, 2s elapsed, 128 workers, ETA 23s
+  A_seed42 tier1_promotion 1000/7680 evals, 3s elapsed, 128 workers, ETA 22s
+  A_seed42 tier1_promotion 1500/7680 evals, 4s elapsed, 128 workers, ETA 16s
+  A_seed42 tier1_promotion 2000/7680 evals, 5s elapsed, 128 workers, ETA 13s
+  A_seed42 tier1_promotion 2500/7680 evals, 6s elapsed, 128 workers, ETA 12s
+  A_seed42 tier1_promotion 3000/7680 evals, 7s elapsed, 128 workers, ETA 10s
+  A_seed42 tier1_promotion 3500/7680 evals, 8s elapsed, 128 workers, ETA 10s
+  A_seed42 tier1_promotion 4000/7680 evals, 9s elapsed, 128 workers, ETA 8s
+  A_seed42 tier1_promotion 4500/7680 evals, 10s elapsed, 128 workers, ETA 7s
+  A_seed42 tier1_promotion 5000/7680 evals, 11s elapsed, 128 workers, ETA 6s
+  A_seed42 tier1_promotion 5500/7680 evals, 12s elapsed, 128 workers, ETA 5s
+  A_seed42 tier1_promotion 6000/7680 evals, 13s elapsed, 128 workers, ETA 4s
+  A_seed42 tier1_promotion 6500/7680 evals, 14s elapsed, 128 workers, ETA 2s
+  A_seed42 tier1_promotion 7000/7680 evals, 15s elapsed, 128 workers, ETA 1s
+  A_seed42 tier1_promotion 7500/7680 evals, 16s elapsed, 128 workers, ETA 0s
+  A_seed42 tier1_promotion done: 7680 evals in 16s with 128 workers (0.272s/eval effective serial cost)
+  A_seed42/tier1_promotion: 16s  Var(Y)=1.5140 sumST=1.061  top5: gm2_synth=0.250, vmax_brain=0.235, k_T4_decay=0.232, km_brain=0.198, k_T4_payload=0.102
+
+=== A_seed7 / tier1_promotion: 7680 rows ===
+  A_seed7 tier1_promotion 500/7680 evals, 2s elapsed, 128 workers, ETA 23s
+  A_seed7 tier1_promotion 1000/7680 evals, 3s elapsed, 128 workers, ETA 18s
+  A_seed7 tier1_promotion 1500/7680 evals, 4s elapsed, 128 workers, ETA 17s
+  A_seed7 tier1_promotion 2000/7680 evals, 5s elapsed, 128 workers, ETA 14s
+  A_seed7 tier1_promotion 2500/7680 evals, 6s elapsed, 128 workers, ETA 12s
+  A_seed7 tier1_promotion 3000/7680 evals, 7s elapsed, 128 workers, ETA 11s
+  A_seed7 tier1_promotion 3500/7680 evals, 8s elapsed, 128 workers, ETA 9s
+  A_seed7 tier1_promotion 4000/7680 evals, 9s elapsed, 128 workers, ETA 9s
+  A_seed7 tier1_promotion 4500/7680 evals, 10s elapsed, 128 workers, ETA 7s
+  A_seed7 tier1_promotion 5000/7680 evals, 11s elapsed, 128 workers, ETA 6s
+  A_seed7 tier1_promotion 5500/7680 evals, 12s elapsed, 128 workers, ETA 5s
+  A_seed7 tier1_promotion 6000/7680 evals, 13s elapsed, 128 workers, ETA 4s
+  A_seed7 tier1_promotion 6500/7680 evals, 14s elapsed, 128 workers, ETA 3s
+  A_seed7 tier1_promotion 7000/7680 evals, 15s elapsed, 128 workers, ETA 1s
+  A_seed7 tier1_promotion 7500/7680 evals, 16s elapsed, 128 workers, ETA 0s
+  A_seed7 tier1_promotion done: 7680 evals in 17s with 128 workers (0.275s/eval effective serial cost)
+  A_seed7/tier1_promotion: 17s  Var(Y)=8.4796 sumST=1.061  top5: gm2_synth=0.304, vmax_brain=0.229, km_brain=0.168, t4_dose_total=0.152, k_T4_decay=0.142
+
+=== A_seed101 / tier1_promotion: 7680 rows ===
+  A_seed101 tier1_promotion 500/7680 evals, 3s elapsed, 128 workers, ETA 36s
+  A_seed101 tier1_promotion 1000/7680 evals, 3s elapsed, 128 workers, ETA 19s
+  A_seed101 tier1_promotion 1500/7680 evals, 4s elapsed, 128 workers, ETA 16s
+  A_seed101 tier1_promotion 2000/7680 evals, 5s elapsed, 128 workers, ETA 13s
+  A_seed101 tier1_promotion 2500/7680 evals, 7s elapsed, 128 workers, ETA 14s
+  A_seed101 tier1_promotion 3000/7680 evals, 7s elapsed, 128 workers, ETA 10s
+  A_seed101 tier1_promotion 3500/7680 evals, 8s elapsed, 128 workers, ETA 9s
+  A_seed101 tier1_promotion 4000/7680 evals, 9s elapsed, 128 workers, ETA 8s
+  A_seed101 tier1_promotion 4500/7680 evals, 10s elapsed, 128 workers, ETA 7s
+  A_seed101 tier1_promotion 5000/7680 evals, 11s elapsed, 128 workers, ETA 6s
+  A_seed101 tier1_promotion 5500/7680 evals, 12s elapsed, 128 workers, ETA 5s
+  A_seed101 tier1_promotion 6000/7680 evals, 13s elapsed, 128 workers, ETA 4s
+  A_seed101 tier1_promotion 6500/7680 evals, 14s elapsed, 128 workers, ETA 3s
+  A_seed101 tier1_promotion 7000/7680 evals, 15s elapsed, 128 workers, ETA 1s
+  A_seed101 tier1_promotion 7500/7680 evals, 16s elapsed, 128 workers, ETA 0s
+  A_seed101 tier1_promotion done: 7680 evals in 16s with 128 workers (0.272s/eval effective serial cost)
+  A_seed101/tier1_promotion: 16s  Var(Y)=141.9592 sumST=1.048  top5: gm2_synth=0.441, vmax_brain=0.213, k_T4_payload=0.129, k_T4_decay=0.116, km_brain=0.083
+
+=== A_seed2024 / tier1_promotion: 7680 rows ===
+  A_seed2024 tier1_promotion 500/7680 evals, 2s elapsed, 128 workers, ETA 26s
+  A_seed2024 tier1_promotion 1000/7680 evals, 3s elapsed, 128 workers, ETA 20s
+  A_seed2024 tier1_promotion 1500/7680 evals, 5s elapsed, 128 workers, ETA 19s
+  A_seed2024 tier1_promotion 2000/7680 evals, 5s elapsed, 128 workers, ETA 15s
+  A_seed2024 tier1_promotion 2500/7680 evals, 6s elapsed, 128 workers, ETA 13s
+  A_seed2024 tier1_promotion 3000/7680 evals, 7s elapsed, 128 workers, ETA 11s
+  A_seed2024 tier1_promotion 3500/7680 evals, 8s elapsed, 128 workers, ETA 9s
+  A_seed2024 tier1_promotion 4000/7680 evals, 9s elapsed, 128 workers, ETA 8s
+  A_seed2024 tier1_promotion 4500/7680 evals, 10s elapsed, 128 workers, ETA 7s
+  A_seed2024 tier1_promotion 5000/7680 evals, 11s elapsed, 128 workers, ETA 6s
+  A_seed2024 tier1_promotion 5500/7680 evals, 12s elapsed, 128 workers, ETA 5s
+  A_seed2024 tier1_promotion 6000/7680 evals, 13s elapsed, 128 workers, ETA 4s
+  A_seed2024 tier1_promotion 6500/7680 evals, 14s elapsed, 128 workers, ETA 2s
+  A_seed2024 tier1_promotion 7000/7680 evals, 15s elapsed, 128 workers, ETA 1s
+  A_seed2024 tier1_promotion 7500/7680 evals, 16s elapsed, 128 workers, ETA 0s
+  A_seed2024 tier1_promotion done: 7680 evals in 16s with 128 workers (0.274s/eval effective serial cost)
+  A_seed2024/tier1_promotion: 16s  Var(Y)=8.5574 sumST=1.063  top5: gm2_synth=0.294, vmax_brain=0.276, km_brain=0.208, k_T4_payload=0.138, t4_dose_total=0.082
+
+=== A_seed31337 / tier1_promotion: 7680 rows ===
+  A_seed31337 tier1_promotion 500/7680 evals, 2s elapsed, 128 workers, ETA 22s
+  A_seed31337 tier1_promotion 1000/7680 evals, 3s elapsed, 128 workers, ETA 18s
+  A_seed31337 tier1_promotion 1500/7680 evals, 4s elapsed, 128 workers, ETA 15s
+  A_seed31337 tier1_promotion 2000/7680 evals, 5s elapsed, 128 workers, ETA 13s
+  A_seed31337 tier1_promotion 2500/7680 evals, 6s elapsed, 128 workers, ETA 12s
+  A_seed31337 tier1_promotion 3000/7680 evals, 7s elapsed, 128 workers, ETA 10s
+  A_seed31337 tier1_promotion 3500/7680 evals, 8s elapsed, 128 workers, ETA 9s
+  A_seed31337 tier1_promotion 4000/7680 evals, 9s elapsed, 128 workers, ETA 8s
+  A_seed31337 tier1_promotion 4500/7680 evals, 10s elapsed, 128 workers, ETA 7s
+  A_seed31337 tier1_promotion 5000/7680 evals, 11s elapsed, 128 workers, ETA 6s
+  A_seed31337 tier1_promotion 5500/7680 evals, 12s elapsed, 128 workers, ETA 5s
+  A_seed31337 tier1_promotion 6000/7680 evals, 13s elapsed, 128 workers, ETA 4s
+  A_seed31337 tier1_promotion 6500/7680 evals, 15s elapsed, 128 workers, ETA 3s
+  A_seed31337 tier1_promotion 7000/7680 evals, 15s elapsed, 128 workers, ETA 1s
+  A_seed31337 tier1_promotion 7500/7680 evals, 16s elapsed, 128 workers, ETA 0s
+  A_seed31337 tier1_promotion done: 7680 evals in 16s with 128 workers (0.273s/eval effective serial cost)
+  A_seed31337/tier1_promotion: 16s  Var(Y)=8.5947 sumST=1.062  top5: gm2_synth=0.283, vmax_brain=0.252, k_T4_decay=0.206, km_brain=0.188, k_T4_payload=0.110
+
+=== A_seed90210 / tier1_promotion: 7680 rows ===
+  A_seed90210 tier1_promotion 500/7680 evals, 2s elapsed, 128 workers, ETA 31s
+  A_seed90210 tier1_promotion 1000/7680 evals, 3s elapsed, 128 workers, ETA 21s
+  A_seed90210 tier1_promotion 1500/7680 evals, 4s elapsed, 128 workers, ETA 17s
+  A_seed90210 tier1_promotion 2000/7680 evals, 5s elapsed, 128 workers, ETA 15s
+  A_seed90210 tier1_promotion 2500/7680 evals, 6s elapsed, 128 workers, ETA 13s
+  A_seed90210 tier1_promotion 3000/7680 evals, 7s elapsed, 128 workers, ETA 11s
+  A_seed90210 tier1_promotion 3500/7680 evals, 8s elapsed, 128 workers, ETA 10s
+  A_seed90210 tier1_promotion 4000/7680 evals, 9s elapsed, 128 workers, ETA 9s
+  A_seed90210 tier1_promotion 4500/7680 evals, 10s elapsed, 128 workers, ETA 7s
+  A_seed90210 tier1_promotion 5000/7680 evals, 11s elapsed, 128 workers, ETA 6s
+  A_seed90210 tier1_promotion 5500/7680 evals, 12s elapsed, 128 workers, ETA 5s
+  A_seed90210 tier1_promotion 6000/7680 evals, 13s elapsed, 128 workers, ETA 4s
+  A_seed90210 tier1_promotion 6500/7680 evals, 14s elapsed, 128 workers, ETA 3s
+  A_seed90210 tier1_promotion 7000/7680 evals, 15s elapsed, 128 workers, ETA 1s
+  A_seed90210 tier1_promotion 7500/7680 evals, 16s elapsed, 128 workers, ETA 0s
+  A_seed90210 tier1_promotion done: 7680 evals in 17s with 128 workers (0.275s/eval effective serial cost)
+  A_seed90210/tier1_promotion: 17s  Var(Y)=32.7210 sumST=1.055  top5: gm2_synth=0.370, vmax_brain=0.194, k_T4_decay=0.155, t4_dose_total=0.152, km_brain=0.114
+
+All done in 321s
+model sha256 AFTER:
+6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77fa8a4a6  ../../gm2_analysis/gm2_model_v2.py
+end=2026-10-09T18:33:06Z
