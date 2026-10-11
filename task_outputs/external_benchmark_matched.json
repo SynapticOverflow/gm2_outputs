@@ -1,0 +1,622 @@
+{
+  "task": "external_benchmark_matched_control",
+  "purpose": "Recompute the AAV-only and SRT-only brain-substrate reductions against a paired, concurrently simulated untreated arm (same seeds, same days), because the published percentages are relative to each arm's own initial value (890) while the untreated arm in this model declines on its own.",
+  "reproduction_check_of_published_numbers": {
+    "aav_only": {
+      "day84": {
+        "published": 99.61894568394915,
+        "recomputed": 99.61894568394915,
+        "abs_diff": 0.0,
+        "matches_to_2dp": true
+      },
+      "day168": {
+        "published": 99.50601974127412,
+        "recomputed": 99.50601974127412,
+        "abs_diff": 0.0,
+        "matches_to_2dp": true
+      }
+    },
+    "srt_only": {
+      "day84": {
+        "published": 50.73560876829471,
+        "recomputed": 50.73560876829471,
+        "abs_diff": 0.0,
+        "matches_to_2dp": true
+      },
+      "day168": {
+        "published": 63.39169585775233,
+        "recomputed": 63.39169585775233,
+        "abs_diff": 0.0,
+        "matches_to_2dp": true
+      }
+    }
+  },
+  "untreated_arm_gm2_brain_at_comparison_days": {
+    "day84": {
+      "label": "untreated gm2_brain (nmol/g) at day 84",
+      "n_seeds": 10,
+      "mean": 448.270736110189,
+      "sd_across_seeds": 120.63293338277636,
+      "min": 290.69639953830244,
+      "max": 572.1001779418098,
+      "bootstrap95_ci_of_mean": [
+        374.5918399500518,
+        516.4431304654445
+      ],
+      "per_seed": {
+        "0": 572.1001779418098,
+        "1": 300.14998827744677,
+        "2": 290.69639953830244,
+        "3": 292.0313567335881,
+        "4": 544.1128785704515,
+        "5": 544.1755642762032,
+        "6": 501.6845140857792,
+        "7": 363.22258643966103,
+        "8": 545.8260547279431,
+        "9": 528.7078405107045
+      }
+    },
+    "day168": {
+      "label": "untreated gm2_brain (nmol/g) at day 168",
+      "n_seeds": 10,
+      "mean": 343.00757434098887,
+      "sd_across_seeds": 215.33656900624965,
+      "min": 151.25390968181915,
+      "max": 769.390757163829,
+      "bootstrap95_ci_of_mean": [
+        228.52976227696516,
+        477.8544006310674
+      ],
+      "per_seed": {
+        "0": 300.39917926176065,
+        "1": 181.75479687558294,
+        "2": 352.89557177343494,
+        "3": 164.5514734675694,
+        "4": 453.073936452972,
+        "5": 151.25390968181915,
+        "6": 182.43481674421287,
+        "7": 769.390757163829,
+        "8": 641.3252302153852,
+        "9": 232.9960717733227
+      }
+    }
+  },
+  "comparisons": {
+    "aav_only": {
+      "day84": {
+        "gm2_brain_treated": {
+          "label": "aav_only gm2_brain at day 84",
+          "n_seeds": 10,
+          "mean": 3.3913834128525897,
+          "sd_across_seeds": 0.6886952593383346,
+          "min": 2.787496595704783,
+          "max": 4.9158591918528804,
+          "bootstrap95_ci_of_mean": [
+            3.0273805515083914,
+            3.828316815666575
+          ],
+          "per_seed": {
+            "0": 3.106439245680842,
+            "1": 4.9158591918528804,
+            "2": 3.087270417964685,
+            "3": 2.9409253855890123,
+            "4": 2.787496595704783,
+            "5": 2.889428885105461,
+            "6": 3.1520369355422946,
+            "7": 3.0556016057686333,
+            "8": 4.171323511269743,
+            "9": 3.807452354047566
+          }
+        },
+        "gm2_brain_untreated_matched": {
+          "label": "untreated gm2_brain at day 84",
+          "n_seeds": 10,
+          "mean": 448.270736110189,
+          "sd_across_seeds": 120.63293338277636,
+          "min": 290.69639953830244,
+          "max": 572.1001779418098,
+          "bootstrap95_ci_of_mean": [
+            374.5918399500518,
+            516.4431304654445
+          ],
+          "per_seed": {
+            "0": 572.1001779418098,
+            "1": 300.14998827744677,
+            "2": 290.69639953830244,
+            "3": 292.0313567335881,
+            "4": 544.1128785704515,
+            "5": 544.1755642762032,
+            "6": 501.6845140857792,
+            "7": 363.22258643966103,
+            "8": 545.8260547279431,
+            "9": 528.7078405107045
+          }
+        },
+        "a_pct_change_vs_own_initial_value": {
+          "definition": "100 * (890 - treated) / 890",
+          "reproduces_published_value_computed_from_arm_mean": 99.61894568394915,
+          "per_seed_stats": {
+            "label": "pct change vs own initial value",
+            "n_seeds": 10,
+            "mean": 99.61894568394916,
+            "sd_across_seeds": 0.0773814898132945,
+            "min": 99.44765627057834,
+            "max": 99.68679813531408,
+            "bootstrap95_ci_of_mean": [
+              99.56985204318353,
+              99.65984488185299
+            ],
+            "per_seed": {
+              "0": 99.65096188250777,
+              "1": 99.44765627057834,
+              "2": 99.65311568337476,
+              "3": 99.66955894543943,
+              "4": 99.68679813531408,
+              "5": 99.67534506908927,
+              "6": 99.64583854656829,
+              "7": 99.65667397687993,
+              "8": 99.53131196502588,
+              "9": 99.57219636471376
+            }
+          },
+          "sd_as_task9_computed_it_sd_of_values_over_890_pct": 0.07738148981329603
+        },
+        "b_pct_change_vs_matched_untreated_same_day_same_seed": {
+          "definition": "100 * (untreated[seed,day] - treated[seed,day]) / untreated[seed,day]",
+          "paired": true,
+          "per_seed_stats": {
+            "label": "paired pct change vs matched untreated control",
+            "n_seeds": 10,
+            "mean": 99.17529483884144,
+            "sd_across_seeds": 0.34438039006999616,
+            "min": 98.3621991058321,
+            "max": 99.48769883869899,
+            "bootstrap95_ci_of_mean": [
+              98.95474802740158,
+              99.35392704547253
+            ],
+            "per_seed": {
+              "0": 99.457011312799,
+              "1": 98.3621991058321,
+              "2": 98.9379743186128,
+              "3": 98.99294191607241,
+              "4": 99.48769883869899,
+              "5": 99.46902634465981,
+              "6": 99.37170934181887,
+              "7": 99.15875231336248,
+              "8": 99.23577786821684,
+              "9": 99.27985702834107
+            }
+          }
+        }
+      },
+      "day168": {
+        "gm2_brain_treated": {
+          "label": "aav_only gm2_brain at day 168",
+          "n_seeds": 10,
+          "mean": 4.396424302660268,
+          "sd_across_seeds": 1.3326480990436083,
+          "min": 2.8978931015156895,
+          "max": 7.115466753683947,
+          "bootstrap95_ci_of_mean": [
+            3.656899108004904,
+            5.231034991483192
+          ],
+          "per_seed": {
+            "0": 3.8079958858653256,
+            "1": 4.332844874096352,
+            "2": 3.370386233960989,
+            "3": 2.9221181266761334,
+            "4": 5.271558447974784,
+            "5": 4.532573585103394,
+            "6": 7.115466753683947,
+            "7": 2.8978931015156895,
+            "8": 5.7398899803255485,
+            "9": 3.9735160374005134
+          }
+        },
+        "gm2_brain_untreated_matched": {
+          "label": "untreated gm2_brain at day 168",
+          "n_seeds": 10,
+          "mean": 343.00757434098887,
+          "sd_across_seeds": 215.33656900624965,
+          "min": 151.25390968181915,
+          "max": 769.390757163829,
+          "bootstrap95_ci_of_mean": [
+            228.52976227696516,
+            477.8544006310674
+          ],
+          "per_seed": {
+            "0": 300.39917926176065,
+            "1": 181.75479687558294,
+            "2": 352.89557177343494,
+            "3": 164.5514734675694,
+            "4": 453.073936452972,
+            "5": 151.25390968181915,
+            "6": 182.43481674421287,
+            "7": 769.390757163829,
+            "8": 641.3252302153852,
+            "9": 232.9960717733227
+          }
+        },
+        "a_pct_change_vs_own_initial_value": {
+          "definition": "100 * (890 - treated) / 890",
+          "reproduces_published_value_computed_from_arm_mean": 99.50601974127412,
+          "per_seed_stats": {
+            "label": "pct change vs own initial value",
+            "n_seeds": 10,
+            "mean": 99.50601974127412,
+            "sd_across_seeds": 0.14973574146557245,
+            "min": 99.20050935351867,
+            "max": 99.67439403353757,
+            "bootstrap95_ci_of_mean": [
+              99.41224325938391,
+              99.58911245977473
+            ],
+            "per_seed": {
+              "0": 99.572135293723,
+              "1": 99.51316349729255,
+              "2": 99.62130491753247,
+              "3": 99.67167212059819,
+              "4": 99.4076900620253,
+              "5": 99.49072206908951,
+              "6": 99.20050935351867,
+              "7": 99.67439403353757,
+              "8": 99.35506854153645,
+              "9": 99.55353752388758
+            }
+          },
+          "sd_as_task9_computed_it_sd_of_values_over_890_pct": 0.14973574146557395
+        },
+        "b_pct_change_vs_matched_untreated_same_day_same_seed": {
+          "definition": "100 * (untreated[seed,day] - treated[seed,day]) / untreated[seed,day]",
+          "paired": true,
+          "per_seed_stats": {
+            "label": "paired pct change vs matched untreated control",
+            "n_seeds": 10,
+            "mean": 98.25800782600038,
+            "sd_across_seeds": 1.0753491671211155,
+            "min": 96.09972105069156,
+            "max": 99.62335223362989,
+            "bootstrap95_ci_of_mean": [
+              97.57385936133615,
+              98.83297715333366
+            ],
+            "per_seed": {
+              "0": 98.73235476367692,
+              "1": 97.61610425222378,
+              "2": 99.04493382645084,
+              "3": 98.22419206276385,
+              "4": 98.83649046571851,
+              "5": 97.00333459502752,
+              "6": 96.09972105069156,
+              "7": 99.62335223362989,
+              "8": 99.10499545162168,
+              "9": 98.29459955819931
+            }
+          }
+        }
+      }
+    },
+    "srt_only": {
+      "day84": {
+        "gm2_brain_treated": {
+          "label": "srt_only gm2_brain at day 84",
+          "n_seeds": 10,
+          "mean": 438.4530819621771,
+          "sd_across_seeds": 119.23014782879648,
+          "min": 279.03083851621653,
+          "max": 561.721353434589,
+          "bootstrap95_ci_of_mean": [
+            365.437358174314,
+            505.84349244702554
+          ],
+          "per_seed": {
+            "0": 561.721353434589,
+            "1": 292.96326689487904,
+            "2": 279.03083851621653,
+            "3": 286.23180819559843,
+            "4": 534.0184698729321,
+            "5": 533.3852891304135,
+            "6": 487.43206352231863,
+            "7": 356.39201828597334,
+            "8": 535.2884549038301,
+            "9": 518.0672568650209
+          }
+        },
+        "gm2_brain_untreated_matched": {
+          "label": "untreated gm2_brain at day 84",
+          "n_seeds": 10,
+          "mean": 448.270736110189,
+          "sd_across_seeds": 120.63293338277636,
+          "min": 290.69639953830244,
+          "max": 572.1001779418098,
+          "bootstrap95_ci_of_mean": [
+            374.5918399500518,
+            516.4431304654445
+          ],
+          "per_seed": {
+            "0": 572.1001779418098,
+            "1": 300.14998827744677,
+            "2": 290.69639953830244,
+            "3": 292.0313567335881,
+            "4": 544.1128785704515,
+            "5": 544.1755642762032,
+            "6": 501.6845140857792,
+            "7": 363.22258643966103,
+            "8": 545.8260547279431,
+            "9": 528.7078405107045
+          }
+        },
+        "a_pct_change_vs_own_initial_value": {
+          "definition": "100 * (890 - treated) / 890",
+          "reproduces_published_value_computed_from_arm_mean": 50.73560876829471,
+          "per_seed_stats": {
+            "label": "pct change vs own initial value",
+            "n_seeds": 10,
+            "mean": 50.73560876829471,
+            "sd_across_seeds": 13.396645823460279,
+            "min": 36.885241187124834,
+            "max": 68.64822039143634,
+            "bootstrap95_ci_of_mean": [
+              43.16365253404208,
+              58.93962267704337
+            ],
+            "per_seed": {
+              "0": 36.885241187124834,
+              "1": 67.08277900057539,
+              "2": 68.64822039143634,
+              "3": 67.83912267465186,
+              "4": 39.99792473337841,
+              "5": 40.06906863703219,
+              "6": 45.23235241322263,
+              "7": 59.955953001576034,
+              "8": 39.855229786086504,
+              "9": 41.79019585786282
+            }
+          },
+          "sd_as_task9_computed_it_sd_of_values_over_890_pct": 13.396645823460279
+        },
+        "b_pct_change_vs_matched_untreated_same_day_same_seed": {
+          "definition": "100 * (untreated[seed,day] - treated[seed,day]) / untreated[seed,day]",
+          "paired": true,
+          "per_seed_stats": {
+            "label": "paired pct change vs matched untreated control",
+            "n_seeds": 10,
+            "mean": 2.2710121737316418,
+            "sd_across_seeds": 0.6876280933454681,
+            "min": 1.8141620833889052,
+            "max": 4.012970590834182,
+            "bootstrap95_ci_of_mean": [
+              1.941349022898152,
+              2.729145963027074
+            ],
+            "per_seed": {
+              "0": 1.8141620833889052,
+              "1": 2.3943766994002362,
+              "2": 4.012970590834182,
+              "3": 1.9859334979840635,
+              "4": 1.8552048839645991,
+              "5": 1.982866533182467,
+              "6": 2.8409189766267438,
+              "7": 1.8805460917619437,
+              "8": 1.930578383504467,
+              "9": 2.01256399666881
+            }
+          }
+        }
+      },
+      "day168": {
+        "gm2_brain_treated": {
+          "label": "srt_only gm2_brain at day 168",
+          "n_seeds": 10,
+          "mean": 325.81390686600423,
+          "sd_across_seeds": 207.7900862145159,
+          "min": 142.54073399856563,
+          "max": 735.8737011520881,
+          "bootstrap95_ci_of_mean": [
+            215.0640839648642,
+            455.5747060179917
+          ],
+          "per_seed": {
+            "0": 288.1844524498795,
+            "1": 168.34185027654578,
+            "2": 333.7011328397993,
+            "3": 154.64158481188915,
+            "4": 430.0674180220667,
+            "5": 142.54073399856563,
+            "6": 171.14491229557146,
+            "7": 735.8737011520881,
+            "8": 616.7224718191172,
+            "9": 216.92081099451912
+          }
+        },
+        "gm2_brain_untreated_matched": {
+          "label": "untreated gm2_brain at day 168",
+          "n_seeds": 10,
+          "mean": 343.00757434098887,
+          "sd_across_seeds": 215.33656900624965,
+          "min": 151.25390968181915,
+          "max": 769.390757163829,
+          "bootstrap95_ci_of_mean": [
+            228.52976227696516,
+            477.8544006310674
+          ],
+          "per_seed": {
+            "0": 300.39917926176065,
+            "1": 181.75479687558294,
+            "2": 352.89557177343494,
+            "3": 164.5514734675694,
+            "4": 453.073936452972,
+            "5": 151.25390968181915,
+            "6": 182.43481674421287,
+            "7": 769.390757163829,
+            "8": 641.3252302153852,
+            "9": 232.9960717733227
+          }
+        },
+        "a_pct_change_vs_own_initial_value": {
+          "definition": "100 * (890 - treated) / 890",
+          "reproduces_published_value_computed_from_arm_mean": 63.39169585775233,
+          "per_seed_stats": {
+            "label": "pct change vs own initial value",
+            "n_seeds": 10,
+            "mean": 63.39169585775234,
+            "sd_across_seeds": 23.347200698260213,
+            "min": 17.317561668304712,
+            "max": 83.9841871911724,
+            "bootstrap95_ci_of_mean": [
+              48.811830784495314,
+              75.83549618372311
+            ],
+            "per_seed": {
+              "0": 67.61972444383377,
+              "1": 81.08518536218587,
+              "2": 62.50549069215737,
+              "3": 82.62454103237201,
+              "4": 51.677818199767785,
+              "5": 83.9841871911724,
+              "6": 80.7702345735313,
+              "7": 17.317561668304712,
+              "8": 30.705340245043008,
+              "9": 75.62687516915516
+            }
+          },
+          "sd_as_task9_computed_it_sd_of_values_over_890_pct": 23.347200698260213
+        },
+        "b_pct_change_vs_matched_untreated_same_day_same_seed": {
+          "definition": "100 * (untreated[seed,day] - treated[seed,day]) / untreated[seed,day]",
+          "paired": true,
+          "per_seed_stats": {
+            "label": "paired pct change vs matched untreated control",
+            "n_seeds": 10,
+            "mean": 5.502622875027383,
+            "sd_across_seeds": 1.1841589060630626,
+            "min": 3.836237409216738,
+            "max": 7.379693317375691,
+            "bootstrap95_ci_of_mean": [
+              4.82420405558498,
+              6.204235191970303
+            ],
+            "per_seed": {
+              "0": 4.0661651745851,
+              "1": 7.379693317375691,
+              "2": 5.439127172147912,
+              "3": 6.022363973321295,
+              "4": 5.077872854708635,
+              "5": 5.760628403974972,
+              "6": 6.188459335846344,
+              "7": 4.356311237126548,
+              "8": 3.836237409216738,
+              "9": 6.899369871970588
+            }
+          }
+        }
+      }
+    }
+  },
+  "validity_controls": {
+    "untreated_fus_on": {
+      "day84_max_abs_diff_vs_untreated": 5.818399131385377e-07,
+      "day168_max_abs_diff_vs_untreated": 5.229480848356616e-06,
+      "identical_to_untreated": false
+    },
+    "untreated_tmax200": {
+      "day84_max_abs_diff_vs_untreated": 0.0,
+      "day168_max_abs_diff_vs_untreated": 0.0,
+      "identical_to_untreated": true
+    }
+  },
+  "errors": [],
+  "run_meta": {
+    "model_file": "gm2_analysis/gm2_model_v2.py",
+    "model_sha256": "6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77fa8a4a6",
+    "model_sha256_16": "6693427fa909a0a9",
+    "config_source": "task9_external_benchmark.py (reused unchanged)",
+    "disease": "tay-sachs",
+    "n_seeds": 10,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "dt": 0.2,
+    "days": [
+      84,
+      168
+    ],
+    "arms": {
+      "untreated": {
+        "dose_mg_per_day": 0.0,
+        "t4_dose_total": 0.0,
+        "tmax_days": 730.0,
+        "fus_on": false
+      },
+      "aav_only": {
+        "dose_mg_per_day": 0.0,
+        "t4_dose_total": 1.0,
+        "tmax_days": 200.0,
+        "fus_on": true
+      },
+      "srt_only": {
+        "dose_mg_per_day": 3.0,
+        "t4_dose_total": 0.0,
+        "tmax_days": 200.0,
+        "fus_on": true
+      },
+      "untreated_fus_on": {
+        "dose_mg_per_day": 0.0,
+        "t4_dose_total": 0.0,
+        "tmax_days": 730.0,
+        "fus_on": true
+      },
+      "untreated_tmax200": {
+        "dose_mg_per_day": 0.0,
+        "t4_dose_total": 0.0,
+        "tmax_days": 200.0,
+        "fus_on": false
+      }
+    },
+    "day_sampling": "nearest grid index to the target day; no interpolation",
+    "actual_sampled_time_days": {
+      "untreated": {
+        "84": 84.0,
+        "168": 168.0
+      },
+      "aav_only": {
+        "84": 84.0,
+        "168": 168.0
+      },
+      "srt_only": {
+        "84": 84.0,
+        "168": 168.0
+      },
+      "untreated_fus_on": {
+        "84": 84.0,
+        "168": 168.0
+      },
+      "untreated_tmax200": {
+        "84": 84.0,
+        "168": 168.0
+      }
+    },
+    "baseline_gm2_brain": 890.0,
+    "bootstrap": {
+      "n_resamples": 10000,
+      "method": "percentile",
+      "rng_seed": 20261005
+    },
+    "timestamp_utc": "2026-10-06T02:37:58.222079+00:00",
+    "slurm_job_id": "3490762",
+    "slurm_node": "c311-103",
+    "numpy_version": "2.0.2",
+    "python_version": "3.9.7"
+  }
+}
