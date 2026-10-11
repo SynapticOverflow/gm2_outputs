@@ -1,0 +1,104 @@
+{
+  "run_meta": {
+    "B": 1000,
+    "seed": 42,
+    "method": "joint percentile bootstrap on 200 matched seed-pairs, all 8 arms resampled together",
+    "config": "k1",
+    "fus_entry_gain_scale": 1.5,
+    "dt": 0.05,
+    "seeds": "SDE seeds 0-199 matched across arms; bootstrap B=1000, numpy default_rng(42)",
+    "model_file": "gm2_model_v2.py",
+    "model_sha256": "6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77fa8a4a6",
+    "model_sha256_before_job": "6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77fa8a4a6",
+    "model_sha256_after_job": "6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77fa8a4a6",
+    "numpy_version": "2.0.2",
+    "scipy_version": "1.13.1",
+    "salib_version": "1.5.2",
+    "pandas_version": "2.3.3",
+    "python": "3.9.7",
+    "slurm_job_id": "3492406",
+    "job_start_utc": "2026-10-07T16:56:01Z",
+    "timestamp_utc": "2026-10-07T18:19:52.433717+00:00",
+    "provenance_task": "run_acoustic_fus_analysis_dt005_k1"
+  },
+  "day45": {
+    "SRT": {
+      "point_estimate": 4.334219304246043,
+      "ci95_lo": 4.161525449988202,
+      "ci95_hi": 4.487601263173984,
+      "bootstrap_se": 0.08461388039227377
+    },
+    "AAV": {
+      "point_estimate": 114.13899890117247,
+      "ci95_lo": 111.65562947283817,
+      "ci95_hi": 116.48964098777367,
+      "bootstrap_se": 1.2627135117188548
+    },
+    "FUS": {
+      "point_estimate": 1.3125246379324076,
+      "ci95_lo": 1.273617814916897,
+      "ci95_hi": 1.3519733559312164,
+      "bootstrap_se": 0.01958028985225676
+    }
+  },
+  "day90": {
+    "SRT": {
+      "point_estimate": 4.725713173710782,
+      "ci95_lo": 4.526896794409717,
+      "ci95_hi": 4.9402275360888614,
+      "bootstrap_se": 0.10780245931767411
+    },
+    "AAV": {
+      "point_estimate": 494.2185719413775,
+      "ci95_lo": 456.9858765137603,
+      "ci95_hi": 530.0905976856016,
+      "bootstrap_se": 18.8610653312686
+    },
+    "FUS": {
+      "point_estimate": 0.05983620443189844,
+      "ci95_lo": 0.01355086894745933,
+      "ci95_hi": 0.1260884612821061,
+      "bootstrap_se": 0.02996878780635472
+    }
+  },
+  "day180": {
+    "SRT": {
+      "point_estimate": 7.044545562357067,
+      "ci95_lo": 6.67987848013924,
+      "ci95_hi": 7.440015070293518,
+      "bootstrap_se": 0.19693407613461947
+    },
+    "AAV": {
+      "point_estimate": 316.8577959815482,
+      "ci95_lo": 293.3950733964138,
+      "ci95_hi": 345.5973246172811,
+      "bootstrap_se": 13.385136439930042
+    },
+    "FUS": {
+      "point_estimate": 0.0074996939259885185,
+      "ci95_lo": 0.0068299381248046135,
+      "ci95_hi": 0.00819431360445885,
+      "bootstrap_se": 0.0003389245587486681
+    }
+  },
+  "day365": {
+    "SRT": {
+      "point_estimate": 9.119504401700235,
+      "ci95_lo": 8.609409981699095,
+      "ci95_hi": 9.637542749710303,
+      "bootstrap_se": 0.26844831893130844
+    },
+    "AAV": {
+      "point_estimate": 203.36587320686556,
+      "ci95_lo": 189.23040231506795,
+      "ci95_hi": 218.59321835493117,
+      "bootstrap_se": 7.34517152376969
+    },
+    "FUS": {
+      "point_estimate": -0.007434779297729695,
+      "ci95_lo": -0.011226328243094367,
+      "ci95_hi": -0.004465079039027604,
+      "bootstrap_se": 0.001728250094218146
+    }
+  }
+}

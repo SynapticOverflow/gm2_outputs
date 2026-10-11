@@ -1,0 +1,160 @@
+{
+  "run_meta": {
+    "B": 1000,
+    "seed": 42,
+    "method": "percentile bootstrap on 200 matched seed-pairs",
+    "config": "k1",
+    "fus_entry_gain_scale": 1.5,
+    "dt": 0.05,
+    "seeds": "SDE seeds 0-199 matched across arms; bootstrap B=1000, numpy default_rng(42)",
+    "model_file": "gm2_model_v2.py",
+    "model_sha256": "6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77fa8a4a6",
+    "model_sha256_before_job": "6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77fa8a4a6",
+    "model_sha256_after_job": "6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77fa8a4a6",
+    "numpy_version": "2.0.2",
+    "scipy_version": "1.13.1",
+    "salib_version": "1.5.2",
+    "pandas_version": "2.3.3",
+    "python": "3.9.7",
+    "slurm_job_id": "3492406",
+    "job_start_utc": "2026-10-07T16:56:01Z",
+    "timestamp_utc": "2026-10-07T18:19:52.425886+00:00",
+    "provenance_task": "run_acoustic_fus_analysis_dt005_k1"
+  },
+  "day45": {
+    "untreated_vs_FUS_alone": {
+      "mean_paired_diff": 8.971820477654546e-09,
+      "ci95_lo": 7.872886040871663e-09,
+      "ci95_hi": 1.0099419032627566e-08,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "AAV_vs_AAV_FUS": {
+      "mean_paired_diff": 2.602430239237903,
+      "ci95_lo": 2.533451911635431,
+      "ci95_hi": 2.681906116597187,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_vs_SRT_FUS": {
+      "mean_paired_diff": 0.02490380965401471,
+      "ci95_lo": 0.023765821213917994,
+      "ci95_hi": 0.02614604695556923,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_AAV_vs_tri_modal": {
+      "mean_paired_diff": 2.6239068803794403,
+      "ci95_lo": 2.5546513887998192,
+      "ci95_hi": 2.695950859992236,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    }
+  },
+  "day90": {
+    "untreated_vs_FUS_alone": {
+      "mean_paired_diff": 9.305298348749602e-08,
+      "ci95_lo": 8.28228534714981e-08,
+      "ci95_hi": 1.0324639698566784e-07,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "AAV_vs_AAV_FUS": {
+      "mean_paired_diff": 0.10971616117473597,
+      "ci95_lo": 0.013283091610196628,
+      "ci95_hi": 0.24791983035729592,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_vs_SRT_FUS": {
+      "mean_paired_diff": 0.04273773225352322,
+      "ci95_lo": 0.04051689527103954,
+      "ci95_hi": 0.04507338100023763,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_AAV_vs_tri_modal": {
+      "mean_paired_diff": 0.10328157352854911,
+      "ci95_lo": 0.01210918264474642,
+      "ci95_hi": 0.2484258898498655,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    }
+  },
+  "day180": {
+    "untreated_vs_FUS_alone": {
+      "mean_paired_diff": 3.671412594741241e-07,
+      "ci95_lo": 3.288134717500668e-07,
+      "ci95_hi": 4.074933654560908e-07,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "AAV_vs_AAV_FUS": {
+      "mean_paired_diff": 0.005590686136313825,
+      "ci95_lo": 0.004754557290339627,
+      "ci95_hi": 0.006549721628149592,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_vs_SRT_FUS": {
+      "mean_paired_diff": 0.029154253532649648,
+      "ci95_lo": 0.02649566252251073,
+      "ci95_hi": 0.03185314754863269,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_AAV_vs_tri_modal": {
+      "mean_paired_diff": 0.005126244802297515,
+      "ci95_lo": 0.004335292324259043,
+      "ci95_hi": 0.006016628981111678,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    }
+  },
+  "day365": {
+    "untreated_vs_FUS_alone": {
+      "mean_paired_diff": 3.823700779292949e-07,
+      "ci95_lo": 3.3071945908247357e-07,
+      "ci95_hi": 4.338911312640192e-07,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "AAV_vs_AAV_FUS": {
+      "mean_paired_diff": -0.017222247474714725,
+      "ci95_lo": -0.024504736093664502,
+      "ci95_hi": -0.010920173935016193,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_vs_SRT_FUS": {
+      "mean_paired_diff": 0.004011471738401937,
+      "ci95_lo": 0.0033958622606154185,
+      "ci95_hi": 0.004681771965001768,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_AAV_vs_tri_modal": {
+      "mean_paired_diff": -0.015699332395144996,
+      "ci95_lo": -0.022714826722849576,
+      "ci95_hi": -0.0098176573592068,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    }
+  }
+}
