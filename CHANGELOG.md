@@ -57,6 +57,10 @@ is unchanged (SHA-256 `6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77
   corrected ("three files" -> five files in the folder).
 - `README.md`, `CHANGELOG.md`: "Earlier versions" now lists v1.0.2 and points
   to the Zenodo concept DOI; v1.0.2 entry added below.
+- `README.md`: the matched-benchmark section states that the untreated-arm
+  FUS-on vs FUS-off control was not bit-identical (max difference 5.2e-6) and
+  that this is the numerical level of the residual FUS effect when AAV and SRT
+  are off.
 
 ## v1.0.2
 

@@ -84,9 +84,10 @@ control [95% bootstrap CI of the matched value]:
 
 Of the two validity controls recorded in the output, the untreated arm
 integrated to 200 d instead of 730 d is identical at days 84/168; the
-untreated arm with FUS on is not bit-identical to FUS off (max abs diff
-5.8e-7 at day 84, 5.2e-6 at day 168 nmol/g), although the script's
-docstring expected it to be.
+untreated arm with FUS on (`untreated_fus_on`) is not bit-identical to
+FUS off (max abs diff 5.8e-7 at day 84, 5.2e-6 at day 168 nmol/g),
+although the script's docstring expected it to be. This difference is the
+numerical level of the residual FUS effect when AAV and SRT are off.
 
 ## Integrity and time step
 
