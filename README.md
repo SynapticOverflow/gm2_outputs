@@ -35,9 +35,11 @@ computed on one fixed noise path (model seed 42 for every Sobol row):
 
 `task_outputs/seed_sensitivity/` shows that the rankings below rank 1 and
 the index magnitudes depend on that seed. The manuscript's Table 4 and
-Fig 2A now use the 10-seed-averaged results in
+Fig 3A now use the 10-seed-averaged results in
 `task_outputs/seed_sensitivity/seed_averaged_percentile_cis.json`. The
-seed-42 files above are kept unchanged for provenance.
+seed-42 files above are kept unchanged for provenance. (Manuscript Fig 3
+is the file `gm2_analysis/figure_scripts/reference_outputs/fig2_robustness_combined.png`;
+the file name predates the final figure numbering.)
 
 The raw model outputs that `task_outputs/seed_sensitivity/README.md`
 lists under `N256/` and `smoke_N8/` (`Y_*.npy`, including run C's

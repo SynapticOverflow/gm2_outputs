@@ -96,7 +96,8 @@ analysis with 15 distinct fixed seeds, per-row independent seeds, and a
 seeds, but ranks 3-5 reshuffle, and seed 42 gives the lowest `gm2_synth`
 S_T of the 15 seeds (0.24 vs median 0.36); under the 10-seed average
 `gm2_synth` is about 0.44. The prior-width-artifact direction holds in
-every seed. **The manuscript's Table 4 and Fig 2A now use the
+every seed. **The manuscript's Table 4 and Fig 3A (file
+`figure_scripts/reference_outputs/fig2_robustness_combined.png`) now use the
 10-seed-averaged results in
 `../task_outputs/seed_sensitivity/seed_averaged_percentile_cis.json`.**
 The seed-42 files here are unchanged.

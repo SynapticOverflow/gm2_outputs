@@ -11,7 +11,7 @@ is unchanged (SHA-256 `6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77
   14-parameter Sobol analysis (task10) and its manuscript packaging (task11):
   `README.md`, `SUMMARY_N256.md`, `SUMMARY_smoke_N8.md`,
   `manuscript_numbers.json`, `seed_averaged_percentile_cis.json` (the
-  10-seed-averaged indices now used for Table 4 / Fig 2A),
+  10-seed-averaged indices now used for Table 4 / Fig 3A),
   `seed_sensitivity_summary_N256.json`, `seed_sensitivity_summary_smoke_N8.json`,
   `fixed_seed_table.csv`, `fixed_seed_param_summary.csv`,
   `seed42_dependency_audit.md`, the scripts `task10_seed_sensitivity.py`,
@@ -38,7 +38,7 @@ is unchanged (SHA-256 `6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77
 
 - `README.md`: describes the seed-sensitivity check, the matched-control
   benchmark, the trajectory driver and the dt refinement; states which outputs
-  rest on a single fixed noise path (seed 42) and that Table 4 / Fig 2A now use
+  rest on a single fixed noise path (seed 42) and that Table 4 / Fig 3A now use
   `task_outputs/seed_sensitivity/seed_averaged_percentile_cis.json`; notes the
   task1 sample used `seed=None` and that the reproducible reference sample is
   task7's (seed 20260816); "all simulations use dt = 0.2" now reads "all
@@ -50,6 +50,8 @@ is unchanged (SHA-256 `6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77
   `enzyme_saturation_sweep.py`).
 - `gm2_analysis/figure_scripts/README.md`: the "no file records any other dt"
   statement is scoped to the figure inputs; adds known limitation 5 (archived
-  Fig 2 script and reference PNG still use the seed-42 files).
+  Fig 3 script and reference PNG still use the seed-42 files); notes that
+  `fig2_robustness_combined.png` is manuscript Fig 3 (panels A and B) and that
+  the file name predates the final figure numbering.
 - `gm2_analysis/acoustic_robustness_check/inputs/README.md`: file count
   corrected ("three files" -> five files in the folder).
