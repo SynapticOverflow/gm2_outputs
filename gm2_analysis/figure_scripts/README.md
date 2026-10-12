@@ -8,7 +8,7 @@ figure code therefore (correctly) finds none.
 
 They were recovered from the saved conversation transcripts by extracting
 the logged file-creation calls. The latest logged version of each script
-is included unmodified, with one exception documented below. Paths inside
+is included unmodified, with two exceptions documented below. Paths inside
 the scripts refer to the chat environment (`/home/claude/...`,
 `/mnt/user-data/uploads/...`) and have NOT been rewritten; see the path
 map below.
@@ -33,7 +33,9 @@ The file name is kept unchanged so that it matches the scripts.
 longer used (superseded by panel C of the merged convergence/saturation/
 elasticity figure).
 
-## The one post-creation edit
+## Post-creation edits
+
+### build_trajectory_figure_v2.py
 
 `build_trajectory_figure_v2.py`: as logged at creation, the y-axis label
 was `"Brain GM2 (nmol/g)"`. A later logged command
@@ -43,6 +45,22 @@ reads `ax.set_ylabel("Substrate burden (nmol/g)", fontsize=7)`, matching
 the output logged in the transcript. Transcripts were searched for other
 in-place edits (sed, perl, shell redirection, str_replace) to the final
 scripts; none were found.
+
+### build_remaining_figures.py: "95%" label fix (v1.1.0)
+
+In the recovered script, line 154 (x-axis label of panel B of
+`fig3_factorial_necessity.png`) was
+`ax.set_xlabel("Paired mean $\\Delta$ (nmol/g), 95\\% bootstrap CI", fontsize=8.5)`,
+which renders a literal backslash ("95\%"). In `final/build_remaining_figures.py`
+the `\\%` is now `%`; no other line changed. The recovered script and the
+figure it produced are kept as `superseded/build_remaining_figures.py` and
+`superseded/fig3_factorial_necessity.png`.
+
+`reference_outputs/fig3_factorial_necessity.png` was regenerated with the
+corrected script (procedure and environment under "Regeneration after the
+label fix" below). Compared with the superseded PNG, only the panel-B
+x-axis label strip differs (pixel rows 1168-1201); every other pixel is
+identical.
 
 ## Input data -> location in the data repository
 
@@ -88,6 +106,35 @@ strings inside `build_factorial_shapley_v3.py` and
 because both write `fig3_factorial_necessity.png` and the latter produces
 the final version.
 Environment: Python 3.12.3, matplotlib 3.10.8, numpy 2.4.4, pandas 3.0.2.
+This check applied to the files then in `reference_outputs/`; the fig3
+PNG it covered is now `superseded/fig3_factorial_necessity.png`.
+
+### Regeneration after the label fix (2026-10-12)
+
+All six scripts in `final/` were re-run as above (scratch copies, only
+path strings changed, `build_factorial_shapley_v3.py` before
+`build_remaining_figures.py`) on macOS 26.6.2 arm64 with Python 3.12.3,
+matplotlib 3.10.8, numpy 2.4.4, pandas 3.0.2, plus scipy 1.18.1 (imported
+by `build_real_distribution_figure.py`; its version was not recorded in
+the original check). The output was compared with the six other files in
+`reference_outputs/`:
+
+- **Byte-identical: none.** The embedded PNG metadata is the same
+  (`Matplotlib version3.10.8`), but the compressed bytes differ.
+- **Pixel-identical (decoded RGBA, zero differing pixels):**
+  `fig_convergence_saturation_elasticity.png`, `fig_fus_shapley_time.png`,
+  `fig_raw_output_distributions.png`, `fig_real_trajectories.png`.
+- `fig0_claim_audit_reversal.png`: 273 of 4,455,000 pixels differ, by at
+  most 1 of 255 in any channel (anti-aliasing).
+- `fig2_robustness_combined.png`: in panel B, Tay-Sachs and Sandhoff
+  appear in the opposite order. Both have the hard-coded value 0.241, and
+  the script orders the rows with `np.argsort` (default, not stable), so
+  the order of the tie can differ between platforms. No plotted value differs.
+
+The six figures from the corrected scripts are byte-identical to those
+from the pre-fix scripts in the same environment; only
+`fig3_factorial_necessity.png` changes. The regenerated fig3 is the one
+now in `reference_outputs/`.
 
 Further checks performed on the data:
 - `Y_raw` CSVs vs. `sobol_lsd_<disease>.json`: all ten are exactly equal
@@ -137,8 +184,12 @@ make_figures_aug5.py, make_figures_v2.py, make_figures_jul30_ondisk_version.py,
 build_convergence_saturation_v2.py (separate convergence + saturation
 figure, replaced by the merged 3-panel figure),
 build_trajectory_figure_v1.py, build_factorial_and_shapley_time.py.
+Also `build_remaining_figures.py` (the recovered version, before the
+"95%" label fix) and `fig3_factorial_necessity.png` (the figure it
+produced, previously in `reference_outputs/`).
 
 ## reference_outputs/
 
-Copies of the seven figure files as they appear in the manuscript, for
-comparison against any re-run.
+Copies of the seven manuscript figure files, for comparison against any
+re-run. `fig3_factorial_necessity.png` is the version regenerated after the
+"95%" label fix; the other six are the original files.

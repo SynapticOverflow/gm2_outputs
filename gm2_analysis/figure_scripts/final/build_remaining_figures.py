@@ -151,7 +151,7 @@ ax.errorbar(means, y, xerr=[err_lo, err_hi], fmt="o", color=C_TRI, markersize=7,
 ax.axvline(0, color="black", lw=0.6)
 ax.set_yticks(y)
 ax.set_yticklabels(contrasts, fontsize=8)
-ax.set_xlabel("Paired mean $\\Delta$ (nmol/g), 95\\% bootstrap CI", fontsize=8.5)
+ax.set_xlabel("Paired mean $\\Delta$ (nmol/g), 95% bootstrap CI", fontsize=8.5)
 ax.set_xlim(-5, 5)
 ax.set_title("B", loc="left", fontsize=12, fontweight="bold")
 ax.legend(fontsize=6.5, loc="lower right")

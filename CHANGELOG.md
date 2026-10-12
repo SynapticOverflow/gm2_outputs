@@ -34,6 +34,18 @@ is unchanged (SHA-256 `6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77
   dt = 0.2 vs 0.05 comparison tables in that README (reads JSONs only).
 - `CHANGELOG.md` (this file).
 
+### Changed (figure script and reference figure)
+
+- `gm2_analysis/figure_scripts/final/build_remaining_figures.py`: x-axis
+  label of fig3 panel B changed from "95\\% bootstrap CI" (rendered with a
+  literal backslash) to "95% bootstrap CI"; no other change.
+- `gm2_analysis/figure_scripts/reference_outputs/fig3_factorial_necessity.png`:
+  regenerated with the corrected script (only the label strip differs).
+- Moved to `gm2_analysis/figure_scripts/superseded/`: the previous
+  `build_remaining_figures.py` and `fig3_factorial_necessity.png`.
+- `gm2_analysis/figure_scripts/README.md`: documents the fix and the
+  regeneration run, including which of the other six figures reproduce.
+
 ### Changed (documentation only)
 
 - `README.md`: describes the seed-sensitivity check, the matched-control
