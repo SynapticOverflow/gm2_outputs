@@ -41,7 +41,8 @@ diseases = ["Tay-Sachs", "Sandhoff", "Pompe", "Krabbe", "GM1", "MPS I",
             "MLD", "CLN2", "Niemann-Pick C", "Fabry"]
 dominant_val = [0.241, 0.241, 0.417, 0.225, 0.231, 0.597, 0.597, 0.598, 0.959, 0.991]
 entry_st = [0.047, 0.040, 0.170, 0.038, 0.063, 0.009, 0.023, 0.009, 0.000, 0.000]
-d_order = np.argsort(dominant_val)
+# manuscript row order (bottom to top); ties at 0.241 and 0.597 fixed explicitly so the figure is identical on every platform.
+d_order = [3, 4, 1, 0, 2, 5, 6, 7, 8, 9]
 diseases_s = [diseases[i] for i in d_order]
 dominant_val_s = [dominant_val[i] for i in d_order]
 entry_st_s = [entry_st[i] for i in d_order]
