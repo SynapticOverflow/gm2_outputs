@@ -48,6 +48,18 @@ is unchanged (SHA-256 `6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77
   that on macOS the scripts reproduce the figures visually but not
   byte-for-byte; adds scipy to the dependency list.
 
+- `gm2_analysis/figure_scripts/final/build_fig2_v4_seedaveraged.py` (new):
+  builds manuscript Fig 3 (`fig2_robustness_combined.png`) with panel A from
+  `task_outputs/seed_sensitivity/seed_averaged_percentile_cis.json`; panel B
+  keeps the hard-coded seed-42 cross-disease values.
+- `gm2_analysis/figure_scripts/reference_outputs/fig2_robustness_combined.png`:
+  regenerated from the archived JSON with that script.
+- Moved to `gm2_analysis/figure_scripts/superseded/`: `build_fig2_v3.py` and the
+  seed-42 `fig2_robustness_combined.png`.
+- `gm2_analysis/figure_scripts/README.md`: figure-to-script table, known
+  limitations 4 and 5, `superseded/` and `reference_outputs/` updated for
+  the new Fig 3 script.
+
 ### Changed (documentation only)
 
 - `README.md`: describes the seed-sensitivity check, the matched-control
@@ -63,8 +75,7 @@ is unchanged (SHA-256 `6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77
   not archived (`task3b_saturation_sweep_extended.py`,
   `enzyme_saturation_sweep.py`).
 - `gm2_analysis/figure_scripts/README.md`: the "no file records any other dt"
-  statement is scoped to the figure inputs; adds known limitation 5 (archived
-  Fig 3 script and reference PNG still use the seed-42 files); notes that
+  statement is scoped to the figure inputs; notes that
   `fig2_robustness_combined.png` is manuscript Fig 3 (panels A and B) and that
   the file name predates the final figure numbering.
 - `gm2_analysis/acoustic_robustness_check/inputs/README.md`: file count

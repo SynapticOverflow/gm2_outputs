@@ -19,7 +19,7 @@ map below.
 |---|---|
 | fig0_claim_audit_reversal.png | build_remaining_figures.py |
 | fig_convergence_saturation_elasticity.png | build_convergence_saturation_elasticity.py |
-| fig2_robustness_combined.png (manuscript Fig 3, panels A and B) | build_fig2_v3.py |
+| fig2_robustness_combined.png (manuscript Fig 3, panels A and B) | build_fig2_v4_seedaveraged.py (see below) |
 | fig_real_trajectories.png | build_trajectory_figure_v2.py (see edit below) |
 | fig_fus_shapley_time.png | build_factorial_shapley_v3.py |
 | fig3_factorial_necessity.png | build_remaining_figures.py (final rebuild, with paired-contrast panel B; build_factorial_shapley_v3.py also writes this filename but was run earlier and overwritten) |
@@ -120,7 +120,8 @@ Further checks performed on the data:
   (`pandas.read_csv(..., float_precision="round_trip")`). pandas' default
   fast parser differs from the JSON by about 1e-16 relative, which is a
   parsing artifact, not a data difference.
-- The hand-typed Panel B constants in `build_fig2_v3.py` (dominant-parameter
+- The hand-typed Panel B constants in `build_fig2_v3.py` (unchanged in
+  `build_fig2_v4_seedaveraged.py`) (dominant-parameter
   and entry-rate S_T for ten diseases) equal the values in the
   `sobol_lsd_*.json` files rounded to three decimals.
 - The `sed` label edit described above is confirmed by the byte-identical
@@ -152,8 +153,8 @@ files record no dt; 0.2 d is the default of the driver that produced them
    data/output path constants and a closing print message were changed;
    the plotting logic is the same. It was run and visually checked when
    written, and not re-run since.
-4. **Fig 3A vs. Table 4.** `fig2_robustness_combined.png` plots the production-run indices read from gm2_full14_*.json, while manuscript Table 4 reports the verification-run values with bootstrap CIs. The largest difference is 0.021 (total AAV dose, as-documented: 0.079 vs. 0.058); BBB-entry rate is 0.044 vs. 0.039. The figure draws point estimates only (no error bars); the manuscript caption states this and points to Tables 4 and 5 for intervals. Rebuilding the figure from `task_outputs/percentile_cis.json` would make figure and tables agree.
-5. **Seed-averaged Table 4 / Fig 3A.** The manuscript's Table 4 and Fig 3A (`fig2_robustness_combined.png`) now use the 10-seed-averaged indices in `task_outputs/seed_sensitivity/seed_averaged_percentile_cis.json`. `build_fig2_v3.py` and `reference_outputs/fig2_robustness_combined.png` in this archive still use the seed-42 `gm2_full14_*.json` files; the seed-averaged Fig 3 script is not yet archived here.
+4. **Fig 3A vs. Table 4 (superseded seed-42 figure).** The previous `fig2_robustness_combined.png` (now `superseded/fig2_robustness_combined.png`, from `superseded/build_fig2_v3.py`) plotted the production-run indices read from gm2_full14_*.json, while manuscript Table 4 reported the verification-run values with bootstrap CIs. The largest difference was 0.021 (total AAV dose, as-documented: 0.079 vs. 0.058); BBB-entry rate was 0.044 vs. 0.039. The current figure's panel A reads `ST_mean` from `task_outputs/seed_sensitivity/seed_averaged_percentile_cis.json`, the file behind Table 4. Like the old figure, it draws point estimates only (no error bars).
+5. **Fig 3 panels.** Panel A is seed-averaged (10-seed mean, `task_outputs/seed_sensitivity/seed_averaged_percentile_cis.json`). Panel B uses hard-coded seed-42 cross-disease values (single noise path), the same constants as in `build_fig2_v3.py`.
 
 ## superseded/
 
@@ -164,10 +165,20 @@ figure, replaced by the merged 3-panel figure),
 build_trajectory_figure_v1.py, build_factorial_and_shapley_time.py.
 Also `build_remaining_figures.py` (the recovered version, before the
 "95%" label fix) and `fig3_factorial_necessity.png` (the figure it
-produced, previously in `reference_outputs/`).
+produced, previously in `reference_outputs/`); `build_fig2_v3.py` (Fig 3
+from the seed-42 `gm2_full14_*.json` files) and `fig2_robustness_combined.png`
+(the figure it produced, previously in `reference_outputs/`).
 
 ## reference_outputs/
 
 Copies of the seven manuscript figure files, for comparison against any
 re-run. `fig3_factorial_necessity.png` is the version regenerated after the
-"95%" label fix; the other six are the original files.
+"95%" label fix. `fig2_robustness_combined.png` (manuscript Fig 3) was
+regenerated from the archived JSON with `final/build_fig2_v4_seedaveraged.py`,
+run from the repository root as
+
+    python gm2_analysis/figure_scripts/final/build_fig2_v4_seedaveraged.py task_outputs/seed_sensitivity/seed_averaged_percentile_cis.json <output_dir>
+
+on macOS with Python 3.12.3, matplotlib 3.10.8, numpy 2.4.4 (the script also
+writes a ~15 MB TIFF, which is not archived). The other five are the
+original files.
