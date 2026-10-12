@@ -44,7 +44,9 @@ is unchanged (SHA-256 `6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77
 - Moved to `gm2_analysis/figure_scripts/superseded/`: the previous
   `build_remaining_figures.py` and `fig3_factorial_necessity.png`.
 - `gm2_analysis/figure_scripts/README.md`: documents the fix and the
-  regeneration run, including which of the other six figures reproduce.
+  regeneration; notes that the byte-identical check was done on Linux and
+  that on macOS the scripts reproduce the figures visually but not
+  byte-for-byte; adds scipy to the dependency list.
 
 ### Changed (documentation only)
 
