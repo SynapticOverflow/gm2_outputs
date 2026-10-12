@@ -55,3 +55,42 @@ is unchanged (SHA-256 `6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77
   the file name predates the final figure numbering.
 - `gm2_analysis/acoustic_robustness_check/inputs/README.md`: file count
   corrected ("three files" -> five files in the folder).
+- `README.md`, `CHANGELOG.md`: "Earlier versions" now lists v1.0.2 and points
+  to the Zenodo concept DOI; v1.0.2 entry added below.
+
+## v1.0.2
+
+Tag on commit `e6ed379`. Changes since v1.0.1 (`b16ef9d`), from
+`git log v1.0.1..v1.0.2`:
+
+- Removed `simulations_poster/gm2_simulations_poster.html` (e9f99f0).
+- Added `gm2_analysis/` (91776d8): `gm2_model_v2.py`, `README.md`,
+  `drivers/` (14 scripts), `sobol_outputs/` (36 JSON files),
+  `factorial_shapley_outputs/` (6 JSON files), `provenance/` (4 JSON files),
+  `acoustic_robustness_check/` (`gm2_model_v2_acoustic_fus.py`,
+  `fus_gain_mapping.json`, `fus_gain_mapping_derivation.md`, and the k1/k2
+  factorial, Shapley and paired-contrast JSONs), and a placeholder
+  `figure_scripts/NOTE.md`.
+- Removed the exploratory `lifu_simulation/` subproject (97c1a14); it remains
+  in v1.0.0 / v1.0.1 and in git history.
+- Added `gm2_analysis/figure_scripts/` (efb1d53): `final/` (6 scripts),
+  `superseded/` (6 scripts), `reference_outputs/` (7 PNGs) and `README.md`,
+  replacing `NOTE.md`.
+- Added `gm2_analysis/figure_inputs/` (3455b3b): 10 `Y_raw` CSVs, 10
+  trajectory CSVs, `README.md`.
+- Added `gm2_analysis/acoustic_robustness_check/inputs/` (daf7295):
+  `literature_calibration_data.json`, `eta_results.json`,
+  `LIFU_MODEL_V2_ADDENDUM.md`, `README.md`.
+- Added the root `README.md` (8f1779e) and fixed stale statements in it and
+  in `gm2_analysis/figure_scripts/README.md` (9fc45fe).
+- Added `lifu_acoustic_model_v1.py` and `lifu_acoustic_model_v2.py` to
+  `acoustic_robustness_check/inputs/` and documented re-running
+  `derive_fus_gain_mapping.py` (e6ed379).
+
+Zenodo holds more than one record titled v1.0.2. Cite the concept DOI
+10.5281/zenodo.22926574, which covers all versions.
+
+## v1.0.0, v1.0.1
+
+Both tags point to commit `b16ef9d` ("Combine gm2_task_outputs,
+gm2_lifu_simulation, and gm2_simulations_poster into one repo").

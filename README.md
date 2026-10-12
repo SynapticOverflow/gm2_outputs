@@ -99,9 +99,17 @@ Sobol runs is in `gm2_analysis/dt_refinement_dt0.05/` (see the summary in
 
 ## Earlier versions
 
-An earlier exploratory LIFU subproject (`lifu_simulation/`) is
-present in the earlier archived versions of this repository (GitHub
-releases v1.0.0 and v1.0.1, and the Zenodo record
-10.5281/zenodo.22926574). It was removed from the main branch because
-no result in the paper depends on it; it remains in those archived
-versions and in git history.
+- **v1.0.0, v1.0.1** (both tags on commit `b16ef9d`): the combined
+  repository with `task_outputs/`, an exploratory LIFU subproject
+  (`lifu_simulation/`) and a simulations poster.
+- **v1.0.2** (tag on commit `e6ed379`): adds `gm2_analysis/` (model,
+  drivers, Sobol / factorial / Shapley outputs, provenance, acoustic
+  robustness check, figure scripts and figure inputs) and the root README;
+  removes the poster and `lifu_simulation/`. See `CHANGELOG.md`.
+
+`lifu_simulation/` was removed because no result in the paper depends on
+it; it remains in v1.0.0 / v1.0.1 and in git history.
+
+Cite the archive with the Zenodo concept DOI 10.5281/zenodo.22926574,
+which covers all versions. Zenodo holds more than one record titled
+v1.0.2, so cite the concept DOI rather than a single v1.0.2 record.
