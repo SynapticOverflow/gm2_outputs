@@ -1,0 +1,66 @@
+host=c312-201.ls6.tacc.utexas.edu  job=3499627  runset=B  N=256  outdir=N256  start=2026-10-09T18:27:42Z
+model sha256 BEFORE:
+6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77fa8a4a6  ../../gm2_analysis/gm2_model_v2.py
+model sha256 = 6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77fa8a4a6  runset=B N=256 outdir=/home1/11502/kartheek_nekkanti/gm2_outputs/task_outputs/seed_sensitivity/N256 workers=128 SALib=1.5.2
+
+=== B_perrow1000 / as_documented: 7680 rows ===
+  B_perrow1000 as_documented 500/7680 evals, 2s elapsed, 128 workers, ETA 23s
+  B_perrow1000 as_documented 1000/7680 evals, 3s elapsed, 128 workers, ETA 18s
+  B_perrow1000 as_documented 1500/7680 evals, 5s elapsed, 128 workers, ETA 19s
+  B_perrow1000 as_documented 2000/7680 evals, 5s elapsed, 128 workers, ETA 15s
+  B_perrow1000 as_documented 2500/7680 evals, 7s elapsed, 128 workers, ETA 14s
+  B_perrow1000 as_documented 3000/7680 evals, 7s elapsed, 128 workers, ETA 11s
+  B_perrow1000 as_documented 3500/7680 evals, 8s elapsed, 128 workers, ETA 9s
+  B_perrow1000 as_documented 4000/7680 evals, 9s elapsed, 128 workers, ETA 8s
+  B_perrow1000 as_documented 4500/7680 evals, 10s elapsed, 128 workers, ETA 7s
+  B_perrow1000 as_documented 5000/7680 evals, 11s elapsed, 128 workers, ETA 6s
+  B_perrow1000 as_documented 5500/7680 evals, 12s elapsed, 128 workers, ETA 5s
+  B_perrow1000 as_documented 6000/7680 evals, 13s elapsed, 128 workers, ETA 4s
+  B_perrow1000 as_documented 6500/7680 evals, 14s elapsed, 128 workers, ETA 3s
+  B_perrow1000 as_documented 7000/7680 evals, 16s elapsed, 128 workers, ETA 2s
+  B_perrow1000 as_documented 7500/7680 evals, 16s elapsed, 128 workers, ETA 0s
+  B_perrow1000 as_documented done: 7680 evals in 17s with 128 workers (0.275s/eval effective serial cost)
+  B_perrow1000/as_documented: 17s  Var(Y)=345.1572 sumST=13.333  top5: k_inf=1.164, k_T4_entry=1.138, gm2_synth=1.114, k_T4_decay=1.021, rho_i=1.013
+
+=== B_perrow1000 / equal_width: 7680 rows ===
+  B_perrow1000 equal_width 500/7680 evals, 2s elapsed, 128 workers, ETA 22s
+  B_perrow1000 equal_width 1000/7680 evals, 3s elapsed, 128 workers, ETA 19s
+  B_perrow1000 equal_width 1500/7680 evals, 4s elapsed, 128 workers, ETA 17s
+  B_perrow1000 equal_width 2000/7680 evals, 6s elapsed, 128 workers, ETA 16s
+  B_perrow1000 equal_width 2500/7680 evals, 6s elapsed, 128 workers, ETA 11s
+  B_perrow1000 equal_width 3000/7680 evals, 7s elapsed, 128 workers, ETA 11s
+  B_perrow1000 equal_width 3500/7680 evals, 8s elapsed, 128 workers, ETA 9s
+  B_perrow1000 equal_width 4000/7680 evals, 9s elapsed, 128 workers, ETA 8s
+  B_perrow1000 equal_width 4500/7680 evals, 11s elapsed, 128 workers, ETA 7s
+  B_perrow1000 equal_width 5000/7680 evals, 11s elapsed, 128 workers, ETA 6s
+  B_perrow1000 equal_width 5500/7680 evals, 12s elapsed, 128 workers, ETA 5s
+  B_perrow1000 equal_width 6000/7680 evals, 13s elapsed, 128 workers, ETA 4s
+  B_perrow1000 equal_width 6500/7680 evals, 14s elapsed, 128 workers, ETA 2s
+  B_perrow1000 equal_width 7000/7680 evals, 15s elapsed, 128 workers, ETA 1s
+  B_perrow1000 equal_width 7500/7680 evals, 16s elapsed, 128 workers, ETA 0s
+  B_perrow1000 equal_width done: 7680 evals in 16s with 128 workers (0.274s/eval effective serial cost)
+  B_perrow1000/equal_width: 16s  Var(Y)=334.1199 sumST=13.148  top5: k_T4_entry=1.228, k_inf=1.137, gm2_synth=1.076, km_brain=1.002, rho_i=0.979
+
+=== B_perrow1000 / tier1_promotion: 7680 rows ===
+  B_perrow1000 tier1_promotion 500/7680 evals, 2s elapsed, 128 workers, ETA 25s
+  B_perrow1000 tier1_promotion 1000/7680 evals, 3s elapsed, 128 workers, ETA 19s
+  B_perrow1000 tier1_promotion 1500/7680 evals, 4s elapsed, 128 workers, ETA 16s
+  B_perrow1000 tier1_promotion 2000/7680 evals, 5s elapsed, 128 workers, ETA 14s
+  B_perrow1000 tier1_promotion 2500/7680 evals, 6s elapsed, 128 workers, ETA 12s
+  B_perrow1000 tier1_promotion 3000/7680 evals, 7s elapsed, 128 workers, ETA 11s
+  B_perrow1000 tier1_promotion 3500/7680 evals, 8s elapsed, 128 workers, ETA 9s
+  B_perrow1000 tier1_promotion 4000/7680 evals, 9s elapsed, 128 workers, ETA 8s
+  B_perrow1000 tier1_promotion 4500/7680 evals, 10s elapsed, 128 workers, ETA 7s
+  B_perrow1000 tier1_promotion 5000/7680 evals, 11s elapsed, 128 workers, ETA 6s
+  B_perrow1000 tier1_promotion 5500/7680 evals, 12s elapsed, 128 workers, ETA 5s
+  B_perrow1000 tier1_promotion 6000/7680 evals, 13s elapsed, 128 workers, ETA 4s
+  B_perrow1000 tier1_promotion 6500/7680 evals, 14s elapsed, 128 workers, ETA 3s
+  B_perrow1000 tier1_promotion 7000/7680 evals, 15s elapsed, 128 workers, ETA 1s
+  B_perrow1000 tier1_promotion 7500/7680 evals, 16s elapsed, 128 workers, ETA 0s
+  B_perrow1000 tier1_promotion done: 7680 evals in 16s with 128 workers (0.274s/eval effective serial cost)
+  B_perrow1000/tier1_promotion: 16s  Var(Y)=343.5795 sumST=12.966  top5: k_inf=1.133, k_T4_entry=1.101, gm2_synth=1.082, k_T4_decay=1.006, km_brain=0.980
+
+All done in 54s
+model sha256 AFTER:
+6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77fa8a4a6  ../../gm2_analysis/gm2_model_v2.py
+end=2026-10-09T18:28:39Z

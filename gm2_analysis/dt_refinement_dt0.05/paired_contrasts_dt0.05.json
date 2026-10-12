@@ -1,0 +1,158 @@
+{
+  "run_meta": {
+    "B": 1000,
+    "seed": 42,
+    "method": "percentile bootstrap on 200 matched seed-pairs",
+    "dt": 0.05,
+    "seeds": "SDE seeds 0-199 (from inputs); bootstrap B=1000, numpy default_rng(42)",
+    "model_file": "gm2_model_v2.py",
+    "model_sha256": "6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77fa8a4a6",
+    "model_sha256_before_job": "6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77fa8a4a6",
+    "model_sha256_after_job": "6693427fa909a0a95093cf6797890c6c4004912fd2a54b7c9e9966e77fa8a4a6",
+    "numpy_version": "2.0.2",
+    "scipy_version": "1.13.1",
+    "salib_version": "1.5.2",
+    "pandas_version": "2.3.3",
+    "python": "3.9.7",
+    "slurm_job_id": "3492405",
+    "job_start_utc": "2026-10-07T16:56:01Z",
+    "timestamp_utc": "2026-10-07T17:18:49.563964+00:00",
+    "provenance_task": "task5_paired_contrasts_dt005"
+  },
+  "day45": {
+    "untreated_vs_FUS_alone": {
+      "mean_paired_diff": 8.971820477654546e-09,
+      "ci95_lo": 7.872886040871663e-09,
+      "ci95_hi": 1.0099419032627566e-08,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "AAV_vs_AAV_FUS": {
+      "mean_paired_diff": 2.602430239237903,
+      "ci95_lo": 2.533451911635431,
+      "ci95_hi": 2.681906116597187,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_vs_SRT_FUS": {
+      "mean_paired_diff": 0.02490380965401471,
+      "ci95_lo": 0.023765821213917994,
+      "ci95_hi": 0.02614604695556923,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_AAV_vs_tri_modal": {
+      "mean_paired_diff": 2.6239068803794403,
+      "ci95_lo": 2.5546513887998192,
+      "ci95_hi": 2.695950859992236,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    }
+  },
+  "day90": {
+    "untreated_vs_FUS_alone": {
+      "mean_paired_diff": 9.305298348749602e-08,
+      "ci95_lo": 8.300389922411e-08,
+      "ci95_hi": 1.0311612380320412e-07,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "AAV_vs_AAV_FUS": {
+      "mean_paired_diff": 0.10971616117473597,
+      "ci95_lo": 0.013361592302468132,
+      "ci95_hi": 0.2551054330508031,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_vs_SRT_FUS": {
+      "mean_paired_diff": 0.04273773225352322,
+      "ci95_lo": 0.04053829316164572,
+      "ci95_hi": 0.044992819709954016,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_AAV_vs_tri_modal": {
+      "mean_paired_diff": 0.10328157352854911,
+      "ci95_lo": 0.012063798205513702,
+      "ci95_hi": 0.24188431854278064,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    }
+  },
+  "day180": {
+    "untreated_vs_FUS_alone": {
+      "mean_paired_diff": 3.671412594741241e-07,
+      "ci95_lo": 3.308369968664238e-07,
+      "ci95_hi": 4.0719817726220243e-07,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "AAV_vs_AAV_FUS": {
+      "mean_paired_diff": 0.005590686136313825,
+      "ci95_lo": 0.0046493588619431715,
+      "ci95_hi": 0.006466549587428972,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_vs_SRT_FUS": {
+      "mean_paired_diff": 0.029154253532649648,
+      "ci95_lo": 0.026553913755055215,
+      "ci95_hi": 0.031956360516735366,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_AAV_vs_tri_modal": {
+      "mean_paired_diff": 0.005126244802297515,
+      "ci95_lo": 0.004351121010137434,
+      "ci95_hi": 0.006024084557252152,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    }
+  },
+  "day365": {
+    "untreated_vs_FUS_alone": {
+      "mean_paired_diff": 3.823700779292949e-07,
+      "ci95_lo": 3.3125670811351426e-07,
+      "ci95_hi": 4.3627594490303066e-07,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "AAV_vs_AAV_FUS": {
+      "mean_paired_diff": -0.017222247474714725,
+      "ci95_lo": -0.0247615837942639,
+      "ci95_hi": -0.010313889639079457,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_vs_SRT_FUS": {
+      "mean_paired_diff": 0.004011471738401937,
+      "ci95_lo": 0.003406433176924892,
+      "ci95_hi": 0.004696902558708015,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    },
+    "SRT_AAV_vs_tri_modal": {
+      "mean_paired_diff": -0.015699332395144996,
+      "ci95_lo": -0.022412712503162693,
+      "ci95_hi": -0.009462860418827001,
+      "n_pairs": 200,
+      "n_bootstrap": 1000,
+      "significant": true
+    }
+  }
+}
